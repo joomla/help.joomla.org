@@ -1,0 +1,13 @@
+{
+	"system": {
+		"error_reporting": 0
+	},
+	"log": {
+		"level": "error"
+	},
+	"cache": {
+		"enabled": false,
+		"lifetime": 900,
+		"adapter": "file"
+	}
+}

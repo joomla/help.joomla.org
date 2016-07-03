@@ -1,0 +1,281 @@
+/**
+ * Joomla! Help Screen Proxy
+ *
+ * @copyright  Copyright (C) 2009 - 2014 Chris Davenport, (C) 2015 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE
+ */
+
+/* Basic styles */
+html {
+    margin: 5px;
+}
+
+body {
+    font-family: Arial, Helvetica, Sans Serif;
+    font-size: 80%;
+    line-height: 1.4em;
+}
+
+p {
+	display: block;
+	-webkit-margin-after: 1em;
+	-webkit-margin-before: 1em;
+}
+
+sup {
+	font-size: smaller;
+	vertical-align: super;
+}
+
+img {
+	display: block;
+	vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.external {
+    background: transparent url(../images/external.png) no-repeat right center;
+    padding-right: 13px;
+}
+
+b {
+    color: #303030;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #0e1d36;
+	font-weight: bold;
+}
+
+h1 {
+    margin: 15px 0 8px 0;
+    font-size: 180%;
+}
+
+h2 {
+    margin: 15px 0 8px 0;
+    font-size: 130%;
+}
+
+h3 {
+    margin: 15px 0 8px 0;
+    font-size: 115%;
+}
+
+h4 {
+    margin: 15px 0 8px 0;
+}
+
+h5 {
+    margin: 15px 0 8px 0;
+}
+
+h6 {
+    margin: 15px 0 8px 0;
+}
+
+/* General list styles */
+ol {
+    list-style-type: decimal;
+    margin: .5em 0 .5em  2.5em;
+}
+
+ol li {
+    margin-bottom: .5em;
+}
+
+ul {
+    list-style-type: disc;
+    margin: .5em 0 .5em  2em;
+}
+
+ul ul {
+    list-style-type: circle;
+    margin:  .5em 0 .5em 1.5em;
+}
+
+li {
+    margin-bottom: .5em;
+}
+
+#footer-wrapper {
+	border: 1px solid #aaa;
+	padding: .5em;
+	margin: 1em;
+	background-color: #eeffff;
+}
+
+/* always hide hf-nsheader and hf-nsfooter */
+.hf-nsheader, .hf-nsfooter {
+	display: none;
+}
+
+/* Table of contents */
+#toctitle {
+    padding: 0 0 0 1em;
+}
+
+#toc {
+    border: 1px solid #aaaaaa;
+    background-color: #f9f9f9;
+	margin: 1.2em 0;
+	display: inline-block;
+	font-size: 95%
+}
+
+#toc ul {
+    list-style-type: none;
+    margin: 0;
+    padding: .5em 1.5em 1.5em 1.5em;
+}
+
+#toc li {
+    padding: 0;
+    margin: 0;
+}
+
+#toc li ul {
+	padding: 0 0 0 1.5em;
+}
+
+/* Ambox styles */
+table.ambox {
+    margin: 5px 5px 5px 12px;
+}
+
+.ambox tbody {
+    border: 1px solid black;
+    border-left: 25px solid #578ad6;
+
+}
+
+.ambox td.ambox-image {
+    padding: 2px 0 2px 0.5em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ambox td {
+    padding: 10px;
+}
+
+/* Basic styling new Ambox styles */
+
+.panel {
+	box-shadow: 1px 1px 8px #ababab;
+	padding: 1em;
+	margin: 2em;
+}
+
+.subheader-ambox {
+	font-size: 1.4em;
+	font-weight: bold;
+	line-height: 1.6;
+	overflow: hidden;
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+.subheader-ambox img {
+	display: inline-block;
+	float: left;
+	margin-right: .5em;
+}
+
+/* Wiki tables */
+table.wikitable, table.prettytable {
+    background: #F9F9F9;
+    border: 1px solid #AAAAAA;
+    border-collapse: collapse;
+    margin: 1em 1em 1em 0;
+}
+
+table {
+    background-color: white;
+    color: black;
+    font-size: 100%;
+}
+
+table.wikitable th, table.prettytable th {
+    background: #F2F2F2;
+    text-align: left;
+}
+
+table.wikitable th, table.wikitable td, table.prettytable th, table.prettytable td {
+    border: 1px solid #AAAAAA;
+    padding: 0.4em;
+}
+
+/* Preformatted text */
+pre, .code {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+	border-left-width: 5px;
+    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    font-size: 1em;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 1em 0 1.5em;
+    padding: 1em 1.5em;
+}
+
+/* Geshi syntax highlighting: PHP */
+.source-php .me2 {
+    color: #006600;
+}
+
+.source-php .br0 {
+    color: #66CC66;
+}
+
+.source-php .re0 {
+    color: #0000FF;
+}
+
+.source-php .st0 {
+    color: #FF0000;
+}
+
+/* Geshi syntax highlighting: HTML4 Strict */
+.source-html4strict .sc2 {
+    color: #009900;
+}
+
+.source-html4strict .kw2 {
+    color: #000000;
+    font-weight: bold;
+}
+
+.source-html4strict .kw3 {
+    color: #000066;
+}
+
+/* Category links */
+.catlinks {
+    background-color: #F9F9F9;
+    border: 1px solid #AAAAAA;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 5px;
+}
+
+/* Hide the alternative languages table. */
+.mw-pt-languages {
+    display: none;
+}
+
+.mw-display-only {
+    display: none;
+}
