@@ -182,6 +182,7 @@
                     <ul class="nav-inline">
                         <li><a href="https://www.joomla.org/accessibility-statement.html">Accessibility Statement</a></li>
                         <li><a href="https://www.joomla.org/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="https://github.com/joomla/joomla-websites/issues/new?title=[jhelp]%20&amp;body=Please%20describe%20the%20problem%20or%20your%20issue">Report an Issue</a></li>
                     </ul>
 
                     <p class="copyright">&copy; 2005 - <?php echo date('Y');?> <a href="http://opensourcematters.org">Open Source Matters, Inc.</a> All rights reserved.</p>
