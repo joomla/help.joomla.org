@@ -165,12 +165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/cache.git",
-                "reference": "8c138bfff18e66ccd6b99b94f98031aa5844f556"
+                "reference": "fb8f9c06af007fecf4c637fc35dfe3f4e347710b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/8c138bfff18e66ccd6b99b94f98031aa5844f556",
-                "reference": "8c138bfff18e66ccd6b99b94f98031aa5844f556",
+                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/fb8f9c06af007fecf4c637fc35dfe3f4e347710b",
+                "reference": "fb8f9c06af007fecf4c637fc35dfe3f4e347710b",
                 "shasum": ""
             },
             "require": {
@@ -207,7 +207,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2016-06-06 19:14:14"
+            "time": "2016-07-04 15:59:57"
         },
         {
             "name": "joomla/compat",
