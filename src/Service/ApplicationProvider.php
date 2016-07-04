@@ -48,7 +48,7 @@ class ApplicationProvider implements ServiceProviderInterface
 					// Inject extra services
 					$application->setContainer($container);
 					$application->setLogger($container->get('monolog.logger.application'));
-					$application->setRouter($container->get(Router::class));
+					$application->setRouter($container->get('Joomla\Help\Router'));
 
 					return $application;
 				},
