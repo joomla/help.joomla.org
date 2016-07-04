@@ -51,7 +51,7 @@ class LoggingProvider implements ServiceProviderInterface
 				$level = strtoupper($config->get('log.application', $config->get('log.level', 'error')));
 
 				return new StreamHandler(
-					JPATH_ROOT . '/logs/app.log',
+					JPATH_ROOT . '/log/app.log',
 					constant('\\Monolog\\Logger::' . $level)
 				);
 			}
