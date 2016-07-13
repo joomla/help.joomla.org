@@ -110,15 +110,6 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <div id="nav-search" class="navbar-search pull-right">
-                                <form action="https://api.joomla.org/results.html" id="searchbox_007628682600509520926:myhvbnm964o" class="form-search">
-                                    <input type="text" name="q" id="api-google-search" class="search-query input-medium" size="20" placeholder="Search..." autocomplete="off">
-                                    <input type="hidden" name="cx" value="007628682600509520926:myhvbnm964o">
-                                    <input name="siteurl" type="hidden" value="api.joomla.org/">
-                                    <input name="ref" type="hidden" value="api.joomla.org/">
-                                    <input name="ss" type="hidden" value="">
-                                </form>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -215,29 +206,18 @@
             jQuery(document).ready(function ($) {
                 var navTop;
                 var isFixed = false;
-            
+
                 $('.hasTooltip').tooltip();
                 processScrollInit();
                 processScroll();
-            
-                if (typeof blockAdBlock === 'undefined') {
-                    adBlockDetected();
-                } else {
-                    blockAdBlock.onDetected(adBlockDetected);
-                    blockAdBlock.on(true, adBlockDetected);
-                }
-            
-                function adBlockDetected() {
-                    $('#adblock-msg').removeClass('hide');
-                }
-            
+
                 function processScrollInit() {
                     if ($('.subnav-wrapper').length) {
                         navTop = $('.subnav-wrapper').length && $('.subnav-wrapper').offset().top - 30;
-            
+
                         // Fix the container top
                         $('.body .container-main').css('top', $('.subnav-wrapper').height() + $('#mega-menu').height());
-            
+
                         // Only apply the scrollspy when the toolbar is not collapsed
                         if (document.body.clientWidth > 480) {
                             $('.subnav-wrapper').height($('.subnav').outerHeight());
@@ -247,14 +227,14 @@
                         }
                     }
                 }
-            
+
                 function processScroll() {
                     if ($('.subnav-wrapper').length) {
                         var scrollTop = $(window).scrollTop();
                         if (scrollTop >= navTop && !isFixed) {
                             isFixed = true;
                             $('.subnav-wrapper').addClass('subhead-fixed');
-            
+
                             // Fix the container top
                             $('.body .container-main').css('top', $('.subnav-wrapper').height() + $('#mega-menu').height());
                         } else if (scrollTop <= navTop && isFixed) {
