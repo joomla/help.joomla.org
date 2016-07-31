@@ -610,16 +610,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/renderer.git",
-                "reference": "af4fe2a19d3f5d46a9b517b1b4d615c02d6341f1"
+                "reference": "74a963246b0b0fbce8a9e5fe1ecd6217555b35d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/af4fe2a19d3f5d46a9b517b1b4d615c02d6341f1",
-                "reference": "af4fe2a19d3f5d46a9b517b1b4d615c02d6341f1",
+                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/74a963246b0b0fbce8a9e5fe1ecd6217555b35d9",
+                "reference": "74a963246b0b0fbce8a9e5fe1ecd6217555b35d9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.10|>=7.0"
+                "php": "^5.3.10|~7.0"
             },
             "require-dev": {
                 "league/plates": "~2.0|~3.0",
@@ -629,6 +629,7 @@
                 "twig/twig": "~1.0|~2.0"
             },
             "suggest": {
+                "illuminate/view": "Install ~5.1 if you are using Laravel's Blade template engine.",
                 "league/plates": "Install ~2.0|~3.0 if you are using the Plates template engine.",
                 "mustache/mustache": "Install ~2.0 if you are using the Mustache template engine.",
                 "symfony/templating": "Install ~2.0|~3.0 if you are using Symfony's PHP template component.",
@@ -656,7 +657,7 @@
                 "joomla",
                 "renderer"
             ],
-            "time": "2016-06-19 15:59:38"
+            "time": "2016-07-31 17:44:15"
         },
         {
             "name": "joomla/router",
