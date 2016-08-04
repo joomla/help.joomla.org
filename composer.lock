@@ -167,16 +167,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/cache.git",
-                "reference": "fb8f9c06af007fecf4c637fc35dfe3f4e347710b"
+                "reference": "05617c75fc11c259ec9e3e19f87c4bb13c7d746b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/fb8f9c06af007fecf4c637fc35dfe3f4e347710b",
-                "reference": "fb8f9c06af007fecf4c637fc35dfe3f4e347710b",
+                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/05617c75fc11c259ec9e3e19f87c4bb13c7d746b",
+                "reference": "05617c75fc11c259ec9e3e19f87c4bb13c7d746b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4|>=7.0",
+                "php": "~5.4|~7.0",
                 "psr/cache": "~1.0"
             },
             "require-dev": {
@@ -185,7 +185,12 @@
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
-                "joomla/registry": "Registry can be used as an alternative to using an array for the package options."
+                "ext-apc": "To use APC caching",
+                "ext-apcu": "To use APCu caching",
+                "ext-memcached": "To use Memcached caching",
+                "ext-redis": "To use Redis caching",
+                "ext-wincache": "To use WinCache caching",
+                "ext-xcache": "To use XCache caching"
             },
             "type": "joomla-package",
             "extra": {
@@ -209,7 +214,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2016-07-04 15:59:57"
+            "time": "2016-07-31 19:20:10"
         },
         {
             "name": "joomla/compat",
@@ -405,27 +410,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "0860b62fc58b7b4efc8bffade2adacc8ac8acb54"
+                "reference": "04719808c8bd61919f0516e1e36a230c31dd4f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/0860b62fc58b7b4efc8bffade2adacc8ac8acb54",
-                "reference": "0860b62fc58b7b4efc8bffade2adacc8ac8acb54",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/04719808c8bd61919f0516e1e36a230c31dd4f1f",
+                "reference": "04719808c8bd61919f0516e1e36a230c31dd4f1f",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "~1.0",
                 "joomla/uri": "~1.0",
-                "php": ">=5.4|>=7.0",
+                "php": "~5.4|~7.0",
                 "zendframework/zend-diactoros": "~1.1"
             },
             "require-dev": {
                 "joomla/test": "~1.0",
-                "phpunit/phpunit": "~4.8|~5.0",
+                "phpunit/phpunit": "~4.8|>=5.0 <5.4",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
-                "joomla/registry": "Registry can be used as an alternative to using an array for the package options."
+                "ext-curl": "To use cURL for HTTP connections"
             },
             "type": "joomla-package",
             "extra": {
@@ -449,7 +454,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2016-04-15 17:19:33"
+            "time": "2016-08-04 20:33:47"
         },
         {
             "name": "joomla/input",
@@ -855,18 +860,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/view.git",
-                "reference": "72a39ff95896071c87b9a8115576ae41bca5eee2"
+                "reference": "8b214bb64724e5f8bdf624e18b4b614918263559"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/view/zipball/72a39ff95896071c87b9a8115576ae41bca5eee2",
-                "reference": "72a39ff95896071c87b9a8115576ae41bca5eee2",
+                "url": "https://api.github.com/repos/joomla-framework/view/zipball/8b214bb64724e5f8bdf624e18b4b614918263559",
+                "reference": "8b214bb64724e5f8bdf624e18b4b614918263559",
                 "shasum": ""
             },
             "require": {
                 "joomla/model": "~1.0|~2.0@dev",
                 "joomla/renderer": "~2.0@dev",
-                "php": ">=5.3.10|>=7.0"
+                "php": "^5.3.10|~7.0"
             },
             "require-dev": {
                 "joomla/test": "~1.0",
@@ -895,7 +900,7 @@
                 "joomla",
                 "view"
             ],
-            "time": "2016-06-05 16:25:12"
+            "time": "2016-07-31 19:58:58"
         },
         {
             "name": "league/plates",
@@ -951,16 +956,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.20.0",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "55841909e2bcde01b5318c35f2b74f8ecc86e037"
+                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/55841909e2bcde01b5318c35f2b74f8ecc86e037",
-                "reference": "55841909e2bcde01b5318c35f2b74f8ecc86e037",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f42fbdfd53e306bda545845e4dbfd3e72edb4952",
+                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952",
                 "shasum": ""
             },
             "require": {
@@ -1025,7 +1030,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-07-02 14:02:10"
+            "time": "2016-07-29 03:23:52"
         },
         {
             "name": "psr/cache",
