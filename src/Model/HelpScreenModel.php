@@ -14,6 +14,7 @@ namespace Joomla\Help\Model;
 use Joomla\Http\Http;
 use Joomla\Model\AbstractModel;
 use Joomla\Registry\Registry;
+use Joomla\String\Normalise;
 use Joomla\Uri\Uri;
 use Psr\Http\Message\ResponseInterface;
 
@@ -56,6 +57,13 @@ class HelpScreenModel extends AbstractModel
 	 * @var  string
 	 */
 	private $page;
+
+	/**
+	 * URL slug for the rendered page.
+	 *
+	 * @var  string
+	 */
+	private $pageUrlSlug;
 
 	/**
 	 * The decoded response body
@@ -141,6 +149,9 @@ class HelpScreenModel extends AbstractModel
 		// Store the title to be used later
 		$this->title = $this->responseBody['parse']['displaytitle'];
 
+		// Store the URL slug to be used later
+		$this->setPageUrlSlug($this->responseBody['parse']['title']);
+
 		// Store the rendered page reference
 		$this->page = $this->responseBody['parse']['text']['*'];
 
@@ -159,6 +170,9 @@ class HelpScreenModel extends AbstractModel
 
 			// Store the title to be used later
 			$this->title = $this->responseBody['parse']['displaytitle'];
+
+			// Store the URL slug to be used later
+			$this->setPageUrlSlug($this->responseBody['parse']['title']);
 
 			// Store the rendered page reference
 			$this->page = $this->responseBody['parse']['text']['*'];
@@ -180,6 +194,16 @@ class HelpScreenModel extends AbstractModel
 		}
 
 		return $this->page;
+	}
+
+	/**
+	 * Get the URL slug for the rendered page.
+	 *
+	 * @return  string
+	 */
+	public function getPageUrlSlug()
+	{
+		return $this->pageUrlSlug;
 	}
 
 	/**
@@ -212,6 +236,20 @@ class HelpScreenModel extends AbstractModel
 	public function setCurrentUri(Uri $uri)
 	{
 		$this->currentUri = $uri;
+
+		return $this;
+	}
+
+	/**
+	 * Set the URL slug for the rendered page.
+	 *
+	 * @param   string  $slug  The URL slug
+	 *
+	 * @return  $this
+	 */
+	private function setPageUrlSlug($slug)
+	{
+		$this->pageUrlSlug = Normalise::toUnderscoreSeparated($slug);
 
 		return $this;
 	}
@@ -254,7 +292,7 @@ class HelpScreenModel extends AbstractModel
 		$this->page = preg_replace($specialMyLanguage, '', $this->page);
 
 		// Replace links to other wiki pages with links to the proxy.
-		$replace = '<a href="' . $this->currentUri->toString(['scheme', 'host', 'path']) . '?option=com_help&view=help&keyref=';
+		$replace = '<a href="' . $this->currentUri->toString(['scheme', 'host', 'path']) . '?keyref=';
 		$pattern = '<a href="/';
 		$this->page = str_replace($pattern, $replace, $this->page);
 
