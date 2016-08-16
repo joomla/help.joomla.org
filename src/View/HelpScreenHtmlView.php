@@ -11,21 +11,22 @@
 
 namespace Joomla\Help\View;
 
+use Joomla\Help\Model\HelpScreenModel;
 use Joomla\View\BaseHtmlView;
 
 /**
  * View to render Joomla! help screens
  *
- * @property-read  \Joomla\Help\Model\HelpScreenModel  $model  The model object.
+ * @property-read  HelpScreenModel  $model  The model object.
  */
 class HelpScreenHtmlView extends BaseHtmlView
 {
 	/**
 	 * Get the view's model
 	 *
-	 * @return  \Joomla\Help\Model\HelpScreenModel
+	 * @return  HelpScreenModel
 	 */
-	public function getModel()
+	public function getModel() : HelpScreenModel
 	{
 		return $this->model;
 	}
@@ -35,7 +36,7 @@ class HelpScreenHtmlView extends BaseHtmlView
 	 *
 	 * @return  string  The rendered view.
 	 */
-	public function render()
+	public function render() : string
 	{
 		$this->setData(
 			[

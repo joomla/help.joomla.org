@@ -56,7 +56,7 @@ class HelpScreenController extends AbstractController
 	 *
 	 * @return  boolean
 	 */
-	public function execute()
+	public function execute() : bool
 	{
 		$this->view->setLayout('helpscreen/live.html');
 

@@ -32,7 +32,7 @@ class Router extends BaseRouter implements ContainerAwareInterface
 	 *
 	 * @throws  \RuntimeException
 	 */
-	protected function fetchController($name)
+	protected function fetchController($name) : ControllerInterface
 	{
 		// Derive the controller class name.
 		$class = $this->controllerPrefix . ucfirst($name);
@@ -44,10 +44,10 @@ class Router extends BaseRouter implements ContainerAwareInterface
 		}
 
 		// If the controller does not follows the implementation.
-		if (!is_subclass_of($class, 'Joomla\\Controller\\ControllerInterface'))
+		if (!is_subclass_of($class, ControllerInterface::class))
 		{
 			throw new \RuntimeException(
-				sprintf('Invalid Controller. Controllers must implement Joomla\Controller\ControllerInterface. `%s`.', $class), 500
+				sprintf('Invalid Controller `%s`. Controllers must implement Joomla\Controller\ControllerInterface.', $class), 500
 			);
 		}
 

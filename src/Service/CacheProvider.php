@@ -11,9 +11,12 @@
 
 namespace Joomla\Help\Service;
 
+use Joomla\Cache\AbstractCacheItemPool;
 use Joomla\Cache\Adapter as CacheAdapter;
+use Joomla\Cache\CacheItemPoolInterface;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
+use Psr\Cache\CacheItemPoolInterface as PsrCacheItemPoolInterface;
 
 /**
  * Cache service provider
@@ -29,11 +32,11 @@ class CacheProvider implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
-		$container->alias('cache', 'Psr\Cache\CacheItemPoolInterface')
-			->alias('Joomla\Cache\CacheItemPoolInterface', 'Psr\Cache\CacheItemPoolInterface')
-			->alias('Joomla\Cache\AbstractCacheItemPool', 'Psr\Cache\CacheItemPoolInterface')
+		$container->alias('cache', PsrCacheItemPoolInterface::class)
+			->alias(CacheItemPoolInterface::class, PsrCacheItemPoolInterface::class)
+			->alias(AbstractCacheItemPool::class, PsrCacheItemPoolInterface::class)
 			->share(
-				'Psr\Cache\CacheItemPoolInterface',
+				PsrCacheItemPoolInterface::class,
 				function (Container $container)
 				{
 					/** @var \Joomla\Registry\Registry $config */

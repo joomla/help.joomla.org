@@ -44,7 +44,7 @@ class LegacyController extends AbstractController
 	 *
 	 * @return  boolean
 	 */
-	public function execute()
+	public function execute() : bool
 	{
 		// Set the layout based on the requested task; the 'findkey' task maps to Joomla! 1.0 and 1.5 help screen requests
 		$layout = $this->getInput()->getString('task', 'display') == 'findkey' ? 'helpscreen/eol.html' : 'main.html';

@@ -118,7 +118,7 @@ class HelpScreenModel extends AbstractModel
 	 *
 	 * @return  string
 	 */
-	public function getPage()
+	public function getPage() : string
 	{
 		$this->requestPage($this->state->get('page'), $this->state->get('lang'));
 
@@ -201,7 +201,7 @@ class HelpScreenModel extends AbstractModel
 	 *
 	 * @return  string
 	 */
-	public function getPageUrlSlug()
+	public function getPageUrlSlug() : string
 	{
 		return $this->pageUrlSlug;
 	}
@@ -211,7 +211,7 @@ class HelpScreenModel extends AbstractModel
 	 *
 	 * @return  string
 	 */
-	public function getTitle()
+	public function getTitle() : string
 	{
 		return $this->title;
 	}
@@ -221,7 +221,7 @@ class HelpScreenModel extends AbstractModel
 	 *
 	 * @return  string
 	 */
-	public function getWikiUrl()
+	public function getWikiUrl() : string
 	{
 		return $this->wikiUrl;
 	}
@@ -233,7 +233,7 @@ class HelpScreenModel extends AbstractModel
 	 *
 	 * @return  $this
 	 */
-	public function setCurrentUri(Uri $uri)
+	public function setCurrentUri(Uri $uri) : HelpScreenModel
 	{
 		$this->currentUri = $uri;
 
@@ -247,7 +247,7 @@ class HelpScreenModel extends AbstractModel
 	 *
 	 * @return  $this
 	 */
-	private function setPageUrlSlug($slug)
+	private function setPageUrlSlug(string $slug) : HelpScreenModel
 	{
 		$this->pageUrlSlug = Normalise::toUnderscoreSeparated($slug);
 
@@ -261,7 +261,7 @@ class HelpScreenModel extends AbstractModel
 	 *
 	 * @return  $this
 	 */
-	public function setWikiUrl($url)
+	public function setWikiUrl(string $url) : HelpScreenModel
 	{
 		$this->wikiUrl = $url;
 
@@ -325,9 +325,9 @@ class HelpScreenModel extends AbstractModel
 	/**
 	 * Do a HTTP request for the configured Uri instance.
 	 *
-	 * @return  mixed
+	 * @return  string
 	 */
-	private function doHttpRequest()
+	private function doHttpRequest() : string
 	{
 		$this->connector->setOption('userAgent', 'HelpProxy/3.0');
 		$this->connector->setOption('follow_location', 'false');
@@ -402,7 +402,7 @@ class HelpScreenModel extends AbstractModel
 	 *
 	 * @return  boolean
 	 */
-	private function requestPage($keyref, $lang = null)
+	private function requestPage(string $keyref, string $lang = '') : bool
 	{
 		$this->createUriObjects();
 
@@ -413,7 +413,7 @@ class HelpScreenModel extends AbstractModel
 		$title = $keyref;
 
 		// Append the language code if present and not already part of the keyref
-		if ($lang !== null && strpos($title, '/') === false)
+		if (!empty($lang) && strpos($title, '/') === false)
 		{
 			$title .= "/$lang";
 		}

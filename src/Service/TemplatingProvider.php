@@ -14,6 +14,7 @@ namespace Joomla\Help\Service;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Renderer\PlatesRenderer;
+use Joomla\Renderer\RendererInterface;
 
 /**
  * Templating service provider
@@ -29,16 +30,16 @@ class TemplatingProvider implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
-		$container->alias('renderer', 'Joomla\Renderer\RendererInterface')
+		$container->alias('renderer', RendererInterface::class)
 			->share(
-				'Joomla\Renderer\RendererInterface',
+				RendererInterface::class,
 				function (Container $container) {
 					$renderer = new PlatesRenderer(['path' => JPATH_ROOT . '/templates', 'extension' => '.php']);
 					$renderer->addFolder(JPATH_ROOT . '/templates/partials', 'partials');
-	
+
 					// Add functions to the renderer
 					$engine = $renderer->getRenderer();
-	
+
 					$engine->registerFunction(
 						'media',
 						function ($asset) use ($container)
@@ -46,7 +47,7 @@ class TemplatingProvider implements ServiceProviderInterface
 							return $container->get('app')->get('uri.media.full') . $asset;
 						}
 					);
-	
+
 					$engine->registerFunction(
 						'current_url',
 						function () use ($container)
@@ -54,7 +55,7 @@ class TemplatingProvider implements ServiceProviderInterface
 							return $container->get('app')->get('uri.request');
 						}
 					);
-	
+
 					return $renderer;
 				},
 				true

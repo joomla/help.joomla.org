@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "723de2d7104fa11378a644cb7f71a872",
-    "content-hash": "1ff4ec52dd600accea68cb0ed29bd1a4",
+    "hash": "d1e6c9b65211fd9e67d098312dd98437",
+    "content-hash": "94977489cd9db2953888ea8c53b3e832",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -410,12 +410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "04719808c8bd61919f0516e1e36a230c31dd4f1f"
+                "reference": "b94e11c2630245de4aa69007a559379cce4171f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/04719808c8bd61919f0516e1e36a230c31dd4f1f",
-                "reference": "04719808c8bd61919f0516e1e36a230c31dd4f1f",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/b94e11c2630245de4aa69007a559379cce4171f8",
+                "reference": "b94e11c2630245de4aa69007a559379cce4171f8",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +454,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2016-08-04 20:33:47"
+            "time": "2016-08-14 15:45:04"
         },
         {
             "name": "joomla/input",
@@ -1285,10 +1285,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4"
+        "php": "~7.0"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "5.4.38"
+        "php": "7.0.9"
     }
 }

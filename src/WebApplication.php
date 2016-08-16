@@ -40,11 +40,11 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 		{
 			$this->router->getController($this->get('uri.route'))->execute();
 		}
-		catch (\Exception $e)
+		catch (\Throwable $e)
 		{
 			// Log the error for reference
 			$this->getLogger()->error(
-				sprintf('Uncaught Exception of type %s caught.', get_class($e)),
+				sprintf('Uncaught Throwable of type %s caught.', get_class($e)),
 				['exception' => $e]
 			);
 
@@ -56,11 +56,11 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	/**
 	 * Set the HTTP Response Header for error conditions.
 	 *
-	 * @param   \Exception  $exception  The Exception object to process.
+	 * @param   \Throwable  $exception  The Throwable object to process.
 	 *
 	 * @return  void
 	 */
-	private function setErrorHeader(\Exception $exception)
+	private function setErrorHeader(\Throwable $exception)
 	{
 		switch ($exception->getCode())
 		{
@@ -90,11 +90,11 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	/**
 	 * Set the body for error conditions.
 	 *
-	 * @param   \Exception  $exception  The Exception object.
+	 * @param   \Throwable  $exception  The Throwable object.
 	 *
 	 * @return  void
 	 */
-	private function setErrorOutput(\Exception $exception)
+	private function setErrorOutput(\Throwable $exception)
 	{
 		switch (strtolower($this->input->getWord('format', 'html')))
 		{
@@ -114,7 +114,7 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	 *
 	 * @return  $this
 	 */
-	public function setRouter(Router $router)
+	public function setRouter(Router $router) : WebApplication
 	{
 		$this->router = $router;
 

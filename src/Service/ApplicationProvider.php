@@ -38,17 +38,17 @@ class ApplicationProvider implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
-		$container->alias('Joomla\Application\AbstractWebApplication', 'Joomla\Help\WebApplication')
+		$container->alias(JoomlaApplication\AbstractWebApplication::class, WebApplication::class)
 			->share(
-				'Joomla\Help\WebApplication',
+				WebApplication::class,
 				function (Container $container)
 				{
-					$application = new WebApplication($container->get('Joomla\Input\Input'), $container->get('config'));
+					$application = new WebApplication($container->get(Input::class), $container->get('config'));
 
 					// Inject extra services
 					$application->setContainer($container);
 					$application->setLogger($container->get('monolog.logger.application'));
-					$application->setRouter($container->get('Joomla\Help\Router'));
+					$application->setRouter($container->get(Router::class));
 
 					return $application;
 				},
@@ -56,7 +56,7 @@ class ApplicationProvider implements ServiceProviderInterface
 			);
 
 		$container->share(
-			'Joomla\Input\Input',
+			Input::class,
 			function ()
 			{
 				return new Input($_REQUEST);
@@ -65,10 +65,10 @@ class ApplicationProvider implements ServiceProviderInterface
 		);
 
 		$container->share(
-			'Joomla\Help\Router',
+			Router::class,
 			function (Container $container)
 			{
-				$router = (new Router($container->get('Joomla\Input\Input')))
+				$router = (new Router($container->get(Input::class)))
 					->setContainer($container)
 					->setControllerPrefix('Joomla\\Help\\Controller\\')
 					->setDefaultController('LegacyController')
@@ -82,7 +82,7 @@ class ApplicationProvider implements ServiceProviderInterface
 		);
 
 		$container->share(
-			'Joomla\Help\Controller\HelpScreenController',
+			HelpScreenController::class,
 			function (Container $container)
 			{
 				$controller = new HelpScreenController(
@@ -91,7 +91,7 @@ class ApplicationProvider implements ServiceProviderInterface
 				);
 
 				$controller->setApplication($container->get('app'));
-				$controller->setInput($container->get('Joomla\Input\Input'));
+				$controller->setInput($container->get(Input::class));
 
 				return $controller;
 			},
@@ -99,7 +99,7 @@ class ApplicationProvider implements ServiceProviderInterface
 		);
 
 		$container->share(
-			'Joomla\Help\Controller\LegacyController',
+			LegacyController::class,
 			function (Container $container)
 			{
 				$controller = new LegacyController(
@@ -107,7 +107,7 @@ class ApplicationProvider implements ServiceProviderInterface
 				);
 
 				$controller->setApplication($container->get('app'));
-				$controller->setInput($container->get('Joomla\Input\Input'));
+				$controller->setInput($container->get(Input::class));
 
 				return $controller;
 			},
@@ -115,7 +115,7 @@ class ApplicationProvider implements ServiceProviderInterface
 		);
 
 		$container->share(
-			'Joomla\Help\Model\HelpScreenModel',
+			HelpScreenModel::class,
 			function (Container $container)
 			{
 				return new HelpScreenModel(
@@ -127,11 +127,11 @@ class ApplicationProvider implements ServiceProviderInterface
 		);
 
 		$container->share(
-			'Joomla\Help\View\HelpScreenHtmlView',
+			HelpScreenHtmlView::class,
 			function (Container $container)
 			{
 				return new HelpScreenHtmlView(
-					$container->get('Joomla\Help\Model\HelpScreenModel'),
+					$container->get(HelpScreenModel::class),
 					$container->get('renderer')
 				);
 			},
