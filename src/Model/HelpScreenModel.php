@@ -146,6 +146,11 @@ class HelpScreenModel extends AbstractModel
 			throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']));
 		}
 
+		if (is_null($this->responseBody))
+		{
+			throw new \RuntimeException('Error fetching page from MediaWiki API.');
+		}
+
 		// Store the title to be used later
 		$this->title = $this->responseBody['parse']['displaytitle'];
 
