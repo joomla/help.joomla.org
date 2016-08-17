@@ -117,6 +117,8 @@ class HelpScreenModel extends AbstractModel
 	 * Get a rendered page from the remote wiki.
 	 *
 	 * @return  string
+	 *
+	 * @throws  \RuntimeException
 	 */
 	public function getPage() : string
 	{
@@ -171,6 +173,11 @@ class HelpScreenModel extends AbstractModel
 			if (isset($this->responseBody['error']))
 			{
 				throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']));
+			}
+
+			if (is_null($this->responseBody))
+			{
+				throw new \RuntimeException('Error fetching page from MediaWiki API.');
 			}
 
 			// Store the title to be used later
