@@ -167,12 +167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/cache.git",
-                "reference": "05617c75fc11c259ec9e3e19f87c4bb13c7d746b"
+                "reference": "5944f47033e3a8ec463cbe363a19d1e1a324ac74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/05617c75fc11c259ec9e3e19f87c4bb13c7d746b",
-                "reference": "05617c75fc11c259ec9e3e19f87c4bb13c7d746b",
+                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/5944f47033e3a8ec463cbe363a19d1e1a324ac74",
+                "reference": "5944f47033e3a8ec463cbe363a19d1e1a324ac74",
                 "shasum": ""
             },
             "require": {
@@ -214,7 +214,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2016-07-31 19:20:10"
+            "time": "2016-08-18 15:30:32"
         },
         {
             "name": "joomla/compat",
@@ -410,12 +410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "b94e11c2630245de4aa69007a559379cce4171f8"
+                "reference": "3117792d43cfb35d427e1f4bc68faa86f36ac3de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/b94e11c2630245de4aa69007a559379cce4171f8",
-                "reference": "b94e11c2630245de4aa69007a559379cce4171f8",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/3117792d43cfb35d427e1f4bc68faa86f36ac3de",
+                "reference": "3117792d43cfb35d427e1f4bc68faa86f36ac3de",
                 "shasum": ""
             },
             "require": {
@@ -426,7 +426,7 @@
             },
             "require-dev": {
                 "joomla/test": "~1.0",
-                "phpunit/phpunit": "~4.8|>=5.0 <5.4",
+                "phpunit/phpunit": "~4.8|~5.0",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -454,7 +454,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2016-08-14 15:45:04"
+            "time": "2016-08-21 17:09:23"
         },
         {
             "name": "joomla/input",

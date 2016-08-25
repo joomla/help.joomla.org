@@ -4,7 +4,7 @@ This application is the code powering the [help.joomla.org](https://help.joomla.
 
 ## Requirements
 
-* PHP 5.4+
+* PHP 7.0+
 * Composer
 * Apache with mod_rewrite enabled and configured to allow the .htaccess file to be read
 
