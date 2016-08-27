@@ -23,6 +23,13 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	use ContainerAwareTrait;
 
 	/**
+	 * The template to use for error pages.
+	 *
+	 * @var  string
+	 */
+	private $errorTemplate = 'exception.html';
+
+	/**
 	 * Application router.
 	 *
 	 * @var  Router
@@ -100,7 +107,7 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 		{
 			case 'html' :
 			default :
-				$body = $this->getContainer()->get('renderer')->render('exception.html', ['exception' => $exception]);
+				$body = $this->getContainer()->get('renderer')->render($this->errorTemplate, ['exception' => $exception]);
 				break;
 		}
 
@@ -117,6 +124,20 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	public function setRouter(Router $router) : WebApplication
 	{
 		$this->router = $router;
+
+		return $this;
+	}
+
+	/**
+	 * Set the application's error template.
+	 *
+	 * @param   string  $template  Name of the template to use for error pages.
+	 *
+	 * @return  $this
+	 */
+	public function setErrorTemplate(string $template) : WebApplication
+	{
+		$this->errorTemplate = $template;
 
 		return $this;
 	}
