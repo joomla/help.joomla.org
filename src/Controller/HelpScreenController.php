@@ -58,7 +58,9 @@ class HelpScreenController extends AbstractController
 	 */
 	public function execute() : bool
 	{
+		// Set the layout for the view and error page
 		$this->view->setLayout('helpscreen/live.html');
+		$this->getApplication()->setErrorTemplate('helpscreen/exception.html');
 
 		// Store data into the model
 		$state = $this->view->getModel()->getState();
