@@ -180,7 +180,7 @@ class TemplatingProvider implements ServiceProviderInterface
 											$body = strtr(
 												$body,
 												[
-													'%reportroute'  => 'https://github.com/joomla/joomla-websites/issues/new?title=[jhelp]%20&amp;body=Please%20describe%20the%20problem%20or%20your%20issue',
+													'%reportroute%' => 'https://github.com/joomla/joomla-websites/issues/new?title=[jhelp]%20&amp;body=Please%20describe%20the%20problem%20or%20your%20issue',
 													'%currentyear%' => date('Y'),
 												]
 											);
@@ -219,7 +219,7 @@ class TemplatingProvider implements ServiceProviderInterface
 										$body = strtr(
 											$body,
 											[
-												'%reportroute'  => 'https://github.com/joomla/joomla-websites/issues/new?title=[jhelp]%20&amp;body=Please%20describe%20the%20problem%20or%20your%20issue',
+												'%reportroute%' => 'https://github.com/joomla/joomla-websites/issues/new?title=[jhelp]%20&amp;body=Please%20describe%20the%20problem%20or%20your%20issue',
 												'%currentyear%' => date('Y'),
 											]
 										);
