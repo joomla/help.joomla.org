@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "composer/ca-bundle",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "5df9ed0ed0c9506ea6404a23450854e5df15cc12"
+                "reference": "ec21a59414b99501e723b63fd664aa8ead9c5680"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/5df9ed0ed0c9506ea6404a23450854e5df15cc12",
-                "reference": "5df9ed0ed0c9506ea6404a23450854e5df15cc12",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/ec21a59414b99501e723b63fd664aa8ead9c5680",
+                "reference": "ec21a59414b99501e723b63fd664aa8ead9c5680",
                 "shasum": ""
             },
             "require": {
@@ -27,6 +27,7 @@
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
+                "psr/log": "^1.0",
                 "symfony/process": "^2.5 || ^3.0"
             },
             "suggest": {
@@ -62,7 +63,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2016-07-18 23:07:53"
+            "time": "2016-09-04 19:00:06"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -167,17 +168,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/cache.git",
-                "reference": "5944f47033e3a8ec463cbe363a19d1e1a324ac74"
+                "reference": "3ea43c7087c8b9c7bd59b3fee5bac7b0c949c050"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/5944f47033e3a8ec463cbe363a19d1e1a324ac74",
-                "reference": "5944f47033e3a8ec463cbe363a19d1e1a324ac74",
+                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/3ea43c7087c8b9c7bd59b3fee5bac7b0c949c050",
+                "reference": "3ea43c7087c8b9c7bd59b3fee5bac7b0c949c050",
                 "shasum": ""
             },
             "require": {
                 "php": "~5.4|~7.0",
                 "psr/cache": "~1.0"
+            },
+            "provide": {
+                "psr/cache-implementation": "~1.0"
             },
             "require-dev": {
                 "joomla/test": "~1.0",
@@ -214,7 +218,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2016-08-18 15:30:32"
+            "time": "2016-09-06 14:17:00"
         },
         {
             "name": "joomla/compat",
@@ -410,12 +414,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "3117792d43cfb35d427e1f4bc68faa86f36ac3de"
+                "reference": "07647b4bc4a24dcb56d8a46481aee7af19f4db02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/3117792d43cfb35d427e1f4bc68faa86f36ac3de",
-                "reference": "3117792d43cfb35d427e1f4bc68faa86f36ac3de",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/07647b4bc4a24dcb56d8a46481aee7af19f4db02",
+                "reference": "07647b4bc4a24dcb56d8a46481aee7af19f4db02",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +458,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2016-08-21 17:09:23"
+            "time": "2016-09-08 14:41:28"
         },
         {
             "name": "joomla/input",
@@ -1224,16 +1228,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.3.5",
+            "version": "1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "b1d59735b672865dbeb930805029c24f226e3e77"
+                "reference": "a60da179c37f2c4e44ef734d0b92824a58943f7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/b1d59735b672865dbeb930805029c24f226e3e77",
-                "reference": "b1d59735b672865dbeb930805029c24f226e3e77",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/a60da179c37f2c4e44ef734d0b92824a58943f7f",
+                "reference": "a60da179c37f2c4e44ef734d0b92824a58943f7f",
                 "shasum": ""
             },
             "require": {
@@ -1244,7 +1248,7 @@
                 "psr/http-message-implementation": "~1.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.6",
+                "phpunit/phpunit": "^4.6 || ^5.5",
                 "squizlabs/php_codesniffer": "^2.3.1"
             },
             "type": "library",
@@ -1270,7 +1274,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2016-03-17 18:02:05"
+            "time": "2016-09-07 17:57:29"
         }
     ],
     "packages-dev": [],
