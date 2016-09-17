@@ -168,16 +168,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/cache.git",
-                "reference": "3ea43c7087c8b9c7bd59b3fee5bac7b0c949c050"
+                "reference": "fb94a0ce821d1b581c56b2e02cfd237afd281387"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/3ea43c7087c8b9c7bd59b3fee5bac7b0c949c050",
-                "reference": "3ea43c7087c8b9c7bd59b3fee5bac7b0c949c050",
+                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/fb94a0ce821d1b581c56b2e02cfd237afd281387",
+                "reference": "fb94a0ce821d1b581c56b2e02cfd237afd281387",
                 "shasum": ""
             },
             "require": {
-                "php": "~5.4|~7.0",
+                "php": "^5.5.9|~7.0",
                 "psr/cache": "~1.0"
             },
             "provide": {
@@ -218,7 +218,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2016-09-06 14:17:00"
+            "time": "2016-09-17 16:17:27"
         },
         {
             "name": "joomla/compat",
@@ -414,18 +414,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "07647b4bc4a24dcb56d8a46481aee7af19f4db02"
+                "reference": "8dd5009a9f2640b0e4af1d99e7e877283c6fa441"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/07647b4bc4a24dcb56d8a46481aee7af19f4db02",
-                "reference": "07647b4bc4a24dcb56d8a46481aee7af19f4db02",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/8dd5009a9f2640b0e4af1d99e7e877283c6fa441",
+                "reference": "8dd5009a9f2640b0e4af1d99e7e877283c6fa441",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "~1.0",
                 "joomla/uri": "~1.0",
-                "php": "~5.4|~7.0",
+                "php": "^5.5.9|~7.0",
                 "zendframework/zend-diactoros": "~1.1"
             },
             "require-dev": {
@@ -458,7 +458,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2016-09-08 14:41:28"
+            "time": "2016-09-17 16:08:12"
         },
         {
             "name": "joomla/input",
@@ -619,16 +619,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/renderer.git",
-                "reference": "74a963246b0b0fbce8a9e5fe1ecd6217555b35d9"
+                "reference": "3b5350763ab49519091fdbb0c6ba6136386d84ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/74a963246b0b0fbce8a9e5fe1ecd6217555b35d9",
-                "reference": "74a963246b0b0fbce8a9e5fe1ecd6217555b35d9",
+                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/3b5350763ab49519091fdbb0c6ba6136386d84ec",
+                "reference": "3b5350763ab49519091fdbb0c6ba6136386d84ec",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.10|~7.0"
+                "php": "^5.5.9|~7.0"
             },
             "require-dev": {
                 "league/plates": "~2.0|~3.0",
@@ -666,7 +666,7 @@
                 "joomla",
                 "renderer"
             ],
-            "time": "2016-07-31 17:44:15"
+            "time": "2016-09-17 16:08:47"
         },
         {
             "name": "joomla/router",
@@ -864,18 +864,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/view.git",
-                "reference": "8b214bb64724e5f8bdf624e18b4b614918263559"
+                "reference": "9d0c9f4fe0b44621d35b7251e63bb67e649beefb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/view/zipball/8b214bb64724e5f8bdf624e18b4b614918263559",
-                "reference": "8b214bb64724e5f8bdf624e18b4b614918263559",
+                "url": "https://api.github.com/repos/joomla-framework/view/zipball/9d0c9f4fe0b44621d35b7251e63bb67e649beefb",
+                "reference": "9d0c9f4fe0b44621d35b7251e63bb67e649beefb",
                 "shasum": ""
             },
             "require": {
                 "joomla/model": "~1.0|~2.0@dev",
                 "joomla/renderer": "~2.0@dev",
-                "php": "^5.3.10|~7.0"
+                "php": "^5.5.9|~7.0"
             },
             "require-dev": {
                 "joomla/test": "~1.0",
@@ -904,7 +904,7 @@
                 "joomla",
                 "view"
             ],
-            "time": "2016-07-31 19:58:58"
+            "time": "2016-09-17 16:09:08"
         },
         {
             "name": "league/plates",
