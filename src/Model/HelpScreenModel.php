@@ -346,7 +346,7 @@ class HelpScreenModel extends AbstractModel
 
 		try
 		{
-			$response = $this->connector->get($this->uriApi->toString());
+			$response = $this->connector->get($this->uriApi);
 		}
 		catch (\Exception $e)
 		{
