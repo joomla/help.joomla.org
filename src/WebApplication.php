@@ -49,6 +49,9 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 		}
 		catch (\Throwable $e)
 		{
+			// Do not browser cache an error page
+			$this->allowCache(false);
+
 			// Log the error for reference
 			$this->getLogger()->error(
 				sprintf('Uncaught Throwable of type %s caught.', get_class($e)),
