@@ -17,6 +17,7 @@ use Joomla\DI\ServiceProviderInterface;
 use Joomla\Http\HttpFactory;
 use Joomla\Renderer\PlatesRenderer;
 use Joomla\Renderer\RendererInterface;
+use League\Plates\Engine;
 
 /**
  * Templating service provider
@@ -36,11 +37,9 @@ class TemplatingProvider implements ServiceProviderInterface
 			->share(
 				RendererInterface::class,
 				function (Container $container) {
-					$renderer = new PlatesRenderer(['path' => JPATH_ROOT . '/templates', 'extension' => '.php']);
-					$renderer->addFolder(JPATH_ROOT . '/templates/partials', 'partials');
-
 					// Add functions to the renderer
-					$engine = $renderer->getRenderer();
+					$engine = new Engine(JPATH_ROOT . '/templates');
+					$engine->addFolder('partials', JPATH_ROOT . '/templates/partials');
 
 					$engine->registerFunction(
 						'media',
@@ -240,7 +239,7 @@ class TemplatingProvider implements ServiceProviderInterface
 						}
 					);
 
-					return $renderer;
+					return new PlatesRenderer($engine);
 				},
 				true
 			);
