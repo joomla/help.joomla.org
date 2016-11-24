@@ -1,3 +1,5 @@
+<?php /** @var $this \League\Plates\Template\Template */ ?>
+<?php /** @var $exception \Throwable */ ?>
 <?php $this->layout('base.html') ?>
 
 <div class="alert alert-warning">

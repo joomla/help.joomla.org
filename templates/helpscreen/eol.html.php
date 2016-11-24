@@ -1,3 +1,4 @@
+<?php /** @var $this \League\Plates\Template\Template */ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>

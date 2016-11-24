@@ -1,3 +1,8 @@
+<?php /** @var $this \League\Plates\Template\Template */ ?>
+<?php /** @var $wikiUrl string */ ?>
+<?php /** @var $pageName string */ ?>
+<?php /** @var $title string */ ?>
+<?php /** @var $page string */ ?>
 <?php
 $source_doc = $wikiUrl . '/' . $pageName;
 ?>

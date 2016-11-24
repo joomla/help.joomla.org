@@ -1,3 +1,5 @@
+<?php /** @var $this \League\Plates\Template\Template */ ?>
+<?php /** @var $exception \Throwable */ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>

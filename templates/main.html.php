@@ -1,3 +1,4 @@
+<?php /** @var $this \League\Plates\Template\Template */ ?>
 <?php $this->layout('base.html') ?>
 
 <div class="alert alert-info">
