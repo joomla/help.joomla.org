@@ -13,6 +13,8 @@ namespace Joomla\Help\Model;
 
 use Joomla\Http\Http;
 use Joomla\Model\AbstractModel;
+use Joomla\Model\StatefulModelInterface;
+use Joomla\Model\StatefulModelTrait;
 use Joomla\Registry\Registry;
 use Joomla\String\Normalise;
 use Joomla\Uri\Uri;
@@ -21,8 +23,10 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Model to process Joomla! help screens
  */
-class HelpScreenModel extends AbstractModel
+class HelpScreenModel implements StatefulModelInterface
 {
+	use StatefulModelTrait;
+
 	/**
 	 * The HTTP connector.
 	 *
@@ -108,7 +112,7 @@ class HelpScreenModel extends AbstractModel
 	 */
 	public function __construct(Registry $state, Http $http)
 	{
-		parent::__construct($state);
+		$this->setState($state);
 
 		$this->connector = $http;
 	}
@@ -122,24 +126,24 @@ class HelpScreenModel extends AbstractModel
 	 */
 	public function getPage() : string
 	{
-		$this->requestPage($this->state->get('page'), $this->state->get('lang'));
+		$this->requestPage($this->getState()->get('page'), $this->getState()->get('lang'));
 
 		// If a language coded page was not found, try to fall back to English.
 		if (isset($this->responseBody['error']) && $this->responseBody['error']['code'] === 'missingtitle')
 		{
-			if ($this->state->get('lang') !== null)
+			if ($this->getState()->get('lang') !== null)
 			{
-				$this->requestPage($this->state->get('page'));
+				$this->requestPage($this->getState()->get('page'));
 			}
 
 			// Maybe the language was part of the keyref?
-			$langPos = strpos($this->state->get('page'), '/');
+			$langPos = strpos($this->getState()->get('page'), '/');
 
 			if ($langPos !== false)
 			{
-				$this->state->set('page', substr($this->state->get('page'), 0, $langPos));
+				$this->getState()->set('page', substr($this->getState()->get('page'), 0, $langPos));
 
-				$this->requestPage($this->state->get('page'));
+				$this->requestPage($this->getState()->get('page'));
 			}
 		}
 
@@ -163,7 +167,7 @@ class HelpScreenModel extends AbstractModel
 		$this->page = $this->responseBody['parse']['text']['*'];
 
 		// Follow wiki redirects
-		$max = $this->state->get('max_redirects', 5);
+		$max = $this->getState()->get('max_redirects', 5);
 		$i   = 0;
 
 		while (($redirect = $this->isRedirect()) && $i < $max)
@@ -191,7 +195,7 @@ class HelpScreenModel extends AbstractModel
 		}
 
 		// Remove links to unwritten articles.
-		if ($this->state->get('remove_redlinks', true))
+		if ($this->getState()->get('remove_redlinks', true))
 		{
 			$this->removeRedLinks();
 		}
@@ -200,7 +204,7 @@ class HelpScreenModel extends AbstractModel
 		$this->amendLinks();
 
 		// Remove table of contents.
-		if ($this->state->get('remove_toc', false))
+		if ($this->getState()->get('remove_toc', false))
 		{
 			$this->removeToc();
 		}
