@@ -13,7 +13,7 @@
         "joomla/di": "~1.3",
         "joomla/http": "~2.0@dev",
         "joomla/input": "~1.2",
-        "joomla/model": "~1.2",
+        "joomla/model": "~1.3",
         "joomla/registry": "~1.5",
         "joomla/renderer": "~2.0@dev",
         "joomla/router": "~1.1",
@@ -29,7 +29,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.0.9"
+            "php": "7.0.15"
         }
     }
 }

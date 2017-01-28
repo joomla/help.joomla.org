@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "94977489cd9db2953888ea8c53b3e832",
+    "content-hash": "eeb42d66c186a407b8b1733dbb8a870d",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -508,26 +508,26 @@
         },
         {
             "name": "joomla/model",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/model.git",
-                "reference": "900c54801904bf0fa594b5d78def01d764fb4281"
+                "reference": "65013d5364540fd797d1caa123b5d46de9f48322"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/model/zipball/900c54801904bf0fa594b5d78def01d764fb4281",
-                "reference": "900c54801904bf0fa594b5d78def01d764fb4281",
+                "url": "https://api.github.com/repos/joomla-framework/model/zipball/65013d5364540fd797d1caa123b5d46de9f48322",
+                "reference": "65013d5364540fd797d1caa123b5d46de9f48322",
                 "shasum": ""
             },
             "require": {
                 "joomla/registry": "~1.0",
-                "php": ">=5.3.10"
+                "php": "^5.3.10|~7.0"
             },
             "require-dev": {
                 "joomla/database": "~1.0",
                 "joomla/test": "~1.0",
-                "phpunit/phpunit": "4.*",
+                "phpunit/phpunit": "~4.8|~5.0",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -541,8 +541,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Joomla\\Model\\": "src/",
-                    "Joomla\\Model\\Tests\\": "Tests/"
+                    "Joomla\\Model\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -556,7 +555,7 @@
                 "joomla",
                 "model"
             ],
-            "time": "2014-11-03T16:43:46+00:00"
+            "time": "2017-01-22T18:29:22+00:00"
         },
         {
             "name": "joomla/registry",
@@ -1243,16 +1242,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.3.8",
+            "version": "1.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "d9c1fd7c4b024179d49faf367da544b4eef7cfe8"
+                "reference": "83e8d98b9915de76c659ce27d683c02a0f99fa90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/d9c1fd7c4b024179d49faf367da544b4eef7cfe8",
-                "reference": "d9c1fd7c4b024179d49faf367da544b4eef7cfe8",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/83e8d98b9915de76c659ce27d683c02a0f99fa90",
+                "reference": "83e8d98b9915de76c659ce27d683c02a0f99fa90",
                 "shasum": ""
             },
             "require": {
@@ -1289,7 +1288,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2017-01-05T21:44:28+00:00"
+            "time": "2017-01-23T04:53:24+00:00"
         }
     ],
     "packages-dev": [],
@@ -1308,6 +1307,6 @@
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.0.9"
+        "php": "7.0.15"
     }
 }
