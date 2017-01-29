@@ -35,9 +35,9 @@ class HelpScreenHtmlView extends BaseHtmlView
 	 */
 	public function __construct(HelpScreenModel $model, RendererInterface $renderer)
 	{
-		$this->model = $model;
+		parent::__construct($renderer);
 
-		$this->setRenderer($renderer);
+		$this->model = $model;
 	}
 
 	/**

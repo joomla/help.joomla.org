@@ -866,23 +866,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/view.git",
-                "reference": "6afd2e53e690b6018285d25f33a295fdd4d374e7"
+                "reference": "49edb48be2537c58c9b977cd37a6a59b9019f0e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/view/zipball/6afd2e53e690b6018285d25f33a295fdd4d374e7",
-                "reference": "6afd2e53e690b6018285d25f33a295fdd4d374e7",
+                "url": "https://api.github.com/repos/joomla-framework/view/zipball/49edb48be2537c58c9b977cd37a6a59b9019f0e9",
+                "reference": "49edb48be2537c58c9b977cd37a6a59b9019f0e9",
                 "shasum": ""
             },
             "require": {
-                "joomla/model": "~1.0|~2.0@dev",
-                "joomla/renderer": "~2.0@dev",
                 "php": "^5.5.9|~7.0"
             },
             "require-dev": {
+                "joomla/renderer": "~2.0@dev",
                 "joomla/test": "~1.0",
                 "phpunit/phpunit": "~4.8|~5.0",
                 "squizlabs/php_codesniffer": "1.*"
+            },
+            "suggest": {
+                "joomla/renderer": "Required to use Joomla\\View\\BaseHtmlView"
             },
             "type": "joomla-package",
             "extra": {
@@ -906,7 +908,7 @@
                 "joomla",
                 "view"
             ],
-            "time": "2016-12-18 16:26:59"
+            "time": "2017-01-28 20:01:47"
         },
         {
             "name": "league/plates",
