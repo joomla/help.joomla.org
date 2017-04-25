@@ -413,18 +413,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "da7f9a92078727e551563a3725f826f0b9ff9abc"
+                "reference": "8bafc6f0780e15f957e9364a9979d19e31f8314c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/da7f9a92078727e551563a3725f826f0b9ff9abc",
-                "reference": "da7f9a92078727e551563a3725f826f0b9ff9abc",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/8bafc6f0780e15f957e9364a9979d19e31f8314c",
+                "reference": "8bafc6f0780e15f957e9364a9979d19e31f8314c",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "~1.0",
                 "joomla/uri": "~1.0|~2.0",
                 "php": "^5.5.9|~7.0",
+                "psr/http-message": "~1.0",
                 "zendframework/zend-diactoros": "~1.1"
             },
             "require-dev": {
@@ -457,7 +458,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2017-02-19 23:46:55"
+            "time": "2017-04-16 13:44:26"
         },
         {
             "name": "joomla/input",
@@ -867,21 +868,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/view.git",
-                "reference": "49edb48be2537c58c9b977cd37a6a59b9019f0e9"
+                "reference": "6fc62f75ed84a82170362dba02c2f8d5a75e9713"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/view/zipball/49edb48be2537c58c9b977cd37a6a59b9019f0e9",
-                "reference": "49edb48be2537c58c9b977cd37a6a59b9019f0e9",
+                "url": "https://api.github.com/repos/joomla-framework/view/zipball/6fc62f75ed84a82170362dba02c2f8d5a75e9713",
+                "reference": "6fc62f75ed84a82170362dba02c2f8d5a75e9713",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|~7.0"
             },
             "require-dev": {
-                "joomla/renderer": "~2.0@dev",
+                "joomla/renderer": "~2.0",
                 "joomla/test": "~1.0",
-                "phpunit/phpunit": "~4.8|~5.0",
+                "phpunit/phpunit": "^4.8.35|^5.4.3|~6.0",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -909,7 +910,7 @@
                 "joomla",
                 "view"
             ],
-            "time": "2017-01-28 20:01:47"
+            "time": "2017-04-22 18:10:33"
         },
         {
             "name": "league/plates",
