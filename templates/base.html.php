@@ -31,7 +31,7 @@
                     <div class="span5">
                         <div class="btn-toolbar pull-right">
                             <div class="btn-group">
-                                <a href="https://www.joomla.org/download.html" class="btn btn-large btn-warning">Download</a>
+                                <a href="https://downloads.joomla.org" class="btn btn-large btn-warning">Download</a>
                             </div>
                             <div class="btn-group">
                                 <a href="https://demo.joomla.org" class="btn btn-large btn-primary">Demo</a>
