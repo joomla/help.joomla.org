@@ -13,6 +13,17 @@ $source_doc = $wikiUrl . '/' . $pageName;
         <title>Joomla! Help Screens</title>
         <link rel="stylesheet" href="<?php echo $this->media('css/reset.css'); ?>" />
         <link rel="stylesheet" href="<?php echo $this->media('css/help.css'); ?>" />
+		<script>
+		var _prum = [['id', '59300ad15992c776ad970068'],
+		             ['mark', 'firstbyte', (new Date()).getTime()]];
+		(function() {
+		    var s = document.getElementsByTagName('script')[0]
+		      , p = document.createElement('script');
+		    p.async = 'async';
+		    p.src = '//rum-static.pingdom.net/prum.min.js';
+		    s.parentNode.insertBefore(p, s);
+		})();
+		</script>
 	</head>
 	<body>
         <?php $this->insert('partials/gtm') ?>
