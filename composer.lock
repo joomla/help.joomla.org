@@ -109,26 +109,27 @@
         },
         {
             "name": "joomla/application",
-            "version": "1.7.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/application.git",
-                "reference": "e1a2416d3aaeae3c927920b3e1b1c33095b16e03"
+                "reference": "4abf6ba23fc4454c6d9b2efd6290db0ffe6f424e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/application/zipball/e1a2416d3aaeae3c927920b3e1b1c33095b16e03",
-                "reference": "e1a2416d3aaeae3c927920b3e1b1c33095b16e03",
+                "url": "https://api.github.com/repos/joomla-framework/application/zipball/4abf6ba23fc4454c6d9b2efd6290db0ffe6f424e",
+                "reference": "4abf6ba23fc4454c6d9b2efd6290db0ffe6f424e",
                 "shasum": ""
             },
             "require": {
-                "joomla/input": "~1.2",
-                "joomla/registry": "~1.1",
+                "joomla/input": "~1.2|~2.0",
+                "joomla/registry": "^1.4.5|~2.0",
                 "php": "^5.3.10|~7.0",
                 "psr/log": "~1.0"
             },
             "require-dev": {
-                "joomla/session": "^1.2.1",
+                "joomla/event": "~1.2|~2.0",
+                "joomla/session": "^1.2.1|~2.0",
                 "joomla/test": "~1.1",
                 "joomla/uri": "~1.1",
                 "phpunit/phpunit": "~4.8|>=5.0 <5.4",
@@ -160,7 +161,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2016-12-10T17:26:50+00:00"
+            "time": "2017-07-14T12:54:12+00:00"
         },
         {
             "name": "joomla/cache",
@@ -168,28 +169,29 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/cache.git",
-                "reference": "a48f7a6b9e7481a01f2251005a6b1f5610378c04"
+                "reference": "ac22cf4144d12ff3585ca52b267128a7e2cfe744"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/a48f7a6b9e7481a01f2251005a6b1f5610378c04",
-                "reference": "a48f7a6b9e7481a01f2251005a6b1f5610378c04",
+                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/ac22cf4144d12ff3585ca52b267128a7e2cfe744",
+                "reference": "ac22cf4144d12ff3585ca52b267128a7e2cfe744",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|~7.0",
-                "psr/cache": "~1.0"
+                "php": "~7.0",
+                "psr/cache": "~1.0",
+                "psr/simple-cache": "~1.0"
             },
             "provide": {
-                "psr/cache-implementation": "~1.0"
+                "psr/cache-implementation": "~1.0",
+                "psr/simple-cache-implementation": "~1.0"
             },
             "require-dev": {
                 "joomla/test": "~1.0",
-                "phpunit/phpunit": "^4.8.35|^5.4.3|~6.0",
+                "phpunit/phpunit": "~6.3",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
-                "ext-apc": "To use APC caching",
                 "ext-apcu": "To use APCu caching",
                 "ext-memcached": "To use Memcached caching",
                 "ext-redis": "To use Redis caching",
@@ -218,7 +220,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2017-02-19 21:59:05"
+            "time": "2017-08-16T00:16:36+00:00"
         },
         {
             "name": "joomla/compat",
@@ -359,16 +361,16 @@
         },
         {
             "name": "joomla/filter",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/filter.git",
-                "reference": "1183f96e2dab5bf952415442e54bd67c083f3766"
+                "reference": "1ee770b83790c02d0fbcef77ad0647153e1faf74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/filter/zipball/1183f96e2dab5bf952415442e54bd67c083f3766",
-                "reference": "1183f96e2dab5bf952415442e54bd67c083f3766",
+                "url": "https://api.github.com/repos/joomla-framework/filter/zipball/1ee770b83790c02d0fbcef77ad0647153e1faf74",
+                "reference": "1ee770b83790c02d0fbcef77ad0647153e1faf74",
                 "shasum": ""
             },
             "require": {
@@ -405,7 +407,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2017-05-14T18:12:10+00:00"
+            "time": "2017-07-04T15:07:30+00:00"
         },
         {
             "name": "joomla/http",
@@ -413,24 +415,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "8bafc6f0780e15f957e9364a9979d19e31f8314c"
+                "reference": "3feedaab716dba9070c7eb2af8d379e5a646d67e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/8bafc6f0780e15f957e9364a9979d19e31f8314c",
-                "reference": "8bafc6f0780e15f957e9364a9979d19e31f8314c",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/3feedaab716dba9070c7eb2af8d379e5a646d67e",
+                "reference": "3feedaab716dba9070c7eb2af8d379e5a646d67e",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "~1.0",
                 "joomla/uri": "~1.0|~2.0",
-                "php": "^5.5.9|~7.0",
+                "php": "~7.0",
                 "psr/http-message": "~1.0",
                 "zendframework/zend-diactoros": "~1.1"
             },
             "require-dev": {
                 "joomla/test": "~1.0",
-                "phpunit/phpunit": "^4.8.35|^5.4.3|~6.0",
+                "phpunit/phpunit": "~6.3",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -458,7 +460,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2017-04-16 13:44:26"
+            "time": "2017-08-16T00:42:14+00:00"
         },
         {
             "name": "joomla/input",
@@ -618,16 +620,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/renderer.git",
-                "reference": "653175a30e3a08ddc6436794df457b20082f5407"
+                "reference": "3d4c2966aca6a9884b91b19ec5af71b14afb341f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/653175a30e3a08ddc6436794df457b20082f5407",
-                "reference": "653175a30e3a08ddc6436794df457b20082f5407",
+                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/3d4c2966aca6a9884b91b19ec5af71b14afb341f",
+                "reference": "3d4c2966aca6a9884b91b19ec5af71b14afb341f",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|~7.0"
+                "php": "~7.0"
             },
             "require-dev": {
                 "illuminate/events": "~5.1",
@@ -635,7 +637,7 @@
                 "illuminate/view": "~5.1",
                 "league/plates": "~3.0",
                 "mustache/mustache": "~2.3",
-                "phpunit/phpunit": "^4.8.35|^5.4.3|~6.0",
+                "phpunit/phpunit": "~6.3",
                 "squizlabs/php_codesniffer": "1.*",
                 "symfony/templating": "~2.7|~3.0",
                 "twig/twig": "~1.14|~2.0"
@@ -669,7 +671,7 @@
                 "joomla",
                 "renderer"
             ],
-            "time": "2017-02-19 21:12:13"
+            "time": "2017-08-16T00:46:36+00:00"
         },
         {
             "name": "joomla/router",
@@ -868,21 +870,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/view.git",
-                "reference": "6fc62f75ed84a82170362dba02c2f8d5a75e9713"
+                "reference": "d02d7f7007c0fb858b3e825d976b55bb333e1f5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/view/zipball/6fc62f75ed84a82170362dba02c2f8d5a75e9713",
-                "reference": "6fc62f75ed84a82170362dba02c2f8d5a75e9713",
+                "url": "https://api.github.com/repos/joomla-framework/view/zipball/d02d7f7007c0fb858b3e825d976b55bb333e1f5c",
+                "reference": "d02d7f7007c0fb858b3e825d976b55bb333e1f5c",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|~7.0"
+                "php": "~7.0"
             },
             "require-dev": {
                 "joomla/renderer": "~2.0",
                 "joomla/test": "~1.0",
-                "phpunit/phpunit": "^4.8.35|^5.4.3|~6.0",
+                "phpunit/phpunit": "~6.3",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -910,7 +912,7 @@
                 "joomla",
                 "view"
             ],
-            "time": "2017-04-22 18:10:33"
+            "time": "2017-08-16T02:03:52+00:00"
         },
         {
             "name": "league/plates",
@@ -969,16 +971,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.22.1",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0"
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1e044bc4b34e91743943479f1be7a1d5eb93add0",
-                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
                 "shasum": ""
             },
             "require": {
@@ -999,7 +1001,7 @@
                 "phpunit/phpunit-mock-objects": "2.3.0",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "sentry/sentry": "^0.13",
-                "swiftmailer/swiftmailer": "~5.3"
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -1043,7 +1045,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-03-13T07:08:03+00:00"
+            "time": "2017-06-19T01:22:40+00:00"
         },
         {
             "name": "psr/cache",
@@ -1189,17 +1191,65 @@
             "time": "2016-10-10T12:19:37+00:00"
         },
         {
-            "name": "symfony/polyfill-php55",
-            "version": "v1.3.0",
+            "name": "psr/simple-cache",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/polyfill-php55.git",
-                "reference": "03e3f0350bca2220e3623a0e340eef194405fc67"
+                "url": "https://github.com/php-fig/simple-cache.git",
+                "reference": "753fa598e8f3b9966c886fe13f370baa45ef0e24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/03e3f0350bca2220e3623a0e340eef194405fc67",
-                "reference": "03e3f0350bca2220e3623a0e340eef194405fc67",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/753fa598e8f3b9966c886fe13f370baa45ef0e24",
+                "reference": "753fa598e8f3b9966c886fe13f370baa45ef0e24",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "time": "2017-01-02T13:31:39+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php55",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php55.git",
+                "reference": "29b1381d66f16e0581aab0b9f678ccf073288f68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/29b1381d66f16e0581aab0b9f678ccf073288f68",
+                "reference": "29b1381d66f16e0581aab0b9f678ccf073288f68",
                 "shasum": ""
             },
             "require": {
@@ -1209,7 +1259,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -1242,20 +1292,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2017-06-14T15:44:48+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "b03f285a333f51e58c95cce54109a4a9ed691436"
+                "reference": "424a840dc3bedcdeea510b42e056c77c2d6c4bef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/b03f285a333f51e58c95cce54109a4a9ed691436",
-                "reference": "b03f285a333f51e58c95cce54109a4a9ed691436",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/424a840dc3bedcdeea510b42e056c77c2d6c4bef",
+                "reference": "424a840dc3bedcdeea510b42e056c77c2d6c4bef",
                 "shasum": ""
             },
             "require": {
@@ -1294,7 +1344,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2017-04-06T16:18:34+00:00"
+            "time": "2017-08-17T21:21:00+00:00"
         }
     ],
     "packages-dev": [],
