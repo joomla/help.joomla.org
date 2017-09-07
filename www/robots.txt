@@ -1,0 +1,4 @@
+User-agent: * 
+Disallow: /layouts/
+Disallow: /help/
+Disallow: /proxy
