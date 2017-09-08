@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php $this->insert('partials/gtm') ?>
-   		<div class="container">
+        <div class="container">
             <div class="well text-center">
                 <img src="<?php echo $this->media('images/logo.png'); ?>" alt="Joomla! Logo">
                 <h2>Joomla! End of Support Notice<br />All security patches have ceased.</h2>
@@ -16,6 +16,6 @@
                 <p><a class="btn btn-success" href="https://docs.joomla.org/Help15:Help_screens" target="_blank">Legacy Joomla 1.5 Help Screens</a></p>
                 <p>Joomla 1.0 Help Screens are no longer available</p>
             </div>
-   		</div>
-   	</body>
+        </div>
+    </body>
 </html>
