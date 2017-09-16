@@ -4,7 +4,7 @@
 <?php /** @var $title string */ ?>
 <?php /** @var $page string */ ?>
 <?php
-$source_doc = $wikiUrl . '/' . $pageName;
+$source_doc = $wikiUrl . '/' . str_replace('?', '%3F', $pageName);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
