@@ -202,9 +202,6 @@ class HelpScreenModel implements StatefulModelInterface
 
 		// Amend or remove links from wiki page.
 		$this->amendLinks();
-		
-		// Amend or remove specific page content
-		$this->amendPageContent();
 
 		// Remove table of contents.
 		if ($this->getState()->get('remove_toc', false))
@@ -232,7 +229,10 @@ class HelpScreenModel implements StatefulModelInterface
 	 */
 	public function getTitle() : string
 	{
-		return $this->title;
+		// Regex out the Prefix Help##:
+    	$titlePrefix = "!Help\d\d:!";
+		$this->title = preg_replace($titlePrefix, '', $this->title);
+    	return $this->title;
 	}
 
 	/**
@@ -328,19 +328,6 @@ class HelpScreenModel implements StatefulModelInterface
 		$pattern = '<a href="#';
 		$replace = '<a href="' . $this->currentUri->toString() . '#';
 		$this->page = str_replace($pattern, $replace, $this->page);
-	}
-
-	/**
-	 * Amend or remove content from a wiki page.
-	 *
-	 * @return  void
-	 */	
-	public function amendPageContent()
-	{	
-		// Remove Help##: from page <h1> tagged page title
-		$pattern = '!<h1>Help\S+:!';
-		$replace = '<h1>';
-		$this->page = preg_replace($pattern, $replace, $this->page);
 	}
 
 	/**
