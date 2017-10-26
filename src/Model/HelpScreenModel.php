@@ -338,9 +338,9 @@ class HelpScreenModel implements StatefulModelInterface
 	public function amendPageContent()
 	{	
 		// Remove Help##: from page <h1> tagged page title
-		$pattern = '<h1>Help\S+:';
+		$pattern = '!<h1>Help\S+:!';
 		$replace = '<h1>';
-		$this->page = str_replace($pattern, $replace, $this->page);
+		$this->page = preg_replace($pattern, $replace, $this->page);
 	}
 
 	/**
