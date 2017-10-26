@@ -230,9 +230,9 @@ class HelpScreenModel implements StatefulModelInterface
 	public function getTitle() : string
 	{
 		// Regex out the Prefix Help##:
-    	$titlePrefix = "!Help\d\d:!";
+		$titlePrefix = "!Help\d\d:!";
 		$this->title = preg_replace($titlePrefix, '', $this->title);
-    	return $this->title;
+		return $this->title;
 	}
 
 	/**
