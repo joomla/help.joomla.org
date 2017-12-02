@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "composer/ca-bundle",
-            "version": "1.0.8",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "9dd73a03951357922d8aee6cc084500de93e2343"
+                "reference": "943b2c4fcad1ef178d16a713c2468bf7e579c288"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/9dd73a03951357922d8aee6cc084500de93e2343",
-                "reference": "9dd73a03951357922d8aee6cc084500de93e2343",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/943b2c4fcad1ef178d16a713c2468bf7e579c288",
+                "reference": "943b2c4fcad1ef178d16a713c2468bf7e579c288",
                 "shasum": ""
             },
             "require": {
@@ -26,12 +26,9 @@
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5",
+                "phpunit/phpunit": "^4.8.35",
                 "psr/log": "^1.0",
-                "symfony/process": "^2.5 || ^3.0"
-            },
-            "suggest": {
-                "symfony/process": "This is necessary to reliably check whether openssl_x509_parse is vulnerable on older php versions, but can be ignored on PHP 5.5.6+"
+                "symfony/process": "^2.5 || ^3.0 || ^4.0"
             },
             "type": "library",
             "extra": {
@@ -63,7 +60,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2017-09-11T07:24:36+00:00"
+            "time": "2017-11-29T09:37:33+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -312,23 +309,23 @@
         },
         {
             "name": "joomla/di",
-            "version": "1.3.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/di.git",
-                "reference": "4991f57e2af628a87e43493b9b92dc8e3048da63"
+                "reference": "756c6eb4554b9007f69da66cf488a05308251ed8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/di/zipball/4991f57e2af628a87e43493b9b92dc8e3048da63",
-                "reference": "4991f57e2af628a87e43493b9b92dc8e3048da63",
+                "url": "https://api.github.com/repos/joomla-framework/di/zipball/756c6eb4554b9007f69da66cf488a05308251ed8",
+                "reference": "756c6eb4554b9007f69da66cf488a05308251ed8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.10"
+                "php": "^5.3.10|~7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*",
+                "phpunit/phpunit": "^4.8.35|^5.4.3|~6.0",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "type": "joomla-package",
@@ -339,8 +336,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Joomla\\DI\\": "src/",
-                    "Joomla\\DI\\Tests\\": "Tests/"
+                    "Joomla\\DI\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -357,7 +353,7 @@
                 "ioc",
                 "joomla"
             ],
-            "time": "2015-04-02T16:30:40+00:00"
+            "time": "2017-11-12T15:35:19+00:00"
         },
         {
             "name": "joomla/filter",
@@ -415,12 +411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "3feedaab716dba9070c7eb2af8d379e5a646d67e"
+                "reference": "7ed7d9c6cc751a7848ef31eb8054674a1c6bab15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/3feedaab716dba9070c7eb2af8d379e5a646d67e",
-                "reference": "3feedaab716dba9070c7eb2af8d379e5a646d67e",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/7ed7d9c6cc751a7848ef31eb8054674a1c6bab15",
+                "reference": "7ed7d9c6cc751a7848ef31eb8054674a1c6bab15",
                 "shasum": ""
             },
             "require": {
@@ -460,7 +456,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2017-08-16T00:42:14+00:00"
+            "time": "2017-10-15T15:13:44+00:00"
         },
         {
             "name": "joomla/input",
@@ -620,12 +616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/renderer.git",
-                "reference": "86537a4de9030ee6c80179da6d60f8cf4e2e5dfa"
+                "reference": "7e02e0ce575bef5ebdae955f0014e0c3519d11e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/86537a4de9030ee6c80179da6d60f8cf4e2e5dfa",
-                "reference": "86537a4de9030ee6c80179da6d60f8cf4e2e5dfa",
+                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/7e02e0ce575bef5ebdae955f0014e0c3519d11e1",
+                "reference": "7e02e0ce575bef5ebdae955f0014e0c3519d11e1",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +635,7 @@
                 "mustache/mustache": "~2.3",
                 "phpunit/phpunit": "~6.3",
                 "squizlabs/php_codesniffer": "1.*",
-                "symfony/templating": "~2.7|~3.0",
+                "symfony/templating": "~2.7|~3.0|~4.0",
                 "twig/twig": "~1.14|~2.0"
             },
             "suggest": {
@@ -671,7 +667,7 @@
                 "joomla",
                 "renderer"
             ],
-            "time": "2017-09-07T19:29:17+00:00"
+            "time": "2017-11-26T20:28:18+00:00"
         },
         {
             "name": "joomla/router",
@@ -1240,16 +1236,16 @@
         },
         {
             "name": "symfony/polyfill-php55",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php55.git",
-                "reference": "29b1381d66f16e0581aab0b9f678ccf073288f68"
+                "reference": "b64e7f0c37ecf144ecc16668936eef94e628fbfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/29b1381d66f16e0581aab0b9f678ccf073288f68",
-                "reference": "29b1381d66f16e0581aab0b9f678ccf073288f68",
+                "url": "https://api.github.com/repos/symfony/polyfill-php55/zipball/b64e7f0c37ecf144ecc16668936eef94e628fbfd",
+                "reference": "b64e7f0c37ecf144ecc16668936eef94e628fbfd",
                 "shasum": ""
             },
             "require": {
@@ -1259,7 +1255,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -1292,20 +1288,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-10-11T12:05:26+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "2faa791b66bac33ca40031d8bce03b7dc8143490"
+                "reference": "c8664b92a6d5bc229e48b0923486c097e45a7877"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/2faa791b66bac33ca40031d8bce03b7dc8143490",
-                "reference": "2faa791b66bac33ca40031d8bce03b7dc8143490",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/c8664b92a6d5bc229e48b0923486c097e45a7877",
+                "reference": "c8664b92a6d5bc229e48b0923486c097e45a7877",
                 "shasum": ""
             },
             "require": {
@@ -1344,7 +1340,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2017-09-13T14:47:08+00:00"
+            "time": "2017-10-12T15:24:51+00:00"
         }
     ],
     "packages-dev": [],
