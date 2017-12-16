@@ -70,7 +70,7 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	 *
 	 * @return  void
 	 */
-	private function setErrorHeader(\Throwable $exception)
+	private function setErrorHeader(\Throwable $exception) : void
 	{
 		switch ($exception->getCode())
 		{
@@ -104,7 +104,7 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	 *
 	 * @return  void
 	 */
-	private function setErrorOutput(\Throwable $exception)
+	private function setErrorOutput(\Throwable $exception) : void
 	{
 		switch (strtolower($this->input->getWord('format', 'html')))
 		{

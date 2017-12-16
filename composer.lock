@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eeb42d66c186a407b8b1733dbb8a870d",
+    "content-hash": "089a3c6709209dcc4a3c145e0dfc063d",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -166,12 +166,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/cache.git",
-                "reference": "ac22cf4144d12ff3585ca52b267128a7e2cfe744"
+                "reference": "8fad30d31513965574adaa1c9546525d972e086e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/ac22cf4144d12ff3585ca52b267128a7e2cfe744",
-                "reference": "ac22cf4144d12ff3585ca52b267128a7e2cfe744",
+                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/8fad30d31513965574adaa1c9546525d972e086e",
+                "reference": "8fad30d31513965574adaa1c9546525d972e086e",
                 "shasum": ""
             },
             "require": {
@@ -217,7 +217,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2017-08-16T00:16:36+00:00"
+            "time": "2017-12-06T15:30:02+00:00"
         },
         {
             "name": "joomla/compat",
@@ -411,12 +411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "7ed7d9c6cc751a7848ef31eb8054674a1c6bab15"
+                "reference": "3694086b1fff918c36b525061453c517fe569f37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/7ed7d9c6cc751a7848ef31eb8054674a1c6bab15",
-                "reference": "7ed7d9c6cc751a7848ef31eb8054674a1c6bab15",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/3694086b1fff918c36b525061453c517fe569f37",
+                "reference": "3694086b1fff918c36b525061453c517fe569f37",
                 "shasum": ""
             },
             "require": {
@@ -456,7 +456,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2017-10-15T15:13:44+00:00"
+            "time": "2017-12-06T15:24:18+00:00"
         },
         {
             "name": "joomla/input",
@@ -1355,10 +1355,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~7.0"
+        "php": "~7.1"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.0.15"
+        "php": "7.1.11"
     }
 }

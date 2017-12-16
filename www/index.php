@@ -50,7 +50,7 @@ try
 	error_reporting($errorReporting);
 	ini_set('display_errors', (bool) $errorReporting);
 }
-catch (\Exception $e)
+catch (\Throwable $e)
 {
 	if (isset($container))
 	{
@@ -65,7 +65,7 @@ catch (\Exception $e)
 				['exception' => $e]
 			);
 		}
-		catch (\Exception $nestedException)
+		catch (\Throwable $nestedException)
 		{
 			// Do nothing, we tried our best
 		}
@@ -92,7 +92,7 @@ try
 {
 	$container->get('app')->execute();
 }
-catch (\Exception $e)
+catch (\Throwable $e)
 {
 	// Try to write to a log
 	try
@@ -105,7 +105,7 @@ catch (\Exception $e)
 			['exception' => $e]
 		);
 	}
-	catch (\Exception $nestedException)
+	catch (\Throwable $nestedException)
 	{
 		// Do nothing, we tried our best
 	}

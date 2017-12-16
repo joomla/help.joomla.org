@@ -292,7 +292,7 @@ class HelpScreenModel implements StatefulModelInterface
 	 *
 	 * @return  void
 	 */
-	public function amendLinks()
+	public function amendLinks() : void
 	{
 		// Remove links to wiki image information pages.
 		$imglink = '!<a href="' . $this->uriWiki->getPath() . '/([^>]+)" class="image">(.+)</a>!';
@@ -335,7 +335,7 @@ class HelpScreenModel implements StatefulModelInterface
 	 *
 	 * @return  void
 	 */
-	private function createUriObjects()
+	private function createUriObjects() : void
 	{
 		$this->uriApi = new Uri($this->wikiUrl . '/api.php');
 		$this->uriWiki = new Uri($this->wikiUrl);
@@ -370,9 +370,9 @@ class HelpScreenModel implements StatefulModelInterface
 	 *
 	 * If a REDIRECT is present, returns the wiki page name to redirect to.
 	 *
-	 * @return  string|boolean  Page name to redirect to; false otherwise
+	 * @return  string|null  Page name to redirect to; null otherwise
 	 */
-	private function isRedirect()
+	private function isRedirect() : ?string
 	{
 		$pattern = '!<li>REDIRECT <a href="' . $this->uriWiki->getPath() . '/([^"]+)"!';
 
@@ -381,7 +381,7 @@ class HelpScreenModel implements StatefulModelInterface
 			return $matches[1];
 		}
 
-		return false;
+		return null;
 	}
 
 	/**
@@ -389,7 +389,7 @@ class HelpScreenModel implements StatefulModelInterface
 	 *
 	 * @return  void
 	 */
-	private function removeRedLinks()
+	private function removeRedLinks() : void
 	{
 		// Remove red links.
 		$redlink = '!<a href="' . $this->uriWiki->getPath() . '/index.php\?title=([^&]+)\&amp;action=edit&amp;redlink=1" class="new" title="([^"]+) \(([^)]+)\)">([^<]+)</a>!';
@@ -402,7 +402,7 @@ class HelpScreenModel implements StatefulModelInterface
 	 *
 	 * @return  void
 	 */
-	public function removeToc()
+	public function removeToc() : void
 	{
 		// Remove table of contents.
 		$toc = '!<table id="toc" class="toc">(.+)</table>!msU';
