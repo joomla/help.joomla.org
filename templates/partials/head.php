@@ -20,7 +20,7 @@ var _prum = [['id', '59300ad15992c776ad970068'],
     var s = document.getElementsByTagName('script')[0]
       , p = document.createElement('script');
     p.async = 'async';
-    p.src = '//rum-static.pingdom.net/prum.min.js';
+    p.src = 'https://rum-static.pingdom.net/prum.min.js';
     s.parentNode.insertBefore(p, s);
 })();
 </script>
