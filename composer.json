@@ -27,6 +27,12 @@
             "Joomla\\Help\\": "src/"
         }
     },
+    "replace": {
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*",
+        "symfony/polyfill-php55": "*"
+    },
     "config": {
         "platform": {
             "php": "7.1.11"
