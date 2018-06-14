@@ -2,7 +2,7 @@
 <title>Joomla! Help Site</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.joomla.org/template/css/template_2.2.0.min.css" />
+<link rel="stylesheet" href="https://cdn.joomla.org/template/css/template_3.0.0.min.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
 <style>
     h1, h2, h3, h4, h5, h6 {

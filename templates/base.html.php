@@ -34,7 +34,7 @@
                                 <a href="https://downloads.joomla.org" class="btn btn-large btn-warning">Download</a>
                             </div>
                             <div class="btn-group">
-                                <a href="https://demo.joomla.org" class="btn btn-large btn-primary">Demo</a>
+                                <a href="https://launch.joomla.org" class="btn btn-large btn-primary">Launch</a>
                             </div>
                         </div>
                     </div>
