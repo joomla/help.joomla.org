@@ -64,16 +64,16 @@
         },
         {
             "name": "joomla/application",
-            "version": "1.9.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/application.git",
-                "reference": "f32371fc988356bbf052396dcfd782effdd74b6d"
+                "reference": "a0360e578933e20e98da5c8e17cda72e2b5e2024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/application/zipball/f32371fc988356bbf052396dcfd782effdd74b6d",
-                "reference": "f32371fc988356bbf052396dcfd782effdd74b6d",
+                "url": "https://api.github.com/repos/joomla-framework/application/zipball/a0360e578933e20e98da5c8e17cda72e2b5e2024",
+                "reference": "a0360e578933e20e98da5c8e17cda72e2b5e2024",
                 "shasum": ""
             },
             "require": {
@@ -116,7 +116,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2018-05-20T15:35:58+00:00"
+            "time": "2018-05-28T15:32:35+00:00"
         },
         {
             "name": "joomla/cache",
@@ -520,16 +520,16 @@
         },
         {
             "name": "joomla/registry",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/registry.git",
-                "reference": "9b7fe128204301bebdae9bd8f02868e8e2e36f74"
+                "reference": "182eed3a56b2b7e14cef11fdbc63c253ddcfd924"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/registry/zipball/9b7fe128204301bebdae9bd8f02868e8e2e36f74",
-                "reference": "9b7fe128204301bebdae9bd8f02868e8e2e36f74",
+                "url": "https://api.github.com/repos/joomla-framework/registry/zipball/182eed3a56b2b7e14cef11fdbc63c253ddcfd924",
+                "reference": "182eed3a56b2b7e14cef11fdbc63c253ddcfd924",
                 "shasum": ""
             },
             "require": {
@@ -569,7 +569,7 @@
                 "joomla",
                 "registry"
             ],
-            "time": "2018-05-26T16:34:53+00:00"
+            "time": "2018-06-06T16:48:30+00:00"
         },
         {
             "name": "joomla/renderer",
@@ -1252,16 +1252,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "bf26aff803a11c5cc8eb7c4878a702c403ec67f1"
+                "reference": "741e7a571836f038de731105f4742ca8a164e43a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/bf26aff803a11c5cc8eb7c4878a702c403ec67f1",
-                "reference": "bf26aff803a11c5cc8eb7c4878a702c403ec67f1",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/741e7a571836f038de731105f4742ca8a164e43a",
+                "reference": "741e7a571836f038de731105f4742ca8a164e43a",
                 "shasum": ""
             },
             "require": {
@@ -1281,7 +1281,8 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.7.x-dev",
-                    "dev-develop": "1.8.x-dev"
+                    "dev-develop": "1.8.x-dev",
+                    "dev-release-2.0": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -1300,7 +1301,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2018-02-26T15:44:50+00:00"
+            "time": "2018-05-29T16:53:08+00:00"
         }
     ],
     "packages-dev": [],
