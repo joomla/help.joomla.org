@@ -186,43 +186,6 @@
             "time": "2018-05-25T02:20:02+00:00"
         },
         {
-            "name": "joomla/compat",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/joomla-framework/compat.git",
-                "reference": "f23565fe0184517778996226eb4b2333deb369c4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/compat/zipball/f23565fe0184517778996226eb4b2333deb369c4",
-                "reference": "f23565fe0184517778996226eb4b2333deb369c4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.10"
-            },
-            "type": "joomla-package",
-            "autoload": {
-                "classmap": [
-                    "src/JsonSerializable.php",
-                    "src/CallbackFilterIterator.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "Joomla Compat Package",
-            "homepage": "https://github.com/joomla-framework/compat",
-            "keywords": [
-                "compat",
-                "framework",
-                "joomla"
-            ],
-            "time": "2015-02-24T00:21:06+00:00"
-        },
-        {
             "name": "joomla/controller",
             "version": "dev-2.0-dev",
             "source": {
@@ -627,12 +590,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/renderer.git",
-                "reference": "0d9fc9e59267908ebdee5f2ee13f46fe35d6623c"
+                "reference": "104c941182b874b4110e352e82b902b366764841"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/0d9fc9e59267908ebdee5f2ee13f46fe35d6623c",
-                "reference": "0d9fc9e59267908ebdee5f2ee13f46fe35d6623c",
+                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/104c941182b874b4110e352e82b902b366764841",
+                "reference": "104c941182b874b4110e352e82b902b366764841",
                 "shasum": ""
             },
             "require": {
@@ -653,7 +616,7 @@
                 "illuminate/view": "Install ~5.1 if you are using Laravel's Blade template engine.",
                 "league/plates": "Install ~3.0 if you are using the Plates template engine.",
                 "mustache/mustache": "Install ~2.3 if you are using the Mustache template engine.",
-                "symfony/templating": "Install ~2.7|~3.0 if you are using Symfony's PHP template component.",
+                "symfony/templating": "Install ~2.7|~3.0|~4.0 if you are using Symfony's PHP template component.",
                 "twig/twig": "Install ~1.14|~2.0 if you are using the Twig template engine."
             },
             "type": "joomla-package",
@@ -678,7 +641,7 @@
                 "joomla",
                 "renderer"
             ],
-            "time": "2018-04-08T21:04:36+00:00"
+            "time": "2018-06-16T04:41:20+00:00"
         },
         {
             "name": "joomla/router",
