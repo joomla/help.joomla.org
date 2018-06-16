@@ -21,6 +21,7 @@ use Joomla\Http\Http;
 use Joomla\Renderer\PlatesRenderer;
 use Joomla\Renderer\RendererInterface;
 use League\Plates\Engine;
+use League\Plates\Extension\Asset;
 
 /**
  * Templating service provider
@@ -47,8 +48,12 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 				$engine = new Engine(JPATH_ROOT . '/templates');
 				$engine->addFolder('partials', JPATH_ROOT . '/templates/partials');
 
+				// Add extensions to the renderer
+				$engine->loadExtension(
+					new Asset(JPATH_ROOT . '/www')
+				);
+
 				// Add functions to the renderer
-				$engine->registerFunction('media', [$this, 'getMediaUrl']);
 				$engine->registerFunction('current_url', [$this, 'getCurrentUrl']);
 				$engine->registerFunction('cdn_menu', [$this, 'getCdnMenu']);
 				$engine->registerFunction('cdn_footer', [$this, 'getCdnFooter']);
@@ -214,17 +219,5 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 	public function getCurrentUrl() : string
 	{
 		return $this->getContainer()->get(AbstractApplication::class)->get('uri.request');
-	}
-
-	/**
-	 * Get the URL for a media asset.
-	 *
-	 * @param   string  $asset  The asset to build the URL for.
-	 *
-	 * @return  string
-	 */
-	public function getMediaUrl($asset) : string
-	{
-		return $this->getContainer()->get(AbstractApplication::class)->get('uri.media.full') . $asset;
 	}
 }

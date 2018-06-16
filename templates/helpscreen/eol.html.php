@@ -8,7 +8,7 @@
         <?php $this->insert('partials/gtm') ?>
         <div class="container">
             <div class="well text-center">
-                <img src="<?php echo $this->media('images/logo.png'); ?>" alt="Joomla! Logo">
+                <img src="<?php echo $this->asset('/media/images/logo.png'); ?>" alt="Joomla! Logo">
                 <h2>Joomla! End of Support Notice<br />All security patches have ceased.</h2>
                 <p class="lead">Joomla 1.0 End of Support - July 22, 2009<br />Joomla 1.5 End of Support - December 31, 2012</p>
                 <p>If you are still using Joomla! 1.0 or 1.5, please upgrade your Joomla! version ASAP. Your website may be at risk and your installed extensions may be a security risk.</p>

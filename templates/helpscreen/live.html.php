@@ -11,8 +11,8 @@ $source_doc = $wikiUrl . '/' . str_replace('?', '%3F', $pageName);
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Joomla! Help Screens</title>
-        <link rel="stylesheet" href="<?php echo $this->media('css/reset.css'); ?>" />
-        <link rel="stylesheet" href="<?php echo $this->media('css/help.css'); ?>" />
+        <link rel="stylesheet" href="<?php echo $this->asset('/media/css/reset.css'); ?>" />
+        <link rel="stylesheet" href="<?php echo $this->asset('/media/css/help.css'); ?>" />
         <script>
         var _prum = [['id', '59300ad15992c776ad970068'],
                      ['mark', 'firstbyte', (new Date()).getTime()]];
