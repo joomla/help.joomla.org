@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13d28766f7a591764ffe99258ceb0b40",
+    "content-hash": "d5b47dee3984511166fa14989c2918c2",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -216,45 +216,45 @@
         },
         {
             "name": "joomla/controller",
-            "version": "1.1.2",
+            "version": "dev-2.0-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/controller.git",
-                "reference": "9bc6778082299982a5d37cc0d2c3eff42ff2ed71"
+                "reference": "fad0742b56ed085fee7699f01ae90d54ac9e83a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/controller/zipball/9bc6778082299982a5d37cc0d2c3eff42ff2ed71",
-                "reference": "9bc6778082299982a5d37cc0d2c3eff42ff2ed71",
+                "url": "https://api.github.com/repos/joomla-framework/controller/zipball/fad0742b56ed085fee7699f01ae90d54ac9e83a2",
+                "reference": "fad0742b56ed085fee7699f01ae90d54ac9e83a2",
                 "shasum": ""
             },
             "require": {
-                "joomla/application": "~1.0",
-                "joomla/input": "~1.0",
-                "php": ">=5.3.10"
+                "php": "~7.0"
             },
             "require-dev": {
-                "joomla/application": "~1.0",
-                "joomla/input": "~1.0",
-                "joomla/test": "~1.0",
-                "phpunit/phpunit": "4.*",
-                "squizlabs/php_codesniffer": "1.*"
+                "joomla/application": "~1.0|~2.0",
+                "joomla/coding-standards": "~2.0@alpha",
+                "joomla/input": "~1.0|~2.0",
+                "phpunit/phpunit": "~6.3"
+            },
+            "suggest": {
+                "joomla/application": "The joomla/application package is required to use Joomla\\Controller\\AbstractController",
+                "joomla/input": "The joomla/input package is required to use Joomla\\Controller\\AbstractController"
             },
             "type": "joomla-package",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-2.0-dev": "2.0-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Joomla\\Controller\\": "src/",
-                    "Joomla\\Controller\\Tests\\": "Tests/"
+                    "Joomla\\Controller\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "description": "Joomla Controller Package",
             "homepage": "https://github.com/joomla-framework/controller",
@@ -263,7 +263,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2015-03-05T11:42:43+00:00"
+            "time": "2018-02-10T00:30:21+00:00"
         },
         {
             "name": "joomla/di",
@@ -469,35 +469,35 @@
         },
         {
             "name": "joomla/model",
-            "version": "1.3.0",
+            "version": "dev-2.0-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/model.git",
-                "reference": "65013d5364540fd797d1caa123b5d46de9f48322"
+                "reference": "51181bef06096446e0187c58aa6a8a4ee9e61137"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/model/zipball/65013d5364540fd797d1caa123b5d46de9f48322",
-                "reference": "65013d5364540fd797d1caa123b5d46de9f48322",
+                "url": "https://api.github.com/repos/joomla-framework/model/zipball/51181bef06096446e0187c58aa6a8a4ee9e61137",
+                "reference": "51181bef06096446e0187c58aa6a8a4ee9e61137",
                 "shasum": ""
             },
             "require": {
-                "joomla/registry": "~1.0",
-                "php": "^5.3.10|~7.0"
+                "php": "~7.0"
             },
             "require-dev": {
-                "joomla/database": "~1.0",
-                "joomla/test": "~1.0",
-                "phpunit/phpunit": "~4.8|~5.0",
-                "squizlabs/php_codesniffer": "1.*"
+                "joomla/coding-standards": "~2.0@alpha",
+                "joomla/database": "~1.0|~2.0",
+                "joomla/registry": "^1.4.5|~2.0",
+                "phpunit/phpunit": "~6.3"
             },
             "suggest": {
-                "joomla/database": "Allows using database models"
+                "joomla/database": "Allows using database models",
+                "joomla/registry": "Allows using stateful models"
             },
             "type": "joomla-package",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-2.0-dev": "2.0-dev"
                 }
             },
             "autoload": {
@@ -507,7 +507,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "description": "Joomla Model Package",
             "homepage": "https://github.com/joomla-framework/model",
@@ -516,7 +516,7 @@
                 "joomla",
                 "model"
             ],
-            "time": "2017-01-22T18:29:22+00:00"
+            "time": "2018-02-25T21:46:26+00:00"
         },
         {
             "name": "joomla/registry",
@@ -1309,7 +1309,9 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "joomla/cache": 20,
+        "joomla/controller": 20,
         "joomla/http": 20,
+        "joomla/model": 20,
         "joomla/renderer": 20,
         "joomla/view": 20
     },
