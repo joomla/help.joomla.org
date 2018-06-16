@@ -14,6 +14,7 @@ namespace Joomla\Help\Service;
 use Joomla\Application as JoomlaApplication;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
+use Joomla\Event\DispatcherInterface;
 use Joomla\Help\Controller\HelpScreenController;
 use Joomla\Help\Controller\LegacyController;
 use Joomla\Help\Model\HelpScreenModel;
@@ -47,6 +48,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 					// Inject extra services
 					$application->setContainer($container);
+					$application->setDispatcher($container->get(DispatcherInterface::class));
 					$application->setLogger($container->get('monolog.logger.application'));
 					$application->setRouter($container->get(Router::class));
 
