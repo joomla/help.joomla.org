@@ -62,7 +62,8 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			JoomlaApplication\Controller\ControllerResolverInterface::class,
-			function (Container $container) : JoomlaApplication\Controller\ControllerResolverInterface {
+			function (Container $container) : JoomlaApplication\Controller\ControllerResolverInterface
+			{
 				return new JoomlaApplication\Controller\ContainerControllerResolver($container);
 			}
 		)
@@ -82,7 +83,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			Router::class,
-			function (Container $container)
+			function ()
 			{
 				$router = new Router;
 

@@ -44,7 +44,7 @@ class HttpProvider implements ServiceProviderInterface
 
 		$container->share(
 			HttpFactory::class,
-			function (Container $container) : HttpFactory
+			function () : HttpFactory
 			{
 				return new HttpFactory;
 			},
