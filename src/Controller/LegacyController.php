@@ -13,6 +13,7 @@ namespace Joomla\Help\Controller;
 
 use Joomla\Controller\AbstractController;
 use Joomla\Renderer\RendererInterface;
+use Zend\Diactoros\Response\HtmlResponse;
 
 /**
  * Controller to catch legacy help.joomla.org routes
@@ -52,7 +53,7 @@ class LegacyController extends AbstractController
 		// Set the layout based on the requested task; the 'findkey' task maps to Joomla! 1.0 and 1.5 help screen requests
 		$layout = $this->getInput()->getString('task', 'display') == 'findkey' ? 'helpscreen/eol.html' : 'main.html';
 
-		$this->getApplication()->setBody($this->renderer->render($layout));
+		$this->getApplication()->setResponse(new HtmlResponse($this->renderer->render($layout)));
 
 		return true;
 	}

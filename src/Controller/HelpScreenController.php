@@ -16,6 +16,7 @@ use Joomla\Controller\AbstractController;
 use Joomla\Help\View\HelpScreenHtmlView;
 use Joomla\Uri\Uri;
 use Psr\Cache\CacheItemPoolInterface;
+use Zend\Diactoros\Response\HtmlResponse;
 
 /**
  * Controller to render Joomla! help screens
@@ -113,7 +114,7 @@ class HelpScreenController extends AbstractController
 			$body = $this->view->render();
 		}
 
-		$this->getApplication()->setBody($body);
+		$this->getApplication()->setResponse(new HtmlResponse($body));
 
 		return true;
 	}
