@@ -24,8 +24,12 @@ if (!file_exists($composerPath))
 
 require $composerPath;
 
+use Joomla\Application\AbstractApplication;
+use Joomla\Application\WebApplication;
 use Joomla\DI\Container;
 use Joomla\Help\Service as Services;
+use Monolog\Logger;
+use Psr\Log\LoggerInterface;
 
 // Wrap in a try/catch so we can display an error if need be
 try
@@ -34,16 +38,17 @@ try
 		->registerServiceProvider(new Services\ApplicationProvider)
 		->registerServiceProvider(new Services\CacheProvider)
 		->registerServiceProvider(new Services\ConfigProvider(JPATH_ROOT . '/conf/config.json'))
+		->registerServiceProvider(new Services\EventProvider)
+		->registerServiceProvider(new Services\HttpProvider)
 		->registerServiceProvider(new Services\LoggingProvider)
 		->registerServiceProvider(new Services\TemplatingProvider);
 
 	// Alias the web application to Joomla's base application class and the `app` shortcut as this is the primary application for the environment
-	$container->alias('Joomla\Application\AbstractApplication', 'Joomla\Help\WebApplication')
-		->alias('app', 'Joomla\Help\WebApplication');
+	$container->alias(AbstractApplication::class, WebApplication::class);
 
 	// Alias the `monolog.logger.application` service to the Monolog Logger class and PSR-3 interface as this is the primary logger for the environment
-	$container->alias('Monolog\Logger', 'monolog.logger.application')
-		->alias('Psr\Log\LoggerInterface', 'monolog.logger.application');
+	$container->alias(Logger::class, 'monolog.logger.application')
+		->alias(LoggerInterface::class, 'monolog.logger.application');
 
 	// Set error reporting based on config
 	$errorReporting = (int) $container->get('config')->get('system.error_reporting', 0);
@@ -57,7 +62,7 @@ catch (\Throwable $e)
 		// Try to write to a log
 		try
 		{
-			$container->get('monolog.logger.application')->critical(
+			$container->get(LoggerInterface::class)->critical(
 				sprintf(
 					'Exception of type %1$s thrown while booting the application',
 					get_class($e)
@@ -90,14 +95,14 @@ catch (\Throwable $e)
 // Execute the application
 try
 {
-	$container->get('app')->execute();
+	$container->get(AbstractApplication::class)->execute();
 }
 catch (\Throwable $e)
 {
 	// Try to write to a log
 	try
 	{
-		$container->get('monolog.logger.application')->critical(
+		$container->get(LoggerInterface::class)->critical(
 			sprintf(
 				'Exception of type %1$s thrown while executing the application',
 				get_class($e)

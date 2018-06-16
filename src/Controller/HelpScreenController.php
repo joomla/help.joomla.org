@@ -16,12 +16,13 @@ use Joomla\Controller\AbstractController;
 use Joomla\Help\View\HelpScreenHtmlView;
 use Joomla\Uri\Uri;
 use Psr\Cache\CacheItemPoolInterface;
+use Zend\Diactoros\Response\HtmlResponse;
 
 /**
  * Controller to render Joomla! help screens
  *
- * @method         \Joomla\Help\WebApplication  getApplication()  Get the application object.
- * @property-read  \Joomla\Help\WebApplication  $app              Application object
+ * @method         \Joomla\Application\WebApplication  getApplication()  Get the application object.
+ * @property-read  \Joomla\Application\WebApplication  $app              Application object
  */
 class HelpScreenController extends AbstractController
 {
@@ -61,9 +62,8 @@ class HelpScreenController extends AbstractController
 		// Enable browser caching
 		$this->getApplication()->allowCache(true);
 
-		// Set the layout for the view and error page
+		// Set the layout for the view
 		$this->view->setLayout('helpscreen/live.html');
-		$this->getApplication()->setErrorTemplate('helpscreen/exception.html');
 
 		// Store data into the model
 		$state = $this->view->getModel()->getState();
@@ -114,7 +114,7 @@ class HelpScreenController extends AbstractController
 			$body = $this->view->render();
 		}
 
-		$this->getApplication()->setBody($body);
+		$this->getApplication()->setResponse(new HtmlResponse($body));
 
 		return true;
 	}

@@ -11,7 +11,7 @@
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
-<script src="<?php echo $this->media('js/bootstrap.min.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo $this->asset('/media/js/bootstrap.min.js'); ?>" type="text/javascript"></script>
 <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <script>
 var _prum = [['id', '59300ad15992c776ad970068'],
