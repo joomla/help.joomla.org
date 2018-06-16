@@ -16,7 +16,7 @@
         "joomla/model": "~2.0@dev",
         "joomla/registry": "~1.5",
         "joomla/renderer": "~2.0@dev",
-        "joomla/router": "~1.1",
+        "joomla/router": "~2.0@dev",
         "joomla/uri": "~1.1",
         "joomla/view": "~2.0@dev",
         "league/plates": "~3.1",

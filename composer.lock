@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5b47dee3984511166fa14989c2918c2",
+    "content-hash": "39731affefb55dac41a414150eef8639",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -632,32 +632,33 @@
         },
         {
             "name": "joomla/router",
-            "version": "1.2.0",
+            "version": "dev-2.0-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/router.git",
-                "reference": "7ec0d2e82c3ae3fb40d262f08d62b4f99a288d21"
+                "reference": "6fa90fc6151d09cbe290e52bbe04eb1eb7a84e77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/router/zipball/7ec0d2e82c3ae3fb40d262f08d62b4f99a288d21",
-                "reference": "7ec0d2e82c3ae3fb40d262f08d62b4f99a288d21",
+                "url": "https://api.github.com/repos/joomla-framework/router/zipball/6fa90fc6151d09cbe290e52bbe04eb1eb7a84e77",
+                "reference": "6fa90fc6151d09cbe290e52bbe04eb1eb7a84e77",
                 "shasum": ""
             },
             "require": {
-                "joomla/controller": "~1.0|~2.0",
-                "joomla/input": "~1.0|~2.0",
-                "php": "^5.3.10|~7.0"
+                "php": "~7.0"
             },
             "require-dev": {
+                "jeremeamia/superclosure": "~1.0",
                 "joomla/coding-standards": "~2.0@alpha",
-                "joomla/test": "~1.0",
-                "phpunit/phpunit": "^4.8.35|^5.4.3|~6.0"
+                "phpunit/phpunit": "~6.3"
+            },
+            "suggest": {
+                "jeremeamia/superclosure": "If you use Closure controllers, and want to be able to cache / serialize the router, please install jeremeamia/superclosure:~1.0"
             },
             "type": "joomla-package",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-2.0-dev": "2.0-dev"
                 }
             },
             "autoload": {
@@ -676,7 +677,7 @@
                 "joomla",
                 "router"
             ],
-            "time": "2018-03-15T00:37:35+00:00"
+            "time": "2018-04-08T15:03:50+00:00"
         },
         {
             "name": "joomla/string",
@@ -1313,6 +1314,7 @@
         "joomla/http": 20,
         "joomla/model": 20,
         "joomla/renderer": 20,
+        "joomla/router": 20,
         "joomla/view": 20
     },
     "prefer-stable": false,

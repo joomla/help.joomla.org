@@ -14,6 +14,7 @@ namespace Joomla\Help;
 use Joomla\Application\AbstractWebApplication;
 use Joomla\DI\ContainerAwareInterface;
 use Joomla\DI\ContainerAwareTrait;
+use Joomla\Router\Router;
 
 /**
  * Web application for the help site.
@@ -45,7 +46,17 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	{
 		try
 		{
-			$this->router->getController($this->get('uri.route'))->execute();
+			$route = $this->router->parseRoute($this->get('uri.route'), $this->input->getMethod());
+
+			// Add variables to the input if not already set
+			foreach ($route->getRouteVariables() as $key => $value)
+			{
+				$this->input->def($key, $value);
+			}
+
+			/** @var ControllerInterface $controller */
+			$controller = $this->getContainer()->get($route->getController());
+			$controller->execute();
 		}
 		catch (\Throwable $e)
 		{

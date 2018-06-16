@@ -17,12 +17,12 @@ use Joomla\DI\ServiceProviderInterface;
 use Joomla\Help\Controller\HelpScreenController;
 use Joomla\Help\Controller\LegacyController;
 use Joomla\Help\Model\HelpScreenModel;
-use Joomla\Help\Router;
 use Joomla\Help\View\HelpScreenHtmlView;
 use Joomla\Help\WebApplication;
 use Joomla\Http\HttpFactory;
 use Joomla\Input\Input;
 use Joomla\Registry\Registry;
+use Joomla\Router\Router;
 
 /**
  * Application service provider
@@ -68,13 +68,32 @@ class ApplicationProvider implements ServiceProviderInterface
 			Router::class,
 			function (Container $container)
 			{
-				$router = (new Router($container->get(Input::class)))
-					->setContainer($container)
-					->setControllerPrefix('Joomla\\Help\\Controller\\')
-					->setDefaultController('LegacyController')
-					->addMap('/proxy', 'HelpScreenController')
-					->addMap('/proxy/index.php', 'HelpScreenController')
-					->addMap('/*', 'LegacyController');
+				$router = new Router;
+
+				$router->get(
+					'/',
+					LegacyController::class
+				);
+
+				$router->head(
+					'/',
+					LegacyController::class
+				);
+
+				$router->get(
+					'/proxy',
+					HelpScreenController::class
+				);
+
+				$router->get(
+					'/proxy/index.php',
+					HelpScreenController::class
+				);
+
+				$router->get(
+					'/*',
+					LegacyController::class
+				);
 
 				return $router;
 			},
