@@ -13,8 +13,8 @@ namespace Joomla\Help\EventListener;
 
 use Joomla\Application\ApplicationEvents;
 use Joomla\Application\Event\ApplicationErrorEvent;
+use Joomla\Application\WebApplication;
 use Joomla\Event\SubscriberInterface;
-use Joomla\Help\WebApplication;
 use Joomla\Renderer\RendererInterface;
 use Joomla\Router\Exception\MethodNotAllowedException;
 use Joomla\Router\Exception\RouteNotFoundException;

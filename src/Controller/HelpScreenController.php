@@ -21,8 +21,8 @@ use Zend\Diactoros\Response\HtmlResponse;
 /**
  * Controller to render Joomla! help screens
  *
- * @method         \Joomla\Help\WebApplication  getApplication()  Get the application object.
- * @property-read  \Joomla\Help\WebApplication  $app              Application object
+ * @method         \Joomla\Application\WebApplication  getApplication()  Get the application object.
+ * @property-read  \Joomla\Application\WebApplication  $app              Application object
  */
 class HelpScreenController extends AbstractController
 {

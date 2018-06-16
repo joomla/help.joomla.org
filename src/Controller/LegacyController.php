@@ -18,8 +18,8 @@ use Zend\Diactoros\Response\HtmlResponse;
 /**
  * Controller to catch legacy help.joomla.org routes
  *
- * @method         \Joomla\Help\WebApplication  getApplication()  Get the application object.
- * @property-read  \Joomla\Help\WebApplication  $app              Application object
+ * @method         \Joomla\Application\WebApplication  getApplication()  Get the application object.
+ * @property-read  \Joomla\Application\WebApplication  $app              Application object
  */
 class LegacyController extends AbstractController
 {

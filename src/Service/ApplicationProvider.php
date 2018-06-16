@@ -19,7 +19,6 @@ use Joomla\Help\Controller\HelpScreenController;
 use Joomla\Help\Controller\LegacyController;
 use Joomla\Help\Model\HelpScreenModel;
 use Joomla\Help\View\HelpScreenHtmlView;
-use Joomla\Help\WebApplication;
 use Joomla\Http\Http;
 use Joomla\Input\Input;
 use Joomla\Registry\Registry;
@@ -40,22 +39,36 @@ class ApplicationProvider implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
-		$container->alias(JoomlaApplication\AbstractWebApplication::class, WebApplication::class)
+		$container->alias(JoomlaApplication\AbstractWebApplication::class, JoomlaApplication\WebApplication::class)
 			->share(
-				WebApplication::class,
+				JoomlaApplication\WebApplication::class,
 				function (Container $container)
 				{
-					$application = new WebApplication($container->get(Input::class), $container->get('config'));
+					$application = new JoomlaApplication\WebApplication(
+						$container->get(JoomlaApplication\Controller\ControllerResolverInterface::class),
+						$container->get(Router::class),
+						$container->get(Input::class),
+						$container->get('config')
+					);
 
 					// Inject extra services
-					$application->setContainer($container);
 					$application->setDispatcher($container->get(DispatcherInterface::class));
 					$application->setLogger($container->get('monolog.logger.application'));
-					$application->setRouter($container->get(Router::class));
 
 					return $application;
 				},
 				true
+			);
+
+		$container->share(
+			JoomlaApplication\Controller\ControllerResolverInterface::class,
+			function (Container $container) : JoomlaApplication\Controller\ControllerResolverInterface {
+				return new JoomlaApplication\Controller\ContainerControllerResolver($container);
+			}
+		)
+			->alias(
+				JoomlaApplication\Controller\ContainerControllerResolver::class,
+				JoomlaApplication\Controller\ControllerResolverInterface::class
 			);
 
 		$container->share(
@@ -112,7 +125,7 @@ class ApplicationProvider implements ServiceProviderInterface
 					$container->get('cache')
 				);
 
-				$controller->setApplication($container->get(WebApplication::class));
+				$controller->setApplication($container->get(JoomlaApplication\WebApplication::class));
 				$controller->setInput($container->get(Input::class));
 
 				return $controller;
@@ -128,7 +141,7 @@ class ApplicationProvider implements ServiceProviderInterface
 					$container->get(RendererInterface::class)
 				);
 
-				$controller->setApplication($container->get(WebApplication::class));
+				$controller->setApplication($container->get(JoomlaApplication\WebApplication::class));
 				$controller->setInput($container->get(Input::class));
 
 				return $controller;

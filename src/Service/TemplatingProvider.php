@@ -11,6 +11,7 @@
 
 namespace Joomla\Help\Service;
 
+use Joomla\Application\AbstractApplication;
 use Joomla\Cache\Item\Item;
 use Joomla\DI\Container;
 use Joomla\DI\ContainerAwareInterface;
@@ -99,7 +100,7 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 					]
 				);
 
-				$item = (new Item($key, $this->getContainer()->get('app')->get('cache.lifetime', 900)))
+				$item = (new Item($key, $this->getContainer()->get(AbstractApplication::class)->get('cache.lifetime', 900)))
 					->set($body);
 
 				$cache->save($item);
@@ -170,7 +171,7 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 					$body
 				);
 
-				$item = (new Item($key, $this->getContainer()->get('app')->get('cache.lifetime', 900)))
+				$item = (new Item($key, $this->getContainer()->get(AbstractApplication::class)->get('cache.lifetime', 900)))
 					->set($body);
 
 				$cache->save($item);
@@ -212,7 +213,7 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 	 */
 	public function getCurrentUrl() : string
 	{
-		return $this->getContainer()->get('app')->get('uri.request');
+		return $this->getContainer()->get(AbstractApplication::class)->get('uri.request');
 	}
 
 	/**
@@ -224,6 +225,6 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 	 */
 	public function getMediaUrl($asset) : string
 	{
-		return $this->getContainer()->get('app')->get('uri.media.full') . $asset;
+		return $this->getContainer()->get(AbstractApplication::class)->get('uri.media.full') . $asset;
 	}
 }
