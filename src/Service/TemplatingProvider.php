@@ -39,24 +39,23 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 	{
 		$this->setContainer($container);
 
-		$container->alias('renderer', RendererInterface::class)
-			->share(
-				RendererInterface::class,
-				function (Container $container)
-				{
-					$engine = new Engine(JPATH_ROOT . '/templates');
-					$engine->addFolder('partials', JPATH_ROOT . '/templates/partials');
+		$container->share(
+			RendererInterface::class,
+			function (Container $container)
+			{
+				$engine = new Engine(JPATH_ROOT . '/templates');
+				$engine->addFolder('partials', JPATH_ROOT . '/templates/partials');
 
-					// Add functions to the renderer
-					$engine->registerFunction('media', [$this, 'getMediaUrl']);
-					$engine->registerFunction('current_url', [$this, 'getCurrentUrl']);
-					$engine->registerFunction('cdn_menu', [$this, 'getCdnMenu']);
-					$engine->registerFunction('cdn_footer', [$this, 'getCdnFooter']);
+				// Add functions to the renderer
+				$engine->registerFunction('media', [$this, 'getMediaUrl']);
+				$engine->registerFunction('current_url', [$this, 'getCurrentUrl']);
+				$engine->registerFunction('cdn_menu', [$this, 'getCdnMenu']);
+				$engine->registerFunction('cdn_footer', [$this, 'getCdnFooter']);
 
-					return new PlatesRenderer($engine);
-				},
-				true
-			);
+				return new PlatesRenderer($engine);
+			},
+			true
+		);
 	}
 
 	/**

@@ -23,6 +23,7 @@ use Joomla\Help\WebApplication;
 use Joomla\Http\Http;
 use Joomla\Input\Input;
 use Joomla\Registry\Registry;
+use Joomla\Renderer\RendererInterface;
 use Joomla\Router\Router;
 
 /**
@@ -107,11 +108,11 @@ class ApplicationProvider implements ServiceProviderInterface
 			function (Container $container)
 			{
 				$controller = new HelpScreenController(
-					$container->get('Joomla\Help\View\HelpScreenHtmlView'),
+					$container->get(HelpScreenHtmlView::class),
 					$container->get('cache')
 				);
 
-				$controller->setApplication($container->get('app'));
+				$controller->setApplication($container->get(WebApplication::class));
 				$controller->setInput($container->get(Input::class));
 
 				return $controller;
@@ -124,10 +125,10 @@ class ApplicationProvider implements ServiceProviderInterface
 			function (Container $container)
 			{
 				$controller = new LegacyController(
-					$container->get('renderer')
+					$container->get(RendererInterface::class)
 				);
 
-				$controller->setApplication($container->get('app'));
+				$controller->setApplication($container->get(WebApplication::class));
 				$controller->setInput($container->get(Input::class));
 
 				return $controller;
@@ -153,7 +154,7 @@ class ApplicationProvider implements ServiceProviderInterface
 			{
 				return new HelpScreenHtmlView(
 					$container->get(HelpScreenModel::class),
-					$container->get('renderer')
+					$container->get(RendererInterface::class)
 				);
 			},
 			true
