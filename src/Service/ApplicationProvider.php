@@ -20,7 +20,7 @@ use Joomla\Help\Controller\LegacyController;
 use Joomla\Help\Model\HelpScreenModel;
 use Joomla\Help\View\HelpScreenHtmlView;
 use Joomla\Help\WebApplication;
-use Joomla\Http\HttpFactory;
+use Joomla\Http\Http;
 use Joomla\Input\Input;
 use Joomla\Registry\Registry;
 use Joomla\Router\Router;
@@ -141,7 +141,7 @@ class ApplicationProvider implements ServiceProviderInterface
 			{
 				return new HelpScreenModel(
 					new Registry,
-					(new HttpFactory)->getHttp()
+					$container->get(Http::class)
 				);
 			},
 			true

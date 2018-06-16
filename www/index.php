@@ -35,6 +35,7 @@ try
 		->registerServiceProvider(new Services\CacheProvider)
 		->registerServiceProvider(new Services\ConfigProvider(JPATH_ROOT . '/conf/config.json'))
 		->registerServiceProvider(new Services\EventProvider)
+		->registerServiceProvider(new Services\HttpProvider)
 		->registerServiceProvider(new Services\LoggingProvider)
 		->registerServiceProvider(new Services\TemplatingProvider);
 

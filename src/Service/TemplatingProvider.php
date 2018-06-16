@@ -16,7 +16,7 @@ use Joomla\DI\Container;
 use Joomla\DI\ContainerAwareInterface;
 use Joomla\DI\ContainerAwareTrait;
 use Joomla\DI\ServiceProviderInterface;
-use Joomla\Http\HttpFactory;
+use Joomla\Http\Http;
 use Joomla\Renderer\PlatesRenderer;
 use Joomla\Renderer\RendererInterface;
 use League\Plates\Engine;
@@ -75,15 +75,18 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 		{
 			try
 			{
-				// Set a very short timeout to try and not bring the site down
-				$response = (new HttpFactory)->getHttp()->get('https://cdn.joomla.org/template/renderer.php?section=footer', [], 2);
+				/** @var Http $http */
+				$http = $this->getContainer()->get(Http::class);
 
-				if ($response->code !== 200)
+				// Set a very short timeout to try and not bring the site down
+				$response = $http->get('https://cdn.joomla.org/template/renderer.php?section=footer', [], 2);
+
+				if ($response->getStatusCode() !== 200)
 				{
 					return 'Could not load template section.';
 				}
 
-				$body = $response->body;
+				$body = (string) $response->getBody();
 
 				// Remove the login link
 				$body = str_replace("\t\t<li><a href=\"%loginroute%\">%logintext%</a></li>\n", '', $body);
@@ -148,15 +151,18 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 		{
 			try
 			{
-				// Set a very short timeout to try and not bring the site down
-				$response = (new HttpFactory)->getHttp()->get('https://cdn.joomla.org/template/renderer.php?section=menu', [], 2);
+				/** @var Http $http */
+				$http = $this->getContainer()->get(Http::class);
 
-				if ($response->code !== 200)
+				// Set a very short timeout to try and not bring the site down
+				$response = $http->get('https://cdn.joomla.org/template/renderer.php?section=menu', [], 2);
+
+				if ($response->getStatusCode() !== 200)
 				{
 					return 'Could not load template section.';
 				}
 
-				$body = $response->body;
+				$body = (string) $response->getBody();
 
 				// Remove the search module
 				$body = str_replace(
