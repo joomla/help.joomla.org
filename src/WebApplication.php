@@ -24,13 +24,6 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	use ContainerAwareTrait;
 
 	/**
-	 * The template to use for error pages.
-	 *
-	 * @var  string
-	 */
-	private $errorTemplate = 'exception.html';
-
-	/**
 	 * Application router.
 	 *
 	 * @var  Router
@@ -44,88 +37,17 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	 */
 	protected function doExecute()
 	{
-		try
+		$route = $this->router->parseRoute($this->get('uri.route'), $this->input->getMethod());
+
+		// Add variables to the input if not already set
+		foreach ($route->getRouteVariables() as $key => $value)
 		{
-			$route = $this->router->parseRoute($this->get('uri.route'), $this->input->getMethod());
-
-			// Add variables to the input if not already set
-			foreach ($route->getRouteVariables() as $key => $value)
-			{
-				$this->input->def($key, $value);
-			}
-
-			/** @var ControllerInterface $controller */
-			$controller = $this->getContainer()->get($route->getController());
-			$controller->execute();
-		}
-		catch (\Throwable $e)
-		{
-			// Do not browser cache an error page
-			$this->allowCache(false);
-
-			// Log the error for reference
-			$this->getLogger()->error(
-				sprintf('Uncaught Throwable of type %s caught.', get_class($e)),
-				['exception' => $e]
-			);
-
-			$this->setErrorHeader($e);
-			$this->setErrorOutput($e);
-		}
-	}
-
-	/**
-	 * Set the HTTP Response Header for error conditions.
-	 *
-	 * @param   \Throwable  $exception  The Throwable object to process.
-	 *
-	 * @return  void
-	 */
-	private function setErrorHeader(\Throwable $exception) : void
-	{
-		switch ($exception->getCode())
-		{
-			case 401:
-				$this->setHeader('HTTP/1.1 401 Unauthorized', 401, true);
-
-				break;
-
-			case 403:
-				$this->setHeader('HTTP/1.1 403 Forbidden', 403, true);
-
-				break;
-
-			case 404:
-				$this->setHeader('HTTP/1.1 404 Not Found', 404, true);
-
-				break;
-
-			case 500:
-			default:
-				$this->setHeader('HTTP/1.1 500 Internal Server Error', 500, true);
-
-				break;
-		}
-	}
-
-	/**
-	 * Set the body for error conditions.
-	 *
-	 * @param   \Throwable  $exception  The Throwable object.
-	 *
-	 * @return  void
-	 */
-	private function setErrorOutput(\Throwable $exception) : void
-	{
-		switch (strtolower($this->input->getWord('format', 'html')))
-		{
-			case 'html' :
-			default :
-				$body = $this->getContainer()->get('renderer')->render($this->errorTemplate, ['exception' => $exception]);
-				break;
+			$this->input->def($key, $value);
 		}
 
-		$this->setBody($body);
+		/** @var ControllerInterface $controller */
+		$controller = $this->getContainer()->get($route->getController());
+		$controller->execute();
 	}
 
 	/**
@@ -138,20 +60,6 @@ class WebApplication extends AbstractWebApplication implements ContainerAwareInt
 	public function setRouter(Router $router) : WebApplication
 	{
 		$this->router = $router;
-
-		return $this;
-	}
-
-	/**
-	 * Set the application's error template.
-	 *
-	 * @param   string  $template  Name of the template to use for error pages.
-	 *
-	 * @return  $this
-	 */
-	public function setErrorTemplate(string $template) : WebApplication
-	{
-		$this->errorTemplate = $template;
 
 		return $this;
 	}

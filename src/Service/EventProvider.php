@@ -15,6 +15,9 @@ use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\Dispatcher;
 use Joomla\Event\DispatcherInterface;
+use Joomla\Help\EventListener\ErrorSubscriber;
+use Joomla\Renderer\RendererInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Event service provider
@@ -46,5 +49,18 @@ class EventProvider implements ServiceProviderInterface
 				},
 				true
 			);
+
+		$container->share(
+			ErrorSubscriber::class,
+			function (Container $container) : ErrorSubscriber
+			{
+				$subscriber = new ErrorSubscriber($container->get(RendererInterface::class));
+				$subscriber->setLogger($container->get(LoggerInterface::class));
+
+				return $subscriber;
+			},
+			true
+		)
+			->tag('event.subscriber', [ErrorSubscriber::class]);
 	}
 }

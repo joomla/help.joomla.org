@@ -61,9 +61,8 @@ class HelpScreenController extends AbstractController
 		// Enable browser caching
 		$this->getApplication()->allowCache(true);
 
-		// Set the layout for the view and error page
+		// Set the layout for the view
 		$this->view->setLayout('helpscreen/live.html');
-		$this->getApplication()->setErrorTemplate('helpscreen/exception.html');
 
 		// Store data into the model
 		$state = $this->view->getModel()->getState();
