@@ -7,10 +7,11 @@
     "license": "GPL-2.0+",
     "require": {
         "php": "~7.1",
-        "joomla/application": "~1.4",
+        "joomla/application": "~2.0@dev",
         "joomla/cache": "~2.0@dev",
         "joomla/controller": "~2.0@dev",
         "joomla/di": "~2.0@dev",
+        "joomla/event": "~2.0@dev",
         "joomla/http": "~2.0@dev",
         "joomla/input": "~2.0@dev",
         "joomla/model": "~2.0@dev",
