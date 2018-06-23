@@ -6,20 +6,22 @@
 ###########################################
 # ======= Set basic Security header =======
 
-<IfModule mod_headers.c>
-	# X-XSS-Protection
-	Header always set X-XSS-Protection "1; mode=block"
-	# X-Frame-Options (Here on the help site we don't want to set that header!)
-	# Header always set X-Frame-Options DENY
-	# X-Content-Type nosniff
-	Header always set X-Content-Type-Options nosniff
-	# Referrer Policy
-	Header always set Referrer-Policy "no-referrer-when-downgrade"
-	# Strict-Transport-Security
-	Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-	# Content-Security-Policy-Report-Only 
-	Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://*.google-analytics.com https://*.googletagmanager.com https://*.pingdom.net https://code.jquery.com; style-src 'self' 'unsafe-inline' https://cdn.joomla.org https://fonts.googleapis.com; connect-src 'self' https://*.pingdom.net https://*.google-analytics.com https://*.doubleclick.net; frame-src 'self' https://*.googletagmanager.com; font-src 'self' https://cdn.joomla.org https://fonts.gstatic.com; img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com https://*.joomla.org https://*.pingdom.net https://*.doubleclick.net; report-uri https://community.joomla.org/scripts/csp-reporter.php?source=help.joomla.org"
-</IfModule>
+<If "req('Host') == 'help.joomla.org'">
+	<IfModule mod_headers.c>
+		# X-XSS-Protection
+		Header always set X-XSS-Protection "1; mode=block"
+		# X-Frame-Options (Here on the help site we don't want to set that header!)
+		# Header always set X-Frame-Options DENY
+		# X-Content-Type nosniff
+		Header always set X-Content-Type-Options nosniff
+		# Referrer Policy
+		Header always set Referrer-Policy "no-referrer-when-downgrade"
+		# Strict-Transport-Security
+		Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		# Content-Security-Policy-Report-Only 
+		Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://*.google-analytics.com https://*.googletagmanager.com https://*.pingdom.net https://code.jquery.com; style-src 'self' 'unsafe-inline' https://cdn.joomla.org https://fonts.googleapis.com; connect-src 'self' https://*.pingdom.net https://*.google-analytics.com https://*.doubleclick.net; frame-src 'self' https://*.googletagmanager.com; font-src 'self' https://cdn.joomla.org https://fonts.gstatic.com; img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com https://*.joomla.org https://*.pingdom.net https://*.doubleclick.net; report-uri https://community.joomla.org/scripts/csp-reporter.php?source=help.joomla.org"
+	</IfModule>
+</if>
 
 ###########################################
 
