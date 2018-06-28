@@ -381,6 +381,13 @@ class HelpScreenModel implements StatefulModelInterface
 			return $matches[1];
 		}
 
+		$pattern = '!<ul class="redirectText"><li><a href="' . $this->uriWiki->getPath() . '/([^"]+)"!';
+
+		if (preg_match($pattern, $this->page, $matches))
+		{
+			return $matches[1];
+		}
+
 		return null;
 	}
 
