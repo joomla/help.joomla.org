@@ -252,7 +252,7 @@ class HelpScreenModel implements StatefulModelInterface
 	 *
 	 * @return  $this
 	 */
-	public function setCurrentUri(Uri $uri) : HelpScreenModel
+	public function setCurrentUri(Uri $uri) : self
 	{
 		$this->currentUri = $uri;
 
@@ -266,7 +266,7 @@ class HelpScreenModel implements StatefulModelInterface
 	 *
 	 * @return  $this
 	 */
-	private function setPageUrlSlug(string $slug) : HelpScreenModel
+	private function setPageUrlSlug(string $slug) : self
 	{
 		$this->pageUrlSlug = Normalise::toUnderscoreSeparated($slug);
 
@@ -280,7 +280,7 @@ class HelpScreenModel implements StatefulModelInterface
 	 *
 	 * @return  $this
 	 */
-	public function setWikiUrl(string $url) : HelpScreenModel
+	public function setWikiUrl(string $url) : self
 	{
 		$this->wikiUrl = $url;
 

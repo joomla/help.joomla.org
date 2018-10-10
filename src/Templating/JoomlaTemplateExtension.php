@@ -62,7 +62,7 @@ class JoomlaTemplateExtension implements ExtensionInterface
 	 *
 	 * @param   Engine  $engine  The template engine
 	 *
-	 * @return null
+	 * @return  null
 	 */
 	public function register(Engine $engine)
 	{

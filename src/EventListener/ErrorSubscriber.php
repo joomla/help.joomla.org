@@ -65,7 +65,7 @@ class ErrorSubscriber implements SubscriberInterface, LoggerAwareInterface
 	 *
 	 * @return  void
 	 */
-	public function handleError(ApplicationErrorEvent $event)
+	public function handleError(ApplicationErrorEvent $event): void
 	{
 		/** @var WebApplication $app */
 		$app = $event->getApplication();
@@ -112,7 +112,7 @@ class ErrorSubscriber implements SubscriberInterface, LoggerAwareInterface
 	 *
 	 * @return  void
 	 */
-	private function logError(\Throwable $throwable)
+	private function logError(\Throwable $throwable): void
 	{
 		$this->logger->error(
 			sprintf('Uncaught Throwable of type %s caught.', get_class($throwable)),
@@ -127,7 +127,7 @@ class ErrorSubscriber implements SubscriberInterface, LoggerAwareInterface
 	 *
 	 * @return  void
 	 */
-	private function prepareResponse(ApplicationErrorEvent $event)
+	private function prepareResponse(ApplicationErrorEvent $event): void
 	{
 		/** @var WebApplication $app */
 		$app = $event->getApplication();
