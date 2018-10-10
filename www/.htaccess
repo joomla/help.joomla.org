@@ -18,7 +18,7 @@
 		Header always set Referrer-Policy "no-referrer-when-downgrade"
 		# Strict-Transport-Security
 		Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-		# Content-Security-Policy-Report-Only 
+		# Content-Security-Policy-Report-Only
 		Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://*.google-analytics.com https://*.googletagmanager.com https://*.pingdom.net https://code.jquery.com; style-src 'self' 'unsafe-inline' https://cdn.joomla.org https://fonts.googleapis.com; connect-src 'self' https://*.pingdom.net https://*.google-analytics.com https://*.doubleclick.net; frame-src 'self' https://*.googletagmanager.com; font-src 'self' https://cdn.joomla.org https://fonts.gstatic.com; img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com https://*.joomla.org https://*.pingdom.net https://*.doubleclick.net; report-uri https://community.joomla.org/scripts/csp-reporter.php?source=help.joomla.org"
 	</IfModule>
 </if>
@@ -152,7 +152,7 @@ RewriteRule .* http://%{HTTP_HOST}/%1 [R=301,L]
 # ======== Redirect HTTP to HTTPS =========
 
 RewriteCond %{HTTPS} off
-RewriteCond %{HTTP_HOST} ^help.joomla.org
+RewriteCond %{HTTP_HOST} ^help.joomla.org$ [NC]
 RewriteRule ^(.*)$ https://help.joomla.org/$1 [R=301,L,QSA]
 
 ###########################################
