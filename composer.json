@@ -6,7 +6,7 @@
     "homepage": "http://github.com/joomla/help.joomla.org",
     "license": "GPL-2.0+",
     "require": {
-        "php": "~7.1",
+        "php": "~7.2",
         "joomla/application": "~2.0@dev",
         "joomla/cache": "~2.0@dev",
         "joomla/controller": "~2.0@dev",
@@ -29,6 +29,7 @@
         }
     },
     "replace": {
+        "symfony/polyfill-php72": "*",
         "symfony/polyfill-php71": "*",
         "symfony/polyfill-php70": "*",
         "symfony/polyfill-php56": "*",
@@ -36,7 +37,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.1.11"
+            "php": "7.2.10"
         }
     }
 }
