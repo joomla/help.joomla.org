@@ -11,7 +11,6 @@
 
 namespace Joomla\Help\Controller;
 
-use Joomla\Cache\Item\Item;
 use Joomla\Controller\AbstractController;
 use Joomla\Help\View\HelpScreenHtmlView;
 use Joomla\Uri\Uri;
@@ -80,31 +79,19 @@ class HelpScreenController extends AbstractController
 		{
 			$key = md5(get_class($this->view) . __METHOD__ . serialize($state));
 
-			if ($this->cache->hasItem($key))
+			$item = $this->cache->getItem($key);
+
+			// Make sure we got a hit on the item, otherwise we'll have to re-cache
+			if ($item->isHit())
 			{
-				$item = $this->cache->getItem($key);
-
-				// Make sure we got a hit on the item, otherwise we'll have to re-cache
-				if ($item->isHit())
-				{
-					$body = $item->get();
-				}
-				else
-				{
-					$body = $this->view->render();
-
-					$item = (new Item($key, $this->getApplication()->get('cache.lifetime', 900)))
-						->set($body);
-
-					$this->cache->save($item);
-				}
+				$body = $item->get();
 			}
 			else
 			{
 				$body = $this->view->render();
 
-				$item = (new Item($key, $this->getApplication()->get('cache.lifetime', 900)))
-					->set($body);
+				$item->set($body);
+				$item->expiresAfter(null);
 
 				$this->cache->save($item);
 			}
