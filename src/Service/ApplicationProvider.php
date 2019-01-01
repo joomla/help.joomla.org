@@ -23,6 +23,7 @@ use Joomla\Http\Http;
 use Joomla\Input\Input;
 use Joomla\Registry\Registry;
 use Joomla\Renderer\RendererInterface;
+use Joomla\Router\Route;
 use Joomla\Router\Router;
 
 /**
@@ -87,14 +88,8 @@ class ApplicationProvider implements ServiceProviderInterface
 			{
 				$router = new Router;
 
-				$router->get(
-					'/',
-					LegacyController::class
-				);
-
-				$router->head(
-					'/',
-					LegacyController::class
+				$router->addRoute(
+					new Route(['GET', 'HEAD'], '/', LegacyController::class, $rules, $defaults)
 				);
 
 				$router->get(
