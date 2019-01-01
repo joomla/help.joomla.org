@@ -8,6 +8,7 @@
 	"cache": {
 		"enabled": false,
 		"lifetime": 900,
-		"adapter": "file"
+		"adapter": "file",
+		"namespace": "jhelp"
 	}
 }
