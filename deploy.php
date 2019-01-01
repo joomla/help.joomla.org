@@ -72,6 +72,9 @@ system('rm -rf vendor/monolog/monolog/doc');
 system('rm -f vendor/zendframework/zend-diactoros/CONDUCT.md');
 system('rm -f vendor/zendframework/zend-diactoros/mkdocs.yml');
 
+// symfony/*
+system('rm -rf vendor/symfony/*/Tests');
+
 echo "Packaging the site\n";
 system('zip -r ../site.zip . > /dev/null');
 
