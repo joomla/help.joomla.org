@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c12d5d55168774a92699a252e5dc380e",
+    "content-hash": "b3688e97c933f492b32a276c491f9ec7",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -125,65 +125,6 @@
                 "joomla"
             ],
             "time": "2018-12-30T19:03:49+00:00"
-        },
-        {
-            "name": "joomla/cache",
-            "version": "dev-2.0-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/joomla-framework/cache.git",
-                "reference": "0ecf849b45c2adc8f9ab280df7bf4976f2f39e4b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/cache/zipball/0ecf849b45c2adc8f9ab280df7bf4976f2f39e4b",
-                "reference": "0ecf849b45c2adc8f9ab280df7bf4976f2f39e4b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~7.0",
-                "psr/cache": "~1.0",
-                "psr/simple-cache": "~1.0"
-            },
-            "provide": {
-                "psr/cache-implementation": "~1.0",
-                "psr/simple-cache-implementation": "~1.0"
-            },
-            "require-dev": {
-                "joomla/coding-standards": "~2.0@alpha",
-                "joomla/test": "~1.0",
-                "phpunit/phpunit": "~6.3"
-            },
-            "suggest": {
-                "ext-apcu": "To use APCu caching",
-                "ext-memcached": "To use Memcached caching",
-                "ext-redis": "To use Redis caching",
-                "ext-wincache": "To use WinCache caching",
-                "ext-xcache": "To use XCache caching"
-            },
-            "type": "joomla-package",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.0-dev": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Joomla\\Cache\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Joomla Cache Package",
-            "homepage": "https://github.com/joomla-framework/cache",
-            "keywords": [
-                "cache",
-                "framework",
-                "joomla"
-            ],
-            "time": "2018-05-25T02:20:02+00:00"
         },
         {
             "name": "joomla/controller",
@@ -1652,7 +1593,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "joomla/application": 20,
-        "joomla/cache": 20,
         "joomla/controller": 20,
         "joomla/di": 20,
         "joomla/event": 20,
