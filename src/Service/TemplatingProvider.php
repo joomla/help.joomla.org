@@ -82,8 +82,7 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 			{
 				return new JoomlaTemplateExtension(
 					$container->get(CacheItemPoolInterface::class),
-					$container->get(Http::class),
-					$container->get('config')->get('cache.lifetime')
+					$container->get(Http::class)
 				);
 			},
 			true

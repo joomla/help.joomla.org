@@ -11,7 +11,6 @@
 
 namespace Joomla\Help\Templating;
 
-use Joomla\Cache\Item\Item;
 use Joomla\Http\Http;
 use League\Plates\Engine;
 use League\Plates\Extension\ExtensionInterface;
@@ -30,13 +29,6 @@ class JoomlaTemplateExtension implements ExtensionInterface
 	private $cache;
 
 	/**
-	 * Cache lifetime
-	 *
-	 * @var  integer
-	 */
-	private $cacheLifetime;
-
-	/**
 	 * HTTP connector
 	 *
 	 * @var  Http
@@ -46,15 +38,13 @@ class JoomlaTemplateExtension implements ExtensionInterface
 	/**
 	 * Constructor.
 	 *
-	 * @param   CacheItemPoolInterface  $cache          Cache pool
-	 * @param   Http                    $http           HTTP connector
-	 * @param   integer                 $cacheLifetime  Cache lifetime
+	 * @param   CacheItemPoolInterface  $cache  Cache pool
+	 * @param   Http                    $http   HTTP connector
 	 */
-	public function __construct(CacheItemPoolInterface $cache, Http $http, int $cacheLifetime = 900)
+	public function __construct(CacheItemPoolInterface $cache, Http $http)
 	{
-		$this->cache         = $cache;
-		$this->cacheLifetime = $cacheLifetime;
-		$this->http          = $http;
+		$this->cache = $cache;
+		$this->http  = $http;
 	}
 
 	/**
@@ -105,8 +95,9 @@ class JoomlaTemplateExtension implements ExtensionInterface
 					]
 				);
 
-				$item = (new Item($key, $this->cacheLifetime))
-					->set($body);
+				$item = $this->cache->getItem($key);
+				$item->set($body);
+				$item->expiresAfter(null);
 
 				$this->cache->save($item);
 
@@ -118,19 +109,12 @@ class JoomlaTemplateExtension implements ExtensionInterface
 			}
 		};
 
-		if ($this->cache->hasItem($key))
-		{
-			$item = $this->cache->getItem($key);
+		$item = $this->cache->getItem($key);
 
-			// Make sure we got a hit on the item, otherwise we'll have to re-cache
-			if ($item->isHit())
-			{
-				$body = $item->get();
-			}
-			else
-			{
-				$body = $remoteRequest();
-			}
+		// Make sure we got a hit on the item, otherwise we'll have to re-cache
+		if ($item->isHit())
+		{
+			$body = $item->get();
 		}
 		else
 		{
@@ -170,8 +154,9 @@ class JoomlaTemplateExtension implements ExtensionInterface
 					$body
 				);
 
-				$item = (new Item($key, $this->cacheLifetime))
-					->set($body);
+				$item = $this->cache->getItem($key);
+				$item->set($body);
+				$item->expiresAfter(null);
 
 				$this->cache->save($item);
 
@@ -183,19 +168,12 @@ class JoomlaTemplateExtension implements ExtensionInterface
 			}
 		};
 
-		if ($this->cache->hasItem($key))
-		{
-			$item = $this->cache->getItem($key);
+		$item = $this->cache->getItem($key);
 
-			// Make sure we got a hit on the item, otherwise we'll have to re-cache
-			if ($item->isHit())
-			{
-				$body = $item->get();
-			}
-			else
-			{
-				$body = $remoteRequest();
-			}
+		// Make sure we got a hit on the item, otherwise we'll have to re-cache
+		if ($item->isHit())
+		{
+			$body = $item->get();
 		}
 		else
 		{
