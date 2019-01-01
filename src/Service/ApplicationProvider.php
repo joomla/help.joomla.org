@@ -89,7 +89,7 @@ class ApplicationProvider implements ServiceProviderInterface
 				$router = new Router;
 
 				$router->addRoute(
-					new Route(['GET', 'HEAD'], '/', LegacyController::class, $rules, $defaults)
+					new Route(['GET', 'HEAD'], '/', LegacyController::class)
 				);
 
 				$router->get(
