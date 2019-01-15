@@ -143,7 +143,10 @@ class HelpScreenModel implements StatefulModelInterface
 			{
 				$this->getState()->set('page', substr($this->getState()->get('page'), 0, $langPos));
 
-				$this->requestPage($this->getState()->get('page'));
+				if ($this->getState()->get('page') !== null)
+				{
+					$this->requestPage($this->getState()->get('page'));
+				}
 			}
 		}
 
