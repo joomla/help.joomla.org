@@ -67,8 +67,22 @@ class HelpScreenController extends AbstractController
 		// Store data into the model
 		$state = $this->view->getModel()->getState();
 
-		$state->set('page', $this->getInput()->getString('keyref', 'Main_Page'));
-		$state->set('lang', $this->getInput()->getString('lang', 'en'));
+		$keyref = $this->getInput()->getString('keyref', 'Main_Page');
+
+		if (!$keyref)
+		{
+			throw new \InvalidArgumentException('Invalid "keyref" argument');
+		}
+
+		$state->set('page', $keyref);
+
+		$lang = $this->getInput()->getString('lang', 'en');
+
+		if ($lang)
+		{
+			$state->set('lang', $this->getInput()->getString('lang', 'en'));
+		}
+
 		$state->set('max_redirects', $this->getApplication()->get('help.wiki_max_redirects', 5));
 
 		$this->view->getModel()->setCurrentUri(new Uri($this->getApplication()->get('uri.request')));
