@@ -6,21 +6,21 @@
     "homepage": "http://github.com/joomla/help.joomla.org",
     "license": "GPL-2.0+",
     "require": {
-        "php": "~7.2",
-        "joomla/application": "~2.0@dev",
-        "joomla/controller": "~2.0@dev",
-        "joomla/di": "~2.0@dev",
-        "joomla/event": "~2.0@dev",
-        "joomla/http": "~2.0@dev",
-        "joomla/input": "~2.0@dev",
-        "joomla/model": "~2.0@dev",
-        "joomla/registry": "~2.0@dev",
-        "joomla/renderer": "~2.0@dev",
-        "joomla/router": "~2.0@dev",
-        "joomla/uri": "~2.0@dev",
-        "joomla/view": "~2.0@dev",
-        "league/plates": "~3.1",
-        "monolog/monolog": "~1.24",
+        "php": "^7.2",
+        "joomla/application": "^2.0@dev",
+        "joomla/controller": "^2.0@dev",
+        "joomla/di": "^2.0@dev",
+        "joomla/event": "^2.0@dev",
+        "joomla/http": "^2.0@dev",
+        "joomla/input": "^2.0@dev",
+        "joomla/model": "^2.0@dev",
+        "joomla/registry": "^2.0@dev",
+        "joomla/renderer": "^2.0@dev",
+        "joomla/router": "^2.0@dev",
+        "joomla/uri": "^2.0@dev",
+        "joomla/view": "^2.0@dev",
+        "league/plates": "^3.3",
+        "monolog/monolog": "^1.24",
         "symfony/cache": "4.3.*"
     },
     "autoload": {
@@ -37,7 +37,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.2.18"
+            "php": "7.2.19"
         }
     }
 }
