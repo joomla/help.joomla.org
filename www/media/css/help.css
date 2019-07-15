@@ -1,7 +1,7 @@
 /**
  * Joomla! Help Screen Proxy
  *
- * @copyright  Copyright (C) 2009 - 2014 Chris Davenport, (C) 2015 - 2016 - 2017 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2009 - 2014 Chris Davenport, (C) 2015 - 2016 - 2017 - 2018 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -12,7 +12,7 @@ html {
 
 body {
     font-family: Arial, Helvetica, Sans Serif;
-    font-size: 80%;
+    font-size: 0.9em;
     line-height: 1.4em;
 }
 
@@ -28,13 +28,14 @@ sup {
 }
 
 img {
-	display: block;
+	display: inline-block;
 	vertical-align: middle;
 	max-width: 100%;
 	height: auto;
 }
 
 a {
+    color: #4d82dc;
     text-decoration: none;
 }
 
@@ -47,40 +48,50 @@ a.external {
     padding-right: 13px;
 }
 
-b {
+b, strong {
     color: #303030;
+    font-weight: bold;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: #0e1d36;
-	font-weight: bold;
+    color: #0e1d36;
+    font-weight: bold;
+    margin: 1em 0 0.5em 0;
 }
 
 h1 {
-    margin: 15px 0 8px 0;
-    font-size: 180%;
+    font-size: 2em;
 }
 
 h2 {
-    margin: 15px 0 8px 0;
-    font-size: 130%;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc;
+    line-height: 1.7em;
+    overflow: hidden;
 }
 
 h3 {
-    margin: 15px 0 8px 0;
-    font-size: 115%;
+    font-size: 1.25em;
 }
 
 h4 {
-    margin: 15px 0 8px 0;
+    font-size: 1.125em;
 }
 
 h5 {
-    margin: 15px 0 8px 0;
+    font-size: 1em;
 }
 
 h6 {
-    margin: 15px 0 8px 0;
+    font-size: 0.9em;
+}
+
+em, i {
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
 }
 
 /* General list styles */
@@ -125,11 +136,13 @@ li {
 }
 
 #toc {
-    border: 1px solid #aaaaaa;
-    background-color: #f9f9f9;
-	margin: 1.2em 0;
-	display: inline-block;
-	font-size: 95%
+    border: 1px solid #ccc;
+    background-color: #f6f6f6;
+    margin: 1.2em 0;
+    display: inline-block;
+    font-size: 0.9em;
+    float: right;
+    max-width: 375px;
 }
 
 #toc ul {
@@ -155,7 +168,6 @@ table.ambox {
 .ambox tbody {
     border: 1px solid black;
     border-left: 25px solid #578ad6;
-
 }
 
 .ambox td.ambox-image {
@@ -171,24 +183,44 @@ table.ambox {
 /* Basic styling new Ambox styles */
 
 .panel {
-	box-shadow: 1px 1px 8px #ababab;
-	padding: 1em;
-	margin: 2em;
+    padding: 1em;
+    margin: 2em;
 }
 
 .subheader-ambox {
-	font-size: 1.4em;
-	font-weight: bold;
-	line-height: 1.6;
-	overflow: hidden;
-	margin-bottom: 0;
-	border-bottom: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 1.6;
+    overflow: hidden;
+    margin-bottom: 0;
+    border-bottom: none;
 }
 
 .subheader-ambox img {
-	display: inline-block;
-	float: left;
-	margin-right: .5em;
+    display: inline-block;
+    float: left;
+    margin-right: .5em;
+}
+
+.panel.ambox-tip {
+    background: #bad0e3;
+}
+
+.panel.ambox-serious {
+    background-color: #ffbaba;
+}
+
+.alert-box {
+    overflow: hidden;
+    font-weight: 700;
+    padding: .5em 1em;
+    margin: 1em 0;
+}
+
+.alert-box.secondary {
+    background-color: #e9e9e9;
+    border: 1px solid #d0d0d0;
+    color: #505050;
 }
 
 /* Wiki tables */
@@ -229,6 +261,13 @@ pre, .code {
     line-height: 1.5;
     margin: 1em 0 1.5em;
     padding: 1em 1.5em;
+}
+
+code, tt {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    padding: 1px 4px;
 }
 
 /* Geshi syntax highlighting: PHP */
@@ -278,4 +317,20 @@ pre, .code {
 
 .mw-display-only {
     display: none;
+}
+
+/*Misc. JDocs Styles*/
+
+.main-portal-heading {
+	font-size: 2em;
+	line-height: 1.2em;
+}
+
+.mw-highlight .k {
+	color: #008000;
+	font-weight: bold;
+}
+
+.mw-highlight .s1 {
+	color: #BA2121;
 }
