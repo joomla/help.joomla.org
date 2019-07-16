@@ -1,19 +1,19 @@
 /**
  * Joomla! Help Screen Proxy
  *
- * @copyright  Copyright (C) 2009 - 2014 Chris Davenport, (C) 2015 - 2016 - 2017 Open Source Matters, Inc. All rights reserved.
+ * @copyright  Copyright (C) 2009 - 2014 Chris Davenport, (C) 2015 - 2016 - 2017 - 2018 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
 /* Basic styles */
 html {
-    margin: 5px;
+    margin: .5rem;
 }
 
 body {
     font-family: Arial, Helvetica, Sans Serif;
-    font-size: 80%;
-    line-height: 1.4em;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 p {
@@ -28,13 +28,14 @@ sup {
 }
 
 img {
-	display: block;
+	display: inline-block;
 	vertical-align: middle;
 	max-width: 100%;
 	height: auto;
 }
 
 a {
+    color: #4d82dc;
     text-decoration: none;
 }
 
@@ -44,43 +45,82 @@ a:hover {
 
 a.external {
     background: transparent url(../images/external.png) no-repeat right center;
-    padding-right: 13px;
-}
-
-b {
-    color: #303030;
+    padding-right: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: #0e1d36;
-	font-weight: bold;
+    color: #0e1d36;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem 0;
 }
 
 h1 {
-    margin: 15px 0 8px 0;
-    font-size: 180%;
+    font-size: 2rem;
 }
 
 h2 {
-    margin: 15px 0 8px 0;
-    font-size: 130%;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ccc;
+    line-height: 1.7;
+    overflow: hidden;
 }
 
 h3 {
-    margin: 15px 0 8px 0;
-    font-size: 115%;
+    font-size: 1.25rem;
 }
 
 h4 {
-    margin: 15px 0 8px 0;
+    font-size: 1.125rem;
 }
 
 h5 {
-    margin: 15px 0 8px 0;
+    font-size: 1rem;
 }
 
 h6 {
-    margin: 15px 0 8px 0;
+    font-size: 0.9em;
+}
+
+b, strong {
+    color: #303030;
+    font-weight: bold;
+}
+
+i, em {
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Preformatted text */
+pre, code, source, tt {
+    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    font-size: .875rem;
+    border: 1px solid #ddd;
+    line-height: 1.25;
+}
+
+pre {
+    direction: ltr;
+    background-color: #f8f8f8;
+    padding: 6px 10px;
+    margin: 15px 0;
+    word-wrap: normal;
+}
+
+pre, source {
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+source, code, tt {
+    background-color: #f0f0f0;
+}
+
+code, tt {
+    padding: .125rem .25rem;
 }
 
 /* General list styles */
@@ -120,75 +160,103 @@ li {
 }
 
 /* Table of contents */
-#toctitle {
-    padding: 0 0 0 1em;
+#toc {
+    padding: .5rem;
+    float: right;
+    margin: .5rem 0 1.25rem .75rem;
+    border: 1px solid #ccc;
+    background-color: #f6f6f6;
+    width: auto;
+    max-width: 375px;
+    word-wrap: normal;
+    font-size: .875rem;
 }
 
-#toc {
-    border: 1px solid #aaaaaa;
-    background-color: #f9f9f9;
-	margin: 1.2em 0;
-	display: inline-block;
-	font-size: 95%
+#toc h2 {
+    border-bottom: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline-block;
 }
 
 #toc ul {
+    text-align: left;
+    width: auto;
+    list-style-position: outside;
+    margin-left: .75rem;
+}
+
+#toc ul li {
+    list-style-position: outside;
     list-style-type: none;
-    margin: 0;
-    padding: .5em 1.5em 1.5em 1.5em;
+    margin-bottom: 0;
 }
 
-#toc li {
-    padding: 0;
-    margin: 0;
+#toc > ul > li {
+    margin-bottom: .5rem;
 }
 
-#toc li ul {
-	padding: 0 0 0 1.5em;
+#toc ul > li > ul,
+#toc ul > li > ul > li > ul {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-/* Ambox styles */
-table.ambox {
-    margin: 5px 5px 5px 12px;
-}
-
-.ambox tbody {
-    border: 1px solid black;
-    border-left: 25px solid #578ad6;
-
-}
-
-.ambox td.ambox-image {
-    padding: 2px 0 2px 0.5em;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.ambox td {
-    padding: 10px;
-}
-
-/* Basic styling new Ambox styles */
-
+/* Panel/Ambox */
 .panel {
-	box-shadow: 1px 1px 8px #ababab;
-	padding: 1em;
-	margin: 2em;
+    border: 1px solid #d9d9d9;
+    margin-bottom: .75rem;
+    padding: .75rem;
+    background: #f2f2f2;
+}
+
+.panel.ambox-tip {
+    border-color: #bad0e3;
+    background: #bad0e3;
+}
+
+.panel.ambox-serious {
+    border-color: #ffbaba;
+    background: #ffbaba;
 }
 
 .subheader-ambox {
-	font-size: 1.4em;
-	font-weight: bold;
-	line-height: 1.6;
-	overflow: hidden;
-	margin-bottom: 0;
-	border-bottom: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.8;
+    overflow: hidden;
+    margin-bottom: .3rem;
+    border-bottom: none;
+}
+
+.ambox-title {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.2;
+    margin-left: .25rem;
+}
+
+p.ambox {
+    margin: .5em 0;
 }
 
 .subheader-ambox img {
-	display: inline-block;
-	float: left;
-	margin-right: .5em;
+    float: left;
+    padding-top: .2em;
+    margin: 0;
+}
+
+.alert-box {
+    overflow: hidden;
+    font-weight: 700;
+    padding: .5em 1em;
+    margin: 1em 0;
+}
+
+.alert-box.secondary {
+    background-color: #e9e9e9;
+    border: 1px solid #d0d0d0;
+    color: #505050;
 }
 
 /* Wiki tables */
@@ -213,22 +281,6 @@ table.wikitable th, table.prettytable th {
 table.wikitable th, table.wikitable td, table.prettytable th, table.prettytable td {
     border: 1px solid #AAAAAA;
     padding: 0.4em;
-}
-
-/* Preformatted text */
-pre, .code {
-    background: #f8f8f8;
-    border: 1px solid #ddd;
-	border-left-width: 5px;
-    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
-    font-size: 1em;
-    font-stretch: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    line-height: 1.5;
-    margin: 1em 0 1.5em;
-    padding: 1em 1.5em;
 }
 
 /* Geshi syntax highlighting: PHP */
@@ -278,4 +330,31 @@ pre, .code {
 
 .mw-display-only {
     display: none;
+}
+
+/* Misc. JDocs Styles */
+
+#version > div {
+    padding: .75rem !important; /* Required because the element has inline styling */
+}
+
+.white-bkgd {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+span#main-portal-heading {
+    color: #fff;
+    display: block;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.mw-highlight .k {
+	color: #008000;
+	font-weight: bold;
+}
+
+.mw-highlight .s1 {
+	color: #BA2121;
 }
