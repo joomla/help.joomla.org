@@ -324,8 +324,12 @@ class HelpScreenModel implements StatefulModelInterface
 		$this->page = str_replace($pattern, $replace, $this->page);
 
 		// Remove [edit] links.
-		$pattern = '!<span class="mw-editsection-bracket">\[</span>(.+)<span class="mw-editsection-bracket">\]</span></span>!msU';
+		$pattern = '!<span class="mw-editsection-bracket">\[</span>(.+)<span class="mw-editsection-bracket">\]</span>!msU';
 		$this->page = preg_replace($pattern, '', $this->page);
+
+		$replace = '';
+		$pattern = '<span class="mw-editsection"></span>';
+		$this->page = str_replace($pattern, $replace, $this->page);
 
 		// Replace any anchor based links
 		$pattern = '<a href="#';
