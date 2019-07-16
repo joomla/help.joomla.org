@@ -7,13 +7,13 @@
 
 /* Basic styles */
 html {
-    margin: 5px;
+    margin: .5rem;
 }
 
 body {
     font-family: Arial, Helvetica, Sans Serif;
-    font-size: 0.9em;
-    line-height: 1.4em;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 p {
@@ -45,7 +45,40 @@ a:hover {
 
 a.external {
     background: transparent url(../images/external.png) no-repeat right center;
-    padding-right: 13px;
+    padding-right: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #0e1d36;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ccc;
+    line-height: 1.7;
+    overflow: hidden;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.125rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.9em;
 }
 
 b, strong {
@@ -53,45 +86,41 @@ b, strong {
     font-weight: bold;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #0e1d36;
-    font-weight: bold;
-    margin: 1em 0 0.5em 0;
-}
-
-h1 {
-    font-size: 2em;
-}
-
-h2 {
-    font-size: 1.5em;
-    border-bottom: 1px solid #ccc;
-    line-height: 1.7em;
-    overflow: hidden;
-}
-
-h3 {
-    font-size: 1.25em;
-}
-
-h4 {
-    font-size: 1.125em;
-}
-
-h5 {
-    font-size: 1em;
-}
-
-h6 {
-    font-size: 0.9em;
-}
-
-em, i {
+i, em {
     font-style: italic;
 }
 
 .text-center {
     text-align: center;
+}
+
+/* Preformatted text */
+pre, code, source, tt {
+    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    font-size: .875rem;
+    border: 1px solid #ddd;
+    line-height: 1.25;
+}
+
+pre {
+    direction: ltr;
+    background-color: #f8f8f8;
+    padding: 6px 10px;
+    margin: 15px 0;
+    word-wrap: normal;
+}
+
+pre, source {
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+source, code, tt {
+    background-color: #f0f0f0;
+}
+
+code, tt {
+    padding: .125rem .25rem;
 }
 
 /* General list styles */
@@ -131,83 +160,90 @@ li {
 }
 
 /* Table of contents */
-#toctitle {
-    padding: 0 0 0 1em;
-}
-
 #toc {
+    padding: .5rem;
+    float: right;
+    margin: .5rem 0 1.25rem .75rem;
     border: 1px solid #ccc;
     background-color: #f6f6f6;
-    margin: 1.2em 0;
-    display: inline-block;
-    font-size: 0.9em;
-    float: right;
+    width: auto;
     max-width: 375px;
+    word-wrap: normal;
+    font-size: .875rem;
+}
+
+#toc h2 {
+    border-bottom: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline-block;
 }
 
 #toc ul {
+    text-align: left;
+    width: auto;
+    list-style-position: outside;
+    margin-left: .75rem;
+}
+
+#toc ul li {
+    list-style-position: outside;
     list-style-type: none;
-    margin: 0;
-    padding: .5em 1.5em 1.5em 1.5em;
-}
-
-#toc li {
-    padding: 0;
-    margin: 0;
-}
-
-#toc li ul {
-	padding: 0 0 0 1.5em;
-}
-
-/* Ambox styles */
-table.ambox {
-    margin: 5px 5px 5px 12px;
-}
-
-.ambox tbody {
-    border: 1px solid black;
-    border-left: 25px solid #578ad6;
-}
-
-.ambox td.ambox-image {
-    padding: 2px 0 2px 0.5em;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.ambox td {
-    padding: 10px;
-}
-
-/* Basic styling new Ambox styles */
-
-.panel {
-    padding: 1em;
-    margin: 2em;
-}
-
-.subheader-ambox {
-    font-size: 1.4em;
-    font-weight: bold;
-    line-height: 1.6;
-    overflow: hidden;
     margin-bottom: 0;
-    border-bottom: none;
 }
 
-.subheader-ambox img {
-    display: inline-block;
-    float: left;
-    margin-right: .5em;
+#toc > ul > li {
+    margin-bottom: .5rem;
+}
+
+#toc ul > li > ul,
+#toc ul > li > ul > li > ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Panel/Ambox */
+.panel {
+    border: 1px solid #d9d9d9;
+    margin-bottom: .75rem;
+    padding: .75rem;
+    background: #f2f2f2;
 }
 
 .panel.ambox-tip {
+    border-color: #bad0e3;
     background: #bad0e3;
 }
 
 .panel.ambox-serious {
-    background-color: #ffbaba;
+    border-color: #ffbaba;
+    background: #ffbaba;
+}
+
+.subheader-ambox {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.8;
+    overflow: hidden;
+    margin-bottom: .3rem;
+    border-bottom: none;
+}
+
+.ambox-title {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.2;
+    margin-left: .25rem;
+}
+
+p.ambox {
+    margin: .5em 0;
+}
+
+.subheader-ambox img {
+    float: left;
+    padding-top: .2em;
+    margin: 0;
 }
 
 .alert-box {
@@ -245,29 +281,6 @@ table.wikitable th, table.prettytable th {
 table.wikitable th, table.wikitable td, table.prettytable th, table.prettytable td {
     border: 1px solid #AAAAAA;
     padding: 0.4em;
-}
-
-/* Preformatted text */
-pre, .code {
-    background: #f8f8f8;
-    border: 1px solid #ddd;
-	border-left-width: 5px;
-    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
-    font-size: 1em;
-    font-stretch: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    line-height: 1.5;
-    margin: 1em 0 1.5em;
-    padding: 1em 1.5em;
-}
-
-code, tt {
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    font-size: 12px;
-    padding: 1px 4px;
 }
 
 /* Geshi syntax highlighting: PHP */
@@ -319,11 +332,22 @@ code, tt {
     display: none;
 }
 
-/*Misc. JDocs Styles*/
+/* Misc. JDocs Styles */
 
-.main-portal-heading {
-	font-size: 2em;
-	line-height: 1.2em;
+#version > div {
+    padding: .75rem !important; /* Required because the element has inline styling */
+}
+
+.white-bkgd {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+span#main-portal-heading {
+    color: #fff;
+    display: block;
+    font-size: 2rem;
+    line-height: 1.2;
 }
 
 .mw-highlight .k {
