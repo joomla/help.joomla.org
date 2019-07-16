@@ -298,11 +298,11 @@ class HelpScreenModel implements StatefulModelInterface
 	public function amendLinks() : void
 	{
 		// Remove links to wiki image information pages.
-		$imglink = '!<a href="' . $this->uriWiki->getPath() . '/([^>]+)" class="image">(.+)</a>!';
-		//$this->page = preg_replace($imglink, '$2', $this->page);
+		$imgLink = '!<a href="/([^>]+)" class="image"([^>]*)>([^~]*?)</a>!';
+		$this->page = preg_replace($imgLink, '$3', $this->page);
 
 		// Remove links for new image uploads
-		$imgUploadlink = '!<a href="' . $this->uriWiki->getPath() . '/([^>]+)" class="new"(.+)>(.+)</a>!';
+		$imgUploadlink = '!<a href="/([^>]+)" class="new"([^>]*)>([^~]*?)</a>!';
 		$this->page = preg_replace($imgUploadlink, '$3', $this->page);
 
 		// Remove <translate> </translate> and translation markers from page output.
