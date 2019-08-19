@@ -18,10 +18,11 @@ This application is the code powering the [help.joomla.org](https://help.joomla.
 
 The application optionally supports several additional configuration values which affect the application's behavior, to include:
 
-* Caching - The `joomla/cache` package is used to provide a caching API to store data. The supported configuration values are under the `cache` key in the configuration and include:
+* Caching - The `symfony/cache` package is used to provide a caching API to store data. The supported configuration values are under the `cache` key in the configuration and include:
     * `enabled` - Is the cache enabled?
     * `lifetime` - The lifetime (in seconds) of the cache data
-    * `adapter` - The cache adapter to use; the currently supported values can be found in the [CacheProvider](src/Service/CacheProvider.php) 
+    * `adapter` - The cache adapter to use; the currently supported values can be found in the [CacheProvider](src/Service/CacheProvider.php)
+    * `namespace` - A unique namespace (or key prefix) for the application's cache, useful if using a shared cache source with other systems
 * Error Reporting - The `system.error_reporting` configuration key can be set to a valid bitmask to be passed into the `error_reporting()` function
 * Logging - The application's logging levels can be fine tuned by adjusting the `log` configuration keys:
     * `log.level` - The default logging level to use for all application loggers
