@@ -4,7 +4,7 @@
     "description": "Application code for help.joomla.org",
     "keywords": ["joomla"],
     "homepage": "http://github.com/joomla/help.joomla.org",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0or-later",
     "require": {
         "php": "^7.2",
         "joomla/application": "^2.0@dev",
