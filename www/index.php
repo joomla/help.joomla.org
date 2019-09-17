@@ -25,9 +25,9 @@ if (!file_exists($composerPath))
 require $composerPath;
 
 use Joomla\Application\AbstractApplication;
-use Joomla\Application\WebApplication;
 use Joomla\DI\Container;
 use Joomla\Help\Service as Services;
+use Joomla\Help\WebApplication;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
 
