@@ -11,7 +11,9 @@
 
 namespace Joomla\Help\Service;
 
-use Joomla\Application as JoomlaApplication;
+use Joomla\Application\AbstractWebApplication;
+use Joomla\Application\Controller\ContainerControllerResolver;
+use Joomla\Application\Controller\ControllerResolverInterface;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
@@ -19,6 +21,7 @@ use Joomla\Help\Controller\HelpScreenController;
 use Joomla\Help\Controller\LegacyController;
 use Joomla\Help\Model\HelpScreenModel;
 use Joomla\Help\View\HelpScreenHtmlView;
+use Joomla\Help\WebApplication;
 use Joomla\Http\Http;
 use Joomla\Input\Input;
 use Joomla\Registry\Registry;
@@ -40,13 +43,13 @@ class ApplicationProvider implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
-		$container->alias(JoomlaApplication\AbstractWebApplication::class, JoomlaApplication\WebApplication::class)
+		$container->alias(AbstractWebApplication::class, WebApplication::class)
 			->share(
-				JoomlaApplication\WebApplication::class,
+				WebApplication::class,
 				function (Container $container)
 				{
-					$application = new JoomlaApplication\WebApplication(
-						$container->get(JoomlaApplication\Controller\ControllerResolverInterface::class),
+					$application = new WebApplication(
+						$container->get(ControllerResolverInterface::class),
 						$container->get(Router::class),
 						$container->get(Input::class),
 						$container->get('config')
@@ -62,15 +65,15 @@ class ApplicationProvider implements ServiceProviderInterface
 			);
 
 		$container->share(
-			JoomlaApplication\Controller\ControllerResolverInterface::class,
-			function (Container $container) : JoomlaApplication\Controller\ControllerResolverInterface
+			ControllerResolverInterface::class,
+			function (Container $container) : ControllerResolverInterface
 			{
-				return new JoomlaApplication\Controller\ContainerControllerResolver($container);
+				return new ContainerControllerResolver($container);
 			}
 		)
 			->alias(
-				JoomlaApplication\Controller\ContainerControllerResolver::class,
-				JoomlaApplication\Controller\ControllerResolverInterface::class
+				ContainerControllerResolver::class,
+				ControllerResolverInterface::class
 			);
 
 		$container->share(
@@ -121,7 +124,7 @@ class ApplicationProvider implements ServiceProviderInterface
 					$container->get('cache')
 				);
 
-				$controller->setApplication($container->get(JoomlaApplication\WebApplication::class));
+				$controller->setApplication($container->get(WebApplication::class));
 				$controller->setInput($container->get(Input::class));
 
 				return $controller;
@@ -137,7 +140,7 @@ class ApplicationProvider implements ServiceProviderInterface
 					$container->get(RendererInterface::class)
 				);
 
-				$controller->setApplication($container->get(JoomlaApplication\WebApplication::class));
+				$controller->setApplication($container->get(WebApplication::class));
 				$controller->setInput($container->get(Input::class));
 
 				return $controller;
