@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a26f6a8d15c93e5dc1e439526eb9be47",
+    "content-hash": "060c57fb203b94bcf6ca45be89a47b84",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -68,12 +68,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/application.git",
-                "reference": "b419eff20678574c39b4be7269154bb948120876"
+                "reference": "e15eb048db79ef41612e32c1c6024fa952af721c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/application/zipball/b419eff20678574c39b4be7269154bb948120876",
-                "reference": "b419eff20678574c39b4be7269154bb948120876",
+                "url": "https://api.github.com/repos/joomla-framework/application/zipball/e15eb048db79ef41612e32c1c6024fa952af721c",
+                "reference": "e15eb048db79ef41612e32c1c6024fa952af721c",
                 "shasum": ""
             },
             "require": {
@@ -125,7 +125,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2019-09-16T10:07:13+00:00"
+            "time": "2019-10-07T23:32:41+00:00"
         },
         {
             "name": "joomla/controller",
@@ -184,12 +184,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/di.git",
-                "reference": "46a30b4e27234e914b826d91d2ee20a820f8ceab"
+                "reference": "7c239a12c604268cb9f381783c4c4834442d0427"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/di/zipball/46a30b4e27234e914b826d91d2ee20a820f8ceab",
-                "reference": "46a30b4e27234e914b826d91d2ee20a820f8ceab",
+                "url": "https://api.github.com/repos/joomla-framework/di/zipball/7c239a12c604268cb9f381783c4c4834442d0427",
+                "reference": "7c239a12c604268cb9f381783c4c4834442d0427",
                 "shasum": ""
             },
             "require": {
@@ -228,7 +228,7 @@
                 "ioc",
                 "joomla"
             ],
-            "time": "2019-07-18T00:06:37+00:00"
+            "time": "2019-11-20T03:46:57+00:00"
         },
         {
             "name": "joomla/event",
@@ -236,12 +236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/event.git",
-                "reference": "5b854c580bdbad39324e22a6af2c0b68379b9905"
+                "reference": "7204870bc4d9116eae96cac7eece50a3405574f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/event/zipball/5b854c580bdbad39324e22a6af2c0b68379b9905",
-                "reference": "5b854c580bdbad39324e22a6af2c0b68379b9905",
+                "url": "https://api.github.com/repos/joomla-framework/event/zipball/7204870bc4d9116eae96cac7eece50a3405574f5",
+                "reference": "7204870bc4d9116eae96cac7eece50a3405574f5",
                 "shasum": ""
             },
             "require": {
@@ -250,10 +250,12 @@
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
                 "joomla/console": "~2.0",
-                "phpunit/phpunit": "~8.2"
+                "phpunit/phpunit": "~8.2",
+                "psr/container": "~1.0"
             },
             "suggest": {
-                "joomla/console": "If you want to use the DebugEventDispatcherCommand class, please install joomla/console:~2.0"
+                "joomla/console": "If you want to use the DebugEventDispatcherCommand class, please install joomla/console:~2.0",
+                "psr/container-implementation": "If you want to use the LazyServiceEventListener class, please install a PSR-11 container"
             },
             "type": "joomla-package",
             "extra": {
@@ -277,7 +279,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2019-07-18T00:09:24+00:00"
+            "time": "2019-10-09T03:10:12+00:00"
         },
         {
             "name": "joomla/filter",
@@ -389,12 +391,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/input.git",
-                "reference": "aff443855b808a9448a50803e718c15c32dbddab"
+                "reference": "0a9e5fe6df2765cc7629d4e27e14f6fbe6d447bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/input/zipball/aff443855b808a9448a50803e718c15c32dbddab",
-                "reference": "aff443855b808a9448a50803e718c15c32dbddab",
+                "url": "https://api.github.com/repos/joomla-framework/input/zipball/0a9e5fe6df2765cc7629d4e27e14f6fbe6d447bb",
+                "reference": "0a9e5fe6df2765cc7629d4e27e14f6fbe6d447bb",
                 "shasum": ""
             },
             "require": {
@@ -428,7 +430,7 @@
                 "input",
                 "joomla"
             ],
-            "time": "2019-07-06T16:42:54+00:00"
+            "time": "2019-11-18T14:56:10+00:00"
         },
         {
             "name": "joomla/model",
@@ -487,12 +489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/registry.git",
-                "reference": "dd6397bc1f7bc6e619924fdb348b07862ab4c71e"
+                "reference": "732b393e9ea8be41d710b65b76da74cbc624d309"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/registry/zipball/dd6397bc1f7bc6e619924fdb348b07862ab4c71e",
-                "reference": "dd6397bc1f7bc6e619924fdb348b07862ab4c71e",
+                "url": "https://api.github.com/repos/joomla-framework/registry/zipball/732b393e9ea8be41d710b65b76da74cbc624d309",
+                "reference": "732b393e9ea8be41d710b65b76da74cbc624d309",
                 "shasum": ""
             },
             "require": {
@@ -502,7 +504,7 @@
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
                 "phpunit/phpunit": "~8.2",
-                "symfony/yaml": "~3.4|~4.0"
+                "symfony/yaml": "~3.4|~4.0|~5.0"
             },
             "suggest": {
                 "symfony/yaml": "Install symfony/yaml if you require YAML support."
@@ -529,7 +531,7 @@
                 "joomla",
                 "registry"
             ],
-            "time": "2019-08-02T02:00:59+00:00"
+            "time": "2019-11-21T14:54:18+00:00"
         },
         {
             "name": "joomla/renderer",
@@ -537,12 +539,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/renderer.git",
-                "reference": "eda82d327db286b5f317e98de8913a3d6f1f7fdc"
+                "reference": "ecc664fe46e0a43ec461e408973c55642e71f91e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/eda82d327db286b5f317e98de8913a3d6f1f7fdc",
-                "reference": "eda82d327db286b5f317e98de8913a3d6f1f7fdc",
+                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/ecc664fe46e0a43ec461e408973c55642e71f91e",
+                "reference": "ecc664fe46e0a43ec461e408973c55642e71f91e",
                 "shasum": ""
             },
             "require": {
@@ -556,15 +558,15 @@
                 "league/plates": "~3.0",
                 "mustache/mustache": "~2.3",
                 "phpunit/phpunit": "~8.2",
-                "symfony/templating": "~3.4|~4.0",
-                "twig/twig": "~1.34|~2.4"
+                "symfony/templating": "~3.4|~4.0|~5.0",
+                "twig/twig": "~1.34|~2.4|~3.0"
             },
             "suggest": {
                 "illuminate/view": "Install 5.8.*|^6.0 if you are using Laravel's Blade template engine.",
                 "league/plates": "Install ~3.0 if you are using the Plates template engine.",
                 "mustache/mustache": "Install ~2.3 if you are using the Mustache template engine.",
-                "symfony/templating": "Install ~3.4|~4.0 if you are using Symfony's PHP template component.",
-                "twig/twig": "Install ~1.34|~2.4 if you are using the Twig template engine."
+                "symfony/templating": "Install ~3.4|~4.0|~5.0 if you are using Symfony's PHP template component.",
+                "twig/twig": "Install ~1.34|~2.4|~3.0 if you are using the Twig template engine."
             },
             "type": "joomla-package",
             "extra": {
@@ -588,7 +590,7 @@
                 "joomla",
                 "renderer"
             ],
-            "time": "2019-09-05T03:28:45+00:00"
+            "time": "2019-11-21T14:52:22+00:00"
         },
         {
             "name": "joomla/router",
@@ -596,12 +598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/router.git",
-                "reference": "0a51a9050ef0c3e67f656760654d9c91c38bc0fc"
+                "reference": "a6b51d1e5531fcd8496a030c461efb9827fdfa44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/router/zipball/0a51a9050ef0c3e67f656760654d9c91c38bc0fc",
-                "reference": "0a51a9050ef0c3e67f656760654d9c91c38bc0fc",
+                "url": "https://api.github.com/repos/joomla-framework/router/zipball/a6b51d1e5531fcd8496a030c461efb9827fdfa44",
+                "reference": "a6b51d1e5531fcd8496a030c461efb9827fdfa44",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +641,7 @@
                 "joomla",
                 "router"
             ],
-            "time": "2019-07-06T16:40:05+00:00"
+            "time": "2019-10-09T03:13:57+00:00"
         },
         {
             "name": "joomla/string",
@@ -804,12 +806,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/view.git",
-                "reference": "dac3c234c9007d0d23f85a94033e8bf4062e2000"
+                "reference": "6a44a34905fa0be8a9a5a70ef7840d2d3b989942"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/view/zipball/dac3c234c9007d0d23f85a94033e8bf4062e2000",
-                "reference": "dac3c234c9007d0d23f85a94033e8bf4062e2000",
+                "url": "https://api.github.com/repos/joomla-framework/view/zipball/6a44a34905fa0be8a9a5a70ef7840d2d3b989942",
+                "reference": "6a44a34905fa0be8a9a5a70ef7840d2d3b989942",
                 "shasum": ""
             },
             "require": {
@@ -845,7 +847,7 @@
                 "joomla",
                 "view"
             ],
-            "time": "2019-06-18T00:44:23+00:00"
+            "time": "2019-10-06T16:38:23+00:00"
         },
         {
             "name": "league/plates",
@@ -904,16 +906,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "68545165e19249013afd1d6f7485aecff07a2d22"
+                "reference": "f9d56fd2f5533322caccdfcddbb56aedd622ef1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/68545165e19249013afd1d6f7485aecff07a2d22",
-                "reference": "68545165e19249013afd1d6f7485aecff07a2d22",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f9d56fd2f5533322caccdfcddbb56aedd622ef1c",
+                "reference": "f9d56fd2f5533322caccdfcddbb56aedd622ef1c",
                 "shasum": ""
             },
             "require": {
@@ -981,7 +983,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2019-08-30T09:56:44+00:00"
+            "time": "2019-11-13T10:27:43+00:00"
         },
         {
             "name": "psr/cache",
@@ -1278,30 +1280,31 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v4.3.8",
+            "version": "v4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "83dca34362a0aba2b93aa1226dac6ef7cfea1262"
+                "reference": "72d5cdc6920f889290beb65fa96b5e9d4515e382"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/83dca34362a0aba2b93aa1226dac6ef7cfea1262",
-                "reference": "83dca34362a0aba2b93aa1226dac6ef7cfea1262",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/72d5cdc6920f889290beb65fa96b5e9d4515e382",
+                "reference": "72d5cdc6920f889290beb65fa96b5e9d4515e382",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
                 "psr/cache": "~1.0",
                 "psr/log": "~1.0",
-                "symfony/cache-contracts": "^1.1",
-                "symfony/service-contracts": "^1.1",
-                "symfony/var-exporter": "^4.2"
+                "symfony/cache-contracts": "^1.1.7|^2",
+                "symfony/service-contracts": "^1.1|^2",
+                "symfony/var-exporter": "^4.2|^5.0"
             },
             "conflict": {
                 "doctrine/dbal": "<2.5",
                 "symfony/dependency-injection": "<3.4",
-                "symfony/var-dumper": "<3.4"
+                "symfony/http-kernel": "<4.4",
+                "symfony/var-dumper": "<4.4"
             },
             "provide": {
                 "psr/cache-implementation": "1.0",
@@ -1314,14 +1317,14 @@
                 "doctrine/dbal": "~2.5",
                 "predis/predis": "~1.1",
                 "psr/simple-cache": "^1.0",
-                "symfony/config": "~4.2",
-                "symfony/dependency-injection": "~3.4|~4.1",
-                "symfony/var-dumper": "^4.1.1"
+                "symfony/config": "^4.2|^5.0",
+                "symfony/dependency-injection": "^3.4|^4.1|^5.0",
+                "symfony/var-dumper": "^4.4|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.4-dev"
                 }
             },
             "autoload": {
@@ -1352,24 +1355,24 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2019-11-12T13:07:20+00:00"
+            "time": "2019-11-17T11:01:12+00:00"
         },
         {
             "name": "symfony/cache-contracts",
-            "version": "v1.1.7",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache-contracts.git",
-                "reference": "af50d14ada9e4e82cfabfabdc502d144f89be0a1"
+                "reference": "a91281de82119a7a07481b892f709d88da592cd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/af50d14ada9e4e82cfabfabdc502d144f89be0a1",
-                "reference": "af50d14ada9e4e82cfabfabdc502d144f89be0a1",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/a91281de82119a7a07481b892f709d88da592cd3",
+                "reference": "a91281de82119a7a07481b892f709d88da592cd3",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2.9",
                 "psr/cache": "^1.0"
             },
             "suggest": {
@@ -1378,7 +1381,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -1410,24 +1413,24 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-10-04T21:43:27+00:00"
+            "time": "2019-11-09T09:18:34+00:00"
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v1.1.8",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf"
+                "reference": "9d99e1556417bf227a62e14856d630672bf10eaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
-                "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/9d99e1556417bf227a62e14856d630672bf10eaf",
+                "reference": "9d99e1556417bf227a62e14856d630672bf10eaf",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2.9",
                 "psr/container": "^1.0"
             },
             "suggest": {
@@ -1436,7 +1439,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -1468,32 +1471,32 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-10-14T12:27:06+00:00"
+            "time": "2019-11-09T09:18:34+00:00"
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v4.3.8",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "097aa4c02954dabe9d508229be86213723973ac0"
+                "reference": "e2f1eeb12edacf744c4b359a859204578fdf8549"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/097aa4c02954dabe9d508229be86213723973ac0",
-                "reference": "097aa4c02954dabe9d508229be86213723973ac0",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/e2f1eeb12edacf744c4b359a859204578fdf8549",
+                "reference": "e2f1eeb12edacf744c4b359a859204578fdf8549",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^7.2.5"
             },
             "require-dev": {
-                "symfony/var-dumper": "^4.1.1"
+                "symfony/var-dumper": "^4.4|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -1528,20 +1531,20 @@
                 "instantiate",
                 "serialize"
             ],
-            "time": "2019-11-11T12:48:54+00:00"
+            "time": "2019-11-18T17:27:11+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "2.1.3",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "279723778c40164bcf984a2df12ff2c6ec5e61c1"
+                "reference": "de5847b068362a88684a55b0dbb40d85986cfa52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/279723778c40164bcf984a2df12ff2c6ec5e61c1",
-                "reference": "279723778c40164bcf984a2df12ff2c6ec5e61c1",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/de5847b068362a88684a55b0dbb40d85986cfa52",
+                "reference": "de5847b068362a88684a55b0dbb40d85986cfa52",
                 "shasum": ""
             },
             "require": {
@@ -1554,6 +1557,7 @@
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
+                "ext-curl": "*",
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "http-interop/http-factory-tests": "^0.5.0",
@@ -1594,7 +1598,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2019-07-10T16:13:25+00:00"
+            "time": "2019-11-13T19:16:13+00:00"
         }
     ],
     "packages-dev": [],
