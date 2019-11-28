@@ -21,7 +21,7 @@
         "joomla/view": "^2.0@dev",
         "league/plates": "^3.3",
         "monolog/monolog": "^2.0.1",
-        "symfony/cache": "4.4.*"
+        "symfony/cache": "^5.0"
     },
     "autoload": {
         "psr-4": {
