@@ -13,12 +13,12 @@ namespace Joomla\Help\View;
 
 use Joomla\Help\Model\HelpScreenModel;
 use Joomla\Renderer\RendererInterface;
-use Joomla\View\BaseHtmlView;
+use Joomla\View\HtmlView;
 
 /**
  * View to render Joomla! help screens
  */
-class HelpScreenHtmlView extends BaseHtmlView
+class HelpScreenHtmlView extends HtmlView
 {
 	/**
 	 * The model object.
