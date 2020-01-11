@@ -18,9 +18,9 @@ use Joomla\Event\SubscriberInterface;
 use Joomla\Renderer\RendererInterface;
 use Joomla\Router\Exception\MethodNotAllowedException;
 use Joomla\Router\Exception\RouteNotFoundException;
+use Laminas\Diactoros\Response\HtmlResponse;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
-use Zend\Diactoros\Response\HtmlResponse;
 
 /**
  * Error handling event subscriber

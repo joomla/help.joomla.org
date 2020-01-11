@@ -20,8 +20,8 @@
         "joomla/uri": "^2.0@dev",
         "joomla/view": "^2.0@dev",
         "league/plates": "^3.3",
-        "monolog/monolog": "^2.0.1",
-        "symfony/cache": "^5.0"
+        "monolog/monolog": "^2.0.2",
+        "symfony/cache": "^5.0.2"
     },
     "autoload": {
         "psr-4": {

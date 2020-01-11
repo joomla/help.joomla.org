@@ -14,8 +14,8 @@ namespace Joomla\Help\Controller;
 use Joomla\Controller\AbstractController;
 use Joomla\Help\View\HelpScreenHtmlView;
 use Joomla\Uri\Uri;
+use Laminas\Diactoros\Response\HtmlResponse;
 use Psr\Cache\CacheItemPoolInterface;
-use Zend\Diactoros\Response\HtmlResponse;
 
 /**
  * Controller to render Joomla! help screens

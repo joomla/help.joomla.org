@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2048de5d86e52039f3045f90b93dbb0f",
+    "content-hash": "dc28a400293419518970a27b6fb7c9de",
     "packages": [
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "10bb96592168a0f8e8f6dcde3532d9fa50b0b527"
+                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/10bb96592168a0f8e8f6dcde3532d9fa50b0b527",
-                "reference": "10bb96592168a0f8e8f6dcde3532d9fa50b0b527",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/62e8fc2dc550e5d6d8c9360c7721662670f58149",
+                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 8",
                 "psr/log": "^1.0",
-                "symfony/process": "^2.5 || ^3.0 || ^4.0"
+                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0"
             },
             "type": "library",
             "extra": {
@@ -60,7 +60,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-08-30T08:44:50+00:00"
+            "time": "2019-12-11T14:44:42+00:00"
         },
         {
             "name": "joomla/application",
@@ -68,21 +68,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/application.git",
-                "reference": "e15eb048db79ef41612e32c1c6024fa952af721c"
+                "reference": "b97e3edaa57eb13411406039cec7bdc4a4959de8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/application/zipball/e15eb048db79ef41612e32c1c6024fa952af721c",
-                "reference": "e15eb048db79ef41612e32c1c6024fa952af721c",
+                "url": "https://api.github.com/repos/joomla-framework/application/zipball/b97e3edaa57eb13411406039cec7bdc4a4959de8",
+                "reference": "b97e3edaa57eb13411406039cec7bdc4a4959de8",
                 "shasum": ""
             },
             "require": {
                 "joomla/event": "~2.0",
                 "joomla/registry": "^1.4.5|~2.0",
-                "php": "~7.2",
+                "laminas/laminas-diactoros": "^2.2.2",
+                "php": "^7.2.5",
                 "psr/http-message": "~1.0",
-                "psr/log": "~1.0",
-                "zendframework/zend-diactoros": "~1.3|~2.0"
+                "psr/log": "~1.0"
             },
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
@@ -125,7 +125,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2019-10-07T23:32:41+00:00"
+            "time": "2020-01-11T20:21:30+00:00"
         },
         {
             "name": "joomla/controller",
@@ -133,16 +133,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/controller.git",
-                "reference": "a2c6a9d1193265e7cf597c9c0f2779b18357f7c0"
+                "reference": "a36f9f601edefdbc6c4b49f5a1f479592af12e27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/controller/zipball/a2c6a9d1193265e7cf597c9c0f2779b18357f7c0",
-                "reference": "a2c6a9d1193265e7cf597c9c0f2779b18357f7c0",
+                "url": "https://api.github.com/repos/joomla-framework/controller/zipball/a36f9f601edefdbc6c4b49f5a1f479592af12e27",
+                "reference": "a36f9f601edefdbc6c4b49f5a1f479592af12e27",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "joomla/application": "~1.0|~2.0",
@@ -176,7 +176,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2019-06-19T01:10:30+00:00"
+            "time": "2019-12-04T01:55:45+00:00"
         },
         {
             "name": "joomla/di",
@@ -184,16 +184,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/di.git",
-                "reference": "7c239a12c604268cb9f381783c4c4834442d0427"
+                "reference": "1e567191adf6c912f76dc56648babae4a50a4fc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/di/zipball/7c239a12c604268cb9f381783c4c4834442d0427",
-                "reference": "7c239a12c604268cb9f381783c4c4834442d0427",
+                "url": "https://api.github.com/repos/joomla-framework/di/zipball/1e567191adf6c912f76dc56648babae4a50a4fc9",
+                "reference": "1e567191adf6c912f76dc56648babae4a50a4fc9",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2",
+                "php": "^7.2.5",
                 "psr/container": "~1.0"
             },
             "provide": {
@@ -228,7 +228,7 @@
                 "ioc",
                 "joomla"
             ],
-            "time": "2019-11-20T03:46:57+00:00"
+            "time": "2019-12-08T16:22:22+00:00"
         },
         {
             "name": "joomla/event",
@@ -236,16 +236,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/event.git",
-                "reference": "7204870bc4d9116eae96cac7eece50a3405574f5"
+                "reference": "1df0b560b00ed6a5d13456178639f87750de0d41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/event/zipball/7204870bc4d9116eae96cac7eece50a3405574f5",
-                "reference": "7204870bc4d9116eae96cac7eece50a3405574f5",
+                "url": "https://api.github.com/repos/joomla-framework/event/zipball/1df0b560b00ed6a5d13456178639f87750de0d41",
+                "reference": "1df0b560b00ed6a5d13456178639f87750de0d41",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
@@ -279,7 +279,7 @@
                 "framework",
                 "joomla"
             ],
-            "time": "2019-10-09T03:10:12+00:00"
+            "time": "2019-12-08T16:25:32+00:00"
         },
         {
             "name": "joomla/filter",
@@ -337,21 +337,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/http.git",
-                "reference": "91aecbdeee2f38cfe518e568e9d1f09b344c6b25"
+                "reference": "6acbb9d5ce2834a7240819b8de29e254e546a816"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/http/zipball/91aecbdeee2f38cfe518e568e9d1f09b344c6b25",
-                "reference": "91aecbdeee2f38cfe518e568e9d1f09b344c6b25",
+                "url": "https://api.github.com/repos/joomla-framework/http/zipball/6acbb9d5ce2834a7240819b8de29e254e546a816",
+                "reference": "6acbb9d5ce2834a7240819b8de29e254e546a816",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "~1.0",
                 "joomla/uri": "~1.0|~2.0",
-                "php": "~7.2",
+                "laminas/laminas-diactoros": "^2.2.2",
+                "php": "^7.2.5",
                 "psr/http-client": "~1.0",
-                "psr/http-message": "~1.0",
-                "zendframework/zend-diactoros": "~1.1|~2.0"
+                "psr/http-message": "~1.0"
             },
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
@@ -383,7 +383,7 @@
                 "http",
                 "joomla"
             ],
-            "time": "2019-07-18T00:24:34+00:00"
+            "time": "2020-01-11T20:22:10+00:00"
         },
         {
             "name": "joomla/input",
@@ -391,17 +391,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/input.git",
-                "reference": "0a9e5fe6df2765cc7629d4e27e14f6fbe6d447bb"
+                "reference": "bee9a5e469acab9093ab0f6e74e1f12807257fdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/input/zipball/0a9e5fe6df2765cc7629d4e27e14f6fbe6d447bb",
-                "reference": "0a9e5fe6df2765cc7629d4e27e14f6fbe6d447bb",
+                "url": "https://api.github.com/repos/joomla-framework/input/zipball/bee9a5e469acab9093ab0f6e74e1f12807257fdb",
+                "reference": "bee9a5e469acab9093ab0f6e74e1f12807257fdb",
                 "shasum": ""
             },
             "require": {
                 "joomla/filter": "~1.0|~2.0",
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
@@ -430,7 +430,7 @@
                 "input",
                 "joomla"
             ],
-            "time": "2019-11-18T14:56:10+00:00"
+            "time": "2019-12-04T01:55:21+00:00"
         },
         {
             "name": "joomla/model",
@@ -438,16 +438,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/model.git",
-                "reference": "554befffed0c5743e2085edd7d4cddf01caaf576"
+                "reference": "e91e091443e4ea709fa2c94dd1ae13c98fbbb059"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/model/zipball/554befffed0c5743e2085edd7d4cddf01caaf576",
-                "reference": "554befffed0c5743e2085edd7d4cddf01caaf576",
+                "url": "https://api.github.com/repos/joomla-framework/model/zipball/e91e091443e4ea709fa2c94dd1ae13c98fbbb059",
+                "reference": "e91e091443e4ea709fa2c94dd1ae13c98fbbb059",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
@@ -481,7 +481,7 @@
                 "joomla",
                 "model"
             ],
-            "time": "2019-07-14T17:40:38+00:00"
+            "time": "2019-12-04T01:56:02+00:00"
         },
         {
             "name": "joomla/registry",
@@ -489,17 +489,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/registry.git",
-                "reference": "732b393e9ea8be41d710b65b76da74cbc624d309"
+                "reference": "d4ecf95311e336407873caa3bfa8702c4466a2dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/registry/zipball/732b393e9ea8be41d710b65b76da74cbc624d309",
-                "reference": "732b393e9ea8be41d710b65b76da74cbc624d309",
+                "url": "https://api.github.com/repos/joomla-framework/registry/zipball/d4ecf95311e336407873caa3bfa8702c4466a2dc",
+                "reference": "d4ecf95311e336407873caa3bfa8702c4466a2dc",
                 "shasum": ""
             },
             "require": {
                 "joomla/utilities": "^1.4.1|~2.0",
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
@@ -531,7 +531,7 @@
                 "joomla",
                 "registry"
             ],
-            "time": "2019-11-21T14:54:18+00:00"
+            "time": "2019-12-04T01:56:10+00:00"
         },
         {
             "name": "joomla/renderer",
@@ -539,16 +539,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/renderer.git",
-                "reference": "ecc664fe46e0a43ec461e408973c55642e71f91e"
+                "reference": "56dd6eb10d1132f5f58e55a021ce7c1c11e75335"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/ecc664fe46e0a43ec461e408973c55642e71f91e",
-                "reference": "ecc664fe46e0a43ec461e408973c55642e71f91e",
+                "url": "https://api.github.com/repos/joomla-framework/renderer/zipball/56dd6eb10d1132f5f58e55a021ce7c1c11e75335",
+                "reference": "56dd6eb10d1132f5f58e55a021ce7c1c11e75335",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "illuminate/events": "5.8.*|^6.0",
@@ -590,7 +590,7 @@
                 "joomla",
                 "renderer"
             ],
-            "time": "2019-11-21T14:52:22+00:00"
+            "time": "2019-12-04T01:55:05+00:00"
         },
         {
             "name": "joomla/router",
@@ -598,16 +598,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/router.git",
-                "reference": "a6b51d1e5531fcd8496a030c461efb9827fdfa44"
+                "reference": "15d57bb96ef48003c53a3c5f64b9df4e568e0007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/router/zipball/a6b51d1e5531fcd8496a030c461efb9827fdfa44",
-                "reference": "a6b51d1e5531fcd8496a030c461efb9827fdfa44",
+                "url": "https://api.github.com/repos/joomla-framework/router/zipball/15d57bb96ef48003c53a3c5f64b9df4e568e0007",
+                "reference": "15d57bb96ef48003c53a3c5f64b9df4e568e0007",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "jeremeamia/superclosure": "~1.0",
@@ -641,7 +641,7 @@
                 "joomla",
                 "router"
             ],
-            "time": "2019-10-09T03:13:57+00:00"
+            "time": "2019-12-04T01:57:03+00:00"
         },
         {
             "name": "joomla/string",
@@ -715,16 +715,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/uri.git",
-                "reference": "eed89d4997fcc52c08bba56116fa3ac4aef6a9db"
+                "reference": "1d29cfc10a9ec26c1923494e69dbcad5584372bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/uri/zipball/eed89d4997fcc52c08bba56116fa3ac4aef6a9db",
-                "reference": "eed89d4997fcc52c08bba56116fa3ac4aef6a9db",
+                "url": "https://api.github.com/repos/joomla-framework/uri/zipball/1d29cfc10a9ec26c1923494e69dbcad5584372bf",
+                "reference": "1d29cfc10a9ec26c1923494e69dbcad5584372bf",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
@@ -752,7 +752,7 @@
                 "joomla",
                 "uri"
             ],
-            "time": "2019-06-18T02:07:33+00:00"
+            "time": "2019-12-04T01:56:35+00:00"
         },
         {
             "name": "joomla/utilities",
@@ -806,16 +806,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joomla-framework/view.git",
-                "reference": "6a44a34905fa0be8a9a5a70ef7840d2d3b989942"
+                "reference": "c3fb149b086a64562f7ddd0b74f1789458fc9f47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joomla-framework/view/zipball/6a44a34905fa0be8a9a5a70ef7840d2d3b989942",
-                "reference": "6a44a34905fa0be8a9a5a70ef7840d2d3b989942",
+                "url": "https://api.github.com/repos/joomla-framework/view/zipball/c3fb149b086a64562f7ddd0b74f1789458fc9f47",
+                "reference": "c3fb149b086a64562f7ddd0b74f1789458fc9f47",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.2"
+                "php": "^7.2.5"
             },
             "require-dev": {
                 "joomla/coding-standards": "~2.0@alpha",
@@ -847,7 +847,143 @@
                 "joomla",
                 "view"
             ],
-            "time": "2019-10-06T16:38:23+00:00"
+            "time": "2019-12-04T01:56:05+00:00"
+        },
+        {
+            "name": "laminas/laminas-diactoros",
+            "version": "2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-diactoros.git",
+                "reference": "95178c4751d737cdf9ab0a9f70a42754ac860e7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/95178c4751d737cdf9ab0a9f70a42754ac860e7b",
+                "reference": "95178c4751d737cdf9ab0a9f70a42754ac860e7b",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-zendframework-bridge": "^1.0",
+                "php": "^7.1",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "conflict": {
+                "phpspec/prophecy": "<1.9.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "replace": {
+                "zendframework/zend-diactoros": "self.version"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "http-interop/http-factory-tests": "^0.5.0",
+                "laminas/laminas-coding-standard": "~1.0.0",
+                "php-http/psr7-integration-tests": "dev-master",
+                "phpunit/phpunit": "^7.5.18"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev",
+                    "dev-develop": "2.2.x-dev",
+                    "dev-release-1.8": "1.8.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions/create_uploaded_file.php",
+                    "src/functions/marshal_headers_from_sapi.php",
+                    "src/functions/marshal_method_from_sapi.php",
+                    "src/functions/marshal_protocol_version_from_sapi.php",
+                    "src/functions/marshal_uri_from_sapi.php",
+                    "src/functions/normalize_server.php",
+                    "src/functions/normalize_uploaded_files.php",
+                    "src/functions/parse_cookie_header.php",
+                    "src/functions/create_uploaded_file.legacy.php",
+                    "src/functions/marshal_headers_from_sapi.legacy.php",
+                    "src/functions/marshal_method_from_sapi.legacy.php",
+                    "src/functions/marshal_protocol_version_from_sapi.legacy.php",
+                    "src/functions/marshal_uri_from_sapi.legacy.php",
+                    "src/functions/normalize_server.legacy.php",
+                    "src/functions/normalize_uploaded_files.legacy.php",
+                    "src/functions/parse_cookie_header.legacy.php"
+                ],
+                "psr-4": {
+                    "Laminas\\Diactoros\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "PSR HTTP Message implementations",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "http",
+                "laminas",
+                "psr",
+                "psr-7"
+            ],
+            "time": "2020-01-07T19:39:26+00:00"
+        },
+        {
+            "name": "laminas/laminas-zendframework-bridge",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-zendframework-bridge.git",
+                "reference": "0fb9675b84a1666ab45182b6c5b29956921e818d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/0fb9675b84a1666ab45182b6c5b29956921e818d",
+                "reference": "0fb9675b84a1666ab45182b6c5b29956921e818d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.1",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev",
+                    "dev-develop": "1.1.x-dev"
+                },
+                "laminas": {
+                    "module": "Laminas\\ZendFrameworkBridge"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/autoload.php"
+                ],
+                "psr-4": {
+                    "Laminas\\ZendFrameworkBridge\\": "src//"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Alias legacy ZF class names to Laminas Project equivalents.",
+            "keywords": [
+                "ZendFramework",
+                "autoloading",
+                "laminas",
+                "zf"
+            ],
+            "time": "2020-01-07T22:58:31+00:00"
         },
         {
             "name": "league/plates",
@@ -906,16 +1042,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f9d56fd2f5533322caccdfcddbb56aedd622ef1c"
+                "reference": "c861fcba2ca29404dc9e617eedd9eff4616986b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f9d56fd2f5533322caccdfcddbb56aedd622ef1c",
-                "reference": "f9d56fd2f5533322caccdfcddbb56aedd622ef1c",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c861fcba2ca29404dc9e617eedd9eff4616986b8",
+                "reference": "c861fcba2ca29404dc9e617eedd9eff4616986b8",
                 "shasum": ""
             },
             "require": {
@@ -983,7 +1119,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2019-11-13T10:27:43+00:00"
+            "time": "2019-12-20T14:22:59+00:00"
         },
         {
             "name": "psr/cache",
@@ -1280,16 +1416,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v5.0.0",
+            "version": "v5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "32bd1f9be1684bba768a6834037706cf0950843c"
+                "reference": "6e8d978878ae5de705ec9fabbb6011cc18776bc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/32bd1f9be1684bba768a6834037706cf0950843c",
-                "reference": "32bd1f9be1684bba768a6834037706cf0950843c",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/6e8d978878ae5de705ec9fabbb6011cc18776bc9",
+                "reference": "6e8d978878ae5de705ec9fabbb6011cc18776bc9",
                 "shasum": ""
             },
             "require": {
@@ -1355,24 +1491,24 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2019-11-18T17:27:11+00:00"
+            "time": "2019-12-12T13:03:32+00:00"
         },
         {
             "name": "symfony/cache-contracts",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache-contracts.git",
-                "reference": "a91281de82119a7a07481b892f709d88da592cd3"
+                "reference": "23ed8bfc1a4115feca942cb5f1aacdf3dcdf3c16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/a91281de82119a7a07481b892f709d88da592cd3",
-                "reference": "a91281de82119a7a07481b892f709d88da592cd3",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/23ed8bfc1a4115feca942cb5f1aacdf3dcdf3c16",
+                "reference": "23ed8bfc1a4115feca942cb5f1aacdf3dcdf3c16",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2.9",
+                "php": "^7.2.5",
                 "psr/cache": "^1.0"
             },
             "suggest": {
@@ -1413,24 +1549,24 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-11-09T09:18:34+00:00"
+            "time": "2019-11-18T17:27:11+00:00"
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "9d99e1556417bf227a62e14856d630672bf10eaf"
+                "reference": "144c5e51266b281231e947b51223ba14acf1a749"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/9d99e1556417bf227a62e14856d630672bf10eaf",
-                "reference": "9d99e1556417bf227a62e14856d630672bf10eaf",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/144c5e51266b281231e947b51223ba14acf1a749",
+                "reference": "144c5e51266b281231e947b51223ba14acf1a749",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2.9",
+                "php": "^7.2.5",
                 "psr/container": "^1.0"
             },
             "suggest": {
@@ -1471,20 +1607,20 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-11-09T09:18:34+00:00"
+            "time": "2019-11-18T17:27:11+00:00"
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v5.0.0",
+            "version": "v5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "e2f1eeb12edacf744c4b359a859204578fdf8549"
+                "reference": "1b9653e68d5b701bf6d9c91bdd3660078c9f4f28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/e2f1eeb12edacf744c4b359a859204578fdf8549",
-                "reference": "e2f1eeb12edacf744c4b359a859204578fdf8549",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/1b9653e68d5b701bf6d9c91bdd3660078c9f4f28",
+                "reference": "1b9653e68d5b701bf6d9c91bdd3660078c9f4f28",
                 "shasum": ""
             },
             "require": {
@@ -1531,74 +1667,7 @@
                 "instantiate",
                 "serialize"
             ],
-            "time": "2019-11-18T17:27:11+00:00"
-        },
-        {
-            "name": "zendframework/zend-diactoros",
-            "version": "2.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "de5847b068362a88684a55b0dbb40d85986cfa52"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/de5847b068362a88684a55b0dbb40d85986cfa52",
-                "reference": "de5847b068362a88684a55b0dbb40d85986cfa52",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1",
-                "psr/http-factory": "^1.0",
-                "psr/http-message": "^1.0"
-            },
-            "provide": {
-                "psr/http-factory-implementation": "1.0",
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "ext-dom": "*",
-                "ext-libxml": "*",
-                "http-interop/http-factory-tests": "^0.5.0",
-                "php-http/psr7-integration-tests": "dev-master",
-                "phpunit/phpunit": "^7.0.2",
-                "zendframework/zend-coding-standard": "~1.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev",
-                    "dev-develop": "2.2.x-dev",
-                    "dev-release-1.8": "1.8.x-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions/create_uploaded_file.php",
-                    "src/functions/marshal_headers_from_sapi.php",
-                    "src/functions/marshal_method_from_sapi.php",
-                    "src/functions/marshal_protocol_version_from_sapi.php",
-                    "src/functions/marshal_uri_from_sapi.php",
-                    "src/functions/normalize_server.php",
-                    "src/functions/normalize_uploaded_files.php",
-                    "src/functions/parse_cookie_header.php"
-                ],
-                "psr-4": {
-                    "Zend\\Diactoros\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "PSR HTTP Message implementations",
-            "keywords": [
-                "http",
-                "psr",
-                "psr-7"
-            ],
-            "time": "2019-11-13T19:16:13+00:00"
+            "time": "2019-12-01T08:48:26+00:00"
         }
     ],
     "packages-dev": [],

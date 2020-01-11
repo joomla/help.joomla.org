@@ -13,7 +13,7 @@ namespace Joomla\Help\Controller;
 
 use Joomla\Controller\AbstractController;
 use Joomla\Renderer\RendererInterface;
-use Zend\Diactoros\Response\HtmlResponse;
+use Laminas\Diactoros\Response\HtmlResponse;
 
 /**
  * Controller to catch legacy help.joomla.org routes
