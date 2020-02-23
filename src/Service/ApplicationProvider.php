@@ -97,12 +97,20 @@ class ApplicationProvider implements ServiceProviderInterface
 
 				$router->get(
 					'/proxy',
-					HelpScreenController::class
+					HelpScreenController::class,
+					[],
+					[
+						'_proxy' => true,
+					]
 				);
 
 				$router->get(
 					'/proxy/index.php',
-					HelpScreenController::class
+					HelpScreenController::class,
+					[],
+					[
+						'_proxy' => true,
+					]
 				);
 
 				$router->get(

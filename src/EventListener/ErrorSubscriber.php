@@ -134,9 +134,9 @@ class ErrorSubscriber implements SubscriberInterface, LoggerAwareInterface
 
 		$app->allowCache(false);
 
-		$uri = $app->get('uri.route', '');
+		$isProxy = $app->input->getBool('_proxy', false);
 
-		$template = strpos($uri, 'proxy') === 0 ? 'helpscreen/exception.html' : 'exception.html';
+		$template = $isProxy ? 'helpscreen/exception.html' : 'exception.html';
 
 		$response = new HtmlResponse(
 			$this->renderer->render($template, ['exception' => $event->getError()])
