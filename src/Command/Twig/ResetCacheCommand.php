@@ -1,0 +1,140 @@
+<?php
+/**
+ * Joomla! Help Site
+ *
+ * @copyright  Copyright (C) 2016 - 2017 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE
+ *
+ * Portions of this code are derived from the previous help screen proxy component,
+ * please see https://github.com/joomla-projects/help-proxy for attribution
+ */
+
+namespace Joomla\Help\Command\Twig;
+
+use Joomla\Console\Command\AbstractCommand;
+use Joomla\Filesystem\Folder;
+use Joomla\Registry\Registry;
+use Joomla\Renderer\TwigRenderer;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Twig\Error\Error as TwigError;
+
+/**
+ * Twig cache reset command
+ */
+class ResetCacheCommand extends AbstractCommand
+{
+	/**
+	 * The default command name
+	 *
+	 * @var  string|null
+	 */
+	protected static $defaultName = 'twig:reset-cache';
+
+	/**
+	 * The template renderer
+	 *
+	 * @var  TwigRenderer
+	 */
+	private $renderer;
+
+	/**
+	 * The application configuration registry
+	 *
+	 * @var  Registry
+	 */
+	private $config;
+
+	/**
+	 * Instantiate the command.
+	 *
+	 * @param   TwigRenderer  $renderer  The template renderer
+	 * @param   Registry      $config    The application configuration registry
+	 */
+	public function __construct(TwigRenderer $renderer, Registry $config)
+	{
+		$this->renderer = $renderer;
+		$this->config   = $config;
+
+		parent::__construct();
+	}
+
+	/**
+	 * Internal function to execute the command.
+	 *
+	 * @param   InputInterface   $input   The input to inject into the command.
+	 * @param   OutputInterface  $output  The output to inject into the command.
+	 *
+	 * @return  integer  The command exit code
+	 */
+	protected function doExecute(InputInterface $input, OutputInterface $output): int
+	{
+		$symfonyStyle = new SymfonyStyle($input, $output);
+
+		$symfonyStyle->title('Reset Twig Cache');
+
+		// Check if caching is enabled
+		if ($this->config->get('template.cache.enabled', false) === false)
+		{
+			$symfonyStyle->comment('Twig caching is disabled.');
+
+			return 0;
+		}
+
+		$symfonyStyle->comment('Resetting Twig cache.');
+
+		$twigCache = $this->config->get('template.cache.path', '');
+
+		// First remove the existing cache files
+		if (is_dir(JPATH_ROOT . '/' . $twigCache))
+		{
+			foreach (Folder::folders(JPATH_ROOT . '/' . $twigCache) as $folder)
+			{
+				Folder::delete(JPATH_ROOT . '/' . $twigCache . '/' . $folder);
+			}
+		}
+
+		// Now get a list of all the templates
+		$files = Folder::files(JPATH_ROOT . '/templates', '.twig', true, true);
+
+		// Load each template now
+		$engine       = $this->renderer->getRenderer();
+		$errorFiles   = [];
+
+		foreach ($files as $file)
+		{
+			$template = str_replace(JPATH_ROOT . '/templates/', '', $file);
+
+			try
+			{
+				$engine->load($template);
+			}
+			catch (TwigError $e)
+			{
+				$errorFiles[] = $file;
+			}
+		}
+
+		if (\count($errorFiles))
+		{
+			$symfonyStyle->warning('The following Twig resources failed to cache: ' . implode(', ', $errorFiles));
+		}
+		else
+		{
+			$symfonyStyle->success('The cached Twig resources were successfully created.');
+		}
+
+		return 0;
+	}
+
+	/**
+	 * Configures the current command.
+	 *
+	 * @return  void
+	 */
+	protected function configure(): void
+	{
+		$this->setDescription('Resets the Twig template cache');
+	}
+}

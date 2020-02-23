@@ -18,6 +18,8 @@ use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
 use Joomla\Help\Command\ClearCacheCommand;
+use Joomla\Help\Command\Twig\ResetCacheCommand;
+use Joomla\Renderer\RendererInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Input\ArgvInput;
@@ -60,6 +62,7 @@ class ConsoleProvider implements ServiceProviderInterface
 				{
 					$mapping = [
 						ClearCacheCommand::getDefaultName() => ClearCacheCommand::class,
+						ResetCacheCommand::getDefaultName() => ResetCacheCommand::class,
 					];
 
 					return new ContainerLoader($container, $mapping);
@@ -72,6 +75,18 @@ class ConsoleProvider implements ServiceProviderInterface
 			static function (Container $container): ClearCacheCommand
 			{
 				return new ClearCacheCommand($container->get(CacheItemPoolInterface::class));
+			},
+			true
+		);
+
+		$container->share(
+			ResetCacheCommand::class,
+			static function (Container $container): ResetCacheCommand
+			{
+				return new ResetCacheCommand(
+					$container->get(RendererInterface::class),
+					$container->get('config')
+				);
 			},
 			true
 		);

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d50149ec60003ce5a93409a61b81c80",
+    "content-hash": "84b6162ba498a084647cd67985fcd65a",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -390,6 +390,53 @@
                 "joomla"
             ],
             "time": "2019-12-08T16:25:32+00:00"
+        },
+        {
+            "name": "joomla/filesystem",
+            "version": "dev-2.0-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joomla-framework/filesystem.git",
+                "reference": "df7415443368f36c0e0ae1d23d274e08bbe30b3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joomla-framework/filesystem/zipball/df7415443368f36c0e0ae1d23d274e08bbe30b3f",
+                "reference": "df7415443368f36c0e0ae1d23d274e08bbe30b3f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "joomla/coding-standards": "~2.0@alpha",
+                "joomla/test": "~2.0",
+                "mikey179/vfsstream": "~1.1",
+                "phpunit/phpunit": "~8.2"
+            },
+            "type": "joomla-package",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.0-dev": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Joomla\\Filesystem\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Joomla Filesystem Package",
+            "homepage": "https://github.com/joomla/joomla-framework-filesystem",
+            "keywords": [
+                "filesystem",
+                "framework",
+                "joomla"
+            ],
+            "time": "2019-12-08T16:34:46+00:00"
         },
         {
             "name": "joomla/filter",
@@ -2232,6 +2279,7 @@
         "joomla/controller": 20,
         "joomla/di": 20,
         "joomla/event": 20,
+        "joomla/filesystem": 20,
         "joomla/http": 20,
         "joomla/input": 20,
         "joomla/model": 20,
