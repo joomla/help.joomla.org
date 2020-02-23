@@ -43,6 +43,7 @@ class ApplicationExtension extends AbstractExtension
 	{
 		return [
 			new TwigFunction('current_url', [RoutingService::class, 'getCurrentUrl']),
+			new TwigFunction('wiki_source_doc_url', [$this, 'getWikiSourceDocUrl']),
 		];
 	}
 
@@ -56,5 +57,18 @@ class ApplicationExtension extends AbstractExtension
 	public function stripRootPath(string $string): string
 	{
 		return str_replace(JPATH_ROOT . DIRECTORY_SEPARATOR, '/', $string);
+	}
+
+	/**
+	 * Creates the source documentation page URL for a given page
+	 *
+	 * @param   string  $wikiUrl   The URL to the source Wiki
+	 * @param   string  $pageName  The name of the source page
+	 *
+	 * @return  string
+	 */
+	public function getWikiSourceDocUrl(string $wikiUrl, string $pageName): string
+	{
+		return $wikiUrl . '/' . str_replace('?', '%3F', $pageName);
 	}
 }
