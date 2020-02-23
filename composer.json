@@ -6,7 +6,7 @@
     "homepage": "http://github.com/joomla/help.joomla.org",
     "license": "GPL-2.0-or-later",
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "joomla/application": "^2.0@dev",
         "joomla/controller": "^2.0@dev",
         "joomla/di": "^2.0@dev",
@@ -37,7 +37,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.2.21"
+            "php": "7.3.15"
         }
     }
 }
