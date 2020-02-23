@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="alert alert-warning">
+        <h4>{% if exception.code %}{{ exception.code }} - {% endif %}{{ exception|get_class }}</h4>
+        <p>{{ exception.message }}</p>
+    </div>
+{% endblock %}

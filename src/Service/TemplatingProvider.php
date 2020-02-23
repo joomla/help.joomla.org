@@ -17,12 +17,16 @@ use Joomla\DI\ContainerAwareTrait;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Help\Twig\ApplicationExtension;
 use Joomla\Help\Twig\AssetExtension;
+use Joomla\Help\Twig\CdnExtension;
 use Joomla\Help\Twig\Service\AssetService;
+use Joomla\Help\Twig\Service\CdnRendererService;
 use Joomla\Help\Twig\Service\RoutingService;
 use Joomla\Help\WebApplication;
+use Joomla\Http\Http;
 use Joomla\Preload\PreloadManager;
 use Joomla\Renderer\RendererInterface;
 use Joomla\Renderer\TwigRenderer;
+use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Asset\Packages;
 use Twig\Cache\CacheInterface;
 use Twig\Cache\FilesystemCache;
@@ -156,12 +160,33 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 		);
 
 		$container->share(
+			CdnExtension::class,
+			static function (Container $container): CdnExtension
+			{
+				return new CdnExtension;
+			},
+			true
+		);
+
+		$container->share(
 			AssetService::class,
 			static function (Container $container): AssetService
 			{
 				return new AssetService(
 					$container->get(Packages::class),
 					$container->get(PreloadManager::class)
+				);
+			},
+			true
+		);
+
+		$container->share(
+			CdnRendererService::class,
+			static function (Container $container): CdnRendererService
+			{
+				return new CdnRendererService(
+					$container->get(CacheItemPoolInterface::class),
+					$container->get(Http::class)
 				);
 			},
 			true
@@ -198,6 +223,7 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 		$twigExtensions = [
 			ApplicationExtension::class,
 			AssetExtension::class,
+			CdnExtension::class,
 		];
 
 		$container->tag('twig.extension', $twigExtensions);

@@ -1,6 +1,6 @@
 {% extends 'helpscreen/base.html.twig' %}
 
 {% block content %}
-    <h1>{% if exception.code %}{{ exception.code }} -{% endif %}{{ exception|get_class }}</h1>
+    <h1>{% if exception.code %}{{ exception.code }} - {% endif %}{{ exception|get_class }}</h1>
     <p>{{ exception.message|strip_root_path }}</p>
 {% endblock %}
