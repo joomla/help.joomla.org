@@ -1,4 +1,2 @@
 /vendor
-/conf/config.json
-/staging
-/site.zip
+/etc/config.json
