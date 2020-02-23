@@ -1,14 +1,22 @@
 {
-	"system": {
-		"error_reporting": 0
-	},
-	"log": {
-		"level": "error"
-	},
-	"cache": {
-		"enabled": false,
-		"lifetime": 900,
-		"adapter": "file",
-		"namespace": "jhelp"
-	}
+    "system": {
+        "debug": false,
+        "error_reporting": 0
+    },
+    "log": {
+        "level": "error"
+    },
+    "cache": {
+        "enabled": false,
+        "lifetime": 900,
+        "adapter": "file",
+        "namespace": "jhelp"
+    },
+    "template": {
+        "debug": false,
+        "cache": {
+            "enabled": false,
+            "path": "cache/twig"
+        }
+    }
 }

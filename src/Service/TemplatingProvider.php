@@ -11,18 +11,20 @@
 
 namespace Joomla\Help\Service;
 
-use Joomla\Application\AbstractApplication;
 use Joomla\DI\Container;
 use Joomla\DI\ContainerAwareInterface;
 use Joomla\DI\ContainerAwareTrait;
 use Joomla\DI\ServiceProviderInterface;
-use Joomla\Help\Templating\JoomlaTemplateExtension;
-use Joomla\Http\Http;
-use Joomla\Renderer\PlatesRenderer;
 use Joomla\Renderer\RendererInterface;
-use League\Plates\Engine;
-use League\Plates\Extension\Asset;
-use Psr\Cache\CacheItemPoolInterface;
+use Joomla\Renderer\TwigRenderer;
+use Twig\Cache\CacheInterface;
+use Twig\Cache\FilesystemCache;
+use Twig\Cache\NullCache;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+use Twig\Loader\LoaderInterface;
+use Twig\RuntimeLoader\ContainerRuntimeLoader;
+use Twig\RuntimeLoader\RuntimeLoaderInterface;
 
 /**
  * Templating service provider
@@ -44,49 +46,88 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 
 		$container->share(
 			RendererInterface::class,
-			function (Container $container)
+			static function (Container $container): RendererInterface
 			{
-				$engine = new Engine(JPATH_ROOT . '/templates');
-				$engine->addFolder('partials', JPATH_ROOT . '/templates/partials');
-
-				// Add extensions to the renderer
-				$engine->loadExtensions($container->getTagged('plates.extension'));
-
-				// Add functions to the renderer
-				$engine->registerFunction(
-					'current_url',
-					function () use ($container) : string
-					{
-						return $container->get(AbstractApplication::class)->get('uri.request');
-					}
-				);
-
-				return new PlatesRenderer($engine);
+				return new TwigRenderer($container->get(Environment::class));
 			},
 			true
 		);
 
-		$container->share(
-			Asset::class,
-			function () : Asset
-			{
-				return new Asset(JPATH_ROOT . '/www');
-			},
-			true
-		)
-			->tag('plates.extension', [Asset::class]);
+		$container->alias(\Twig_CacheInterface::class, CacheInterface::class)
+			->share(
+				CacheInterface::class,
+				static function (Container $container): CacheInterface
+				{
+					/** @var \Joomla\Registry\Registry $config */
+					$config = $container->get('config');
 
-		$container->share(
-			JoomlaTemplateExtension::class,
-			function (Container $container)
-			{
-				return new JoomlaTemplateExtension(
-					$container->get(CacheItemPoolInterface::class),
-					$container->get(Http::class)
-				);
-			},
-			true
-		)
-			->tag('plates.extension', [JoomlaTemplateExtension::class]);
+					// Pull down the template config
+					$cacheEnabled = $config->get('template.cache.enabled', false);
+					$cachePath    = $config->get('template.cache.path', 'cache/twig');
+					$debug        = $config->get('template.debug', false);
+
+					if ($debug === false && $cacheEnabled !== false)
+					{
+						return new FilesystemCache(JPATH_ROOT . '/' . $cachePath);
+					}
+
+					return new NullCache;
+				},
+				true
+			);
+
+		$container->alias(\Twig_Environment::class, Environment::class)
+			->share(
+				Environment::class,
+				static function (Container $container): Environment {
+					/** @var \Joomla\Registry\Registry $config */
+					$config = $container->get('config');
+
+					$debug = $config->get('template.debug', false);
+
+					$environment = new Environment(
+						$container->get(LoaderInterface::class),
+						['debug' => $debug]
+					);
+
+					// Add the runtime loader
+					$environment->addRuntimeLoader($container->get(RuntimeLoaderInterface::class));
+
+					// Set up the environment's caching service
+					$environment->setCache($container->get(CacheInterface::class));
+
+					// Add the Twig extensions
+					$environment->setExtensions($container->getTagged('twig.extension'));
+
+					// Add globals tracking the debug state
+					$environment->addGlobal('system_debug', $config->get('system.debug', false));
+					$environment->addGlobal('template_debug', $debug);
+
+					return $environment;
+				},
+				true
+			);
+
+		$container->alias(\Twig_LoaderInterface::class, LoaderInterface::class)
+			->share(
+				LoaderInterface::class,
+				static function (Container $container): LoaderInterface
+				{
+					return new FilesystemLoader([JPATH_ROOT . '/templates']);
+				},
+				true
+			);
+
+		$container->alias(\Twig_RuntimeLoaderInterface::class, RuntimeLoaderInterface::class)
+			->alias(\Twig_ContainerRuntimeLoader::class, RuntimeLoaderInterface::class)
+			->alias(\ContainerRuntimeLoader::class, RuntimeLoaderInterface::class)
+			->share(
+				RuntimeLoaderInterface::class,
+				static function (Container $container): RuntimeLoaderInterface
+				{
+					return new ContainerRuntimeLoader($container);
+				},
+				true
+			);
 	}
 }
