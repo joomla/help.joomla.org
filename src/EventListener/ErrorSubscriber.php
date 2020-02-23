@@ -136,7 +136,7 @@ class ErrorSubscriber implements SubscriberInterface, LoggerAwareInterface
 
 		$isProxy = $app->input->getBool('_proxy', false);
 
-		$template = $isProxy ? 'helpscreen/exception.html' : 'exception.html';
+		$template = $isProxy ? 'helpscreen/exception.html.twig' : 'exception.html.twig';
 
 		$response = new HtmlResponse(
 			$this->renderer->render($template, ['exception' => $event->getError()])
