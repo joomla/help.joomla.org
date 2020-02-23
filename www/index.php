@@ -28,6 +28,7 @@ use Joomla\Application\AbstractApplication;
 use Joomla\DI\Container;
 use Joomla\Help\Service as Services;
 use Joomla\Help\WebApplication;
+use Joomla\Preload\Service\PreloadProvider;
 use Monolog\Logger;
 use Psr\Log\LoggerInterface;
 
@@ -42,7 +43,9 @@ try
 		->registerServiceProvider(new Services\EventProvider)
 		->registerServiceProvider(new Services\HttpProvider)
 		->registerServiceProvider(new Services\LoggingProvider)
-		->registerServiceProvider(new Services\TemplatingProvider);
+		->registerServiceProvider(new Services\TemplatingProvider)
+		->registerServiceProvider(new PreloadProvider)
+	;
 
 	// Alias the web application to Joomla's base application class and the `app` shortcut as this is the primary application for the environment
 	$container->alias(AbstractApplication::class, WebApplication::class);

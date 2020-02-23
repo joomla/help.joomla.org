@@ -15,8 +15,15 @@ use Joomla\DI\Container;
 use Joomla\DI\ContainerAwareInterface;
 use Joomla\DI\ContainerAwareTrait;
 use Joomla\DI\ServiceProviderInterface;
+use Joomla\Help\Twig\ApplicationExtension;
+use Joomla\Help\Twig\AssetExtension;
+use Joomla\Help\Twig\Service\AssetService;
+use Joomla\Help\Twig\Service\RoutingService;
+use Joomla\Help\WebApplication;
+use Joomla\Preload\PreloadManager;
 use Joomla\Renderer\RendererInterface;
 use Joomla\Renderer\TwigRenderer;
+use Symfony\Component\Asset\Packages;
 use Twig\Cache\CacheInterface;
 use Twig\Cache\FilesystemCache;
 use Twig\Cache\NullCache;
@@ -129,5 +136,70 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 				},
 				true
 			);
+
+		$container->share(
+			ApplicationExtension::class,
+			static function (Container $container): ApplicationExtension
+			{
+				return new ApplicationExtension;
+			},
+			true
+		);
+
+		$container->share(
+			AssetExtension::class,
+			static function (Container $container): AssetExtension
+			{
+				return new AssetExtension;
+			},
+			true
+		);
+
+		$container->share(
+			AssetService::class,
+			static function (Container $container): AssetService
+			{
+				return new AssetService(
+					$container->get(Packages::class),
+					$container->get(PreloadManager::class)
+				);
+			},
+			true
+		);
+
+		$container->share(
+			RoutingService::class,
+			static function (Container $container): RoutingService
+			{
+				return new RoutingService(
+					$container->get(WebApplication::class)
+				);
+			},
+			true
+		);
+
+		$this->tagTwigExtensions($container);
+	}
+
+	/**
+	 * Tag services which are Twig extensions
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  void
+	 */
+	private function tagTwigExtensions(Container $container): void
+	{
+		/** @var \Joomla\Registry\Registry $config */
+		$config = $container->get('config');
+
+		$debug = $config->get('template.debug', false);
+
+		$twigExtensions = [
+			ApplicationExtension::class,
+			AssetExtension::class,
+		];
+
+		$container->tag('twig.extension', $twigExtensions);
 	}
 }
