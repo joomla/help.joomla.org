@@ -1,0 +1,77 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Joomla! Help Site
+ *
+ * @copyright  Copyright (C) 2016 - 2017 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE
+ *
+ * Portions of this code are derived from the previous help screen proxy component,
+ * please see https://github.com/joomla-projects/help-proxy for attribution
+ */
+
+defined('JPATH_ROOT') or define('JPATH_ROOT', dirname(__DIR__));
+
+// Ensure we've initialized Composer
+if (!file_exists(JPATH_ROOT . '/vendor/autoload.php'))
+{
+    fwrite(STDOUT, "\nComposer is not set up properly, please run `composer install`\n");
+
+	exit(1);
+}
+
+require JPATH_ROOT . '/vendor/autoload.php';
+
+use Joomla\Application\AbstractApplication;
+use Joomla\Console\Application;
+use Joomla\DI\Container;
+use Joomla\Help\Service as Services;
+use Joomla\Preload\Service\PreloadProvider;
+use Monolog\Logger;
+use Psr\Log\LoggerInterface;
+
+// Wrap in a try/catch so we can display an error if need be
+try
+{
+	$container = (new Container)
+		->registerServiceProvider(new Services\ApplicationProvider)
+		->registerServiceProvider(new Services\AssetProvider)
+		->registerServiceProvider(new Services\CacheProvider)
+		->registerServiceProvider(new Services\ConfigProvider(JPATH_ROOT . '/etc/config.json'))
+		->registerServiceProvider(new Services\ConsoleProvider)
+		->registerServiceProvider(new Services\EventProvider)
+		->registerServiceProvider(new Services\HttpProvider)
+		->registerServiceProvider(new Services\LoggingProvider)
+		->registerServiceProvider(new Services\TemplatingProvider)
+		->registerServiceProvider(new PreloadProvider)
+	;
+
+	// Alias the CLI application to Joomla's base application class as this is the primary application for the environment
+	$container->alias(AbstractApplication::class, Application::class);
+
+	// Alias the `monolog.logger.cli` service to the Monolog Logger class and PSR-3 interface as this is the primary logger for the environment
+	$container->alias(Logger::class, 'monolog.logger.cli')
+		->alias(LoggerInterface::class, 'monolog.logger.cli');
+
+    // Force error reporting to maximum
+    error_reporting(-1);
+    ini_set('display_errors', true);
+}
+catch (\Throwable $e)
+{
+	error_log($e);
+
+    fwrite(STDOUT, "\nAn error occurred while creating the DI container: " . $e->getMessage() . "\n");
+   	fwrite(STDOUT, "\n" . $e->getTraceAsString() . "\n");
+
+   	if ($prev = $e->getPrevious())
+   	{
+   		fwrite(STDOUT, "\n\nPrevious Exception: " . $prev->getMessage() . "\n");
+   		fwrite(STDOUT, "\n" . $prev->getTraceAsString() . "\n");
+   	}
+
+   	exit(1);
+}
+
+// Execute the application
+$container->get(AbstractApplication::class)->execute();
