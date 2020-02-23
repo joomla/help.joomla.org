@@ -21,7 +21,8 @@
         "joomla/view": "^2.0@dev",
         "league/plates": "^3.3",
         "monolog/monolog": "^2.0.2",
-        "symfony/cache": "^5.0.4"
+        "symfony/cache": "^5.0.4",
+        "twig/twig": "^2.12.5"
     },
     "autoload": {
         "psr-4": {
@@ -29,6 +30,7 @@
         }
     },
     "replace": {
+        "symfony/polyfill-php73": "*",
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php71": "*",
         "symfony/polyfill-php70": "*",
