@@ -36,6 +36,7 @@ try
 {
 	$container = (new Container)
 		->registerServiceProvider(new Services\ApplicationProvider)
+		->registerServiceProvider(new Services\AssetProvider)
 		->registerServiceProvider(new Services\CacheProvider)
 		->registerServiceProvider(new Services\ConfigProvider(JPATH_ROOT . '/etc/config.json'))
 		->registerServiceProvider(new Services\EventProvider)
