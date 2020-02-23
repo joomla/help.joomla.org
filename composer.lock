@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc28a400293419518970a27b6fb7c9de",
+    "content-hash": "2619252563ba378657693b241488c1d4",
     "packages": [
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149"
+                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/62e8fc2dc550e5d6d8c9360c7721662670f58149",
-                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/47fe531de31fca4a1b997f87308e7d7804348f7e",
+                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e",
                 "shasum": ""
             },
             "require": {
@@ -60,7 +60,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-12-11T14:44:42+00:00"
+            "time": "2020-01-13T10:02:55+00:00"
         },
         {
             "name": "joomla/application",
@@ -1416,16 +1416,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v5.0.2",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "6e8d978878ae5de705ec9fabbb6011cc18776bc9"
+                "reference": "4572116c640a6bc9fc0047180fe7f9362e5923fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/6e8d978878ae5de705ec9fabbb6011cc18776bc9",
-                "reference": "6e8d978878ae5de705ec9fabbb6011cc18776bc9",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/4572116c640a6bc9fc0047180fe7f9362e5923fc",
+                "reference": "4572116c640a6bc9fc0047180fe7f9362e5923fc",
                 "shasum": ""
             },
             "require": {
@@ -1491,7 +1491,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2019-12-12T13:03:32+00:00"
+            "time": "2020-01-31T09:13:47+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -1611,16 +1611,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v5.0.2",
+            "version": "v5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "1b9653e68d5b701bf6d9c91bdd3660078c9f4f28"
+                "reference": "960f9ac0fdbd642461ed29d7717aeb2a94d428b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/1b9653e68d5b701bf6d9c91bdd3660078c9f4f28",
-                "reference": "1b9653e68d5b701bf6d9c91bdd3660078c9f4f28",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/960f9ac0fdbd642461ed29d7717aeb2a94d428b9",
+                "reference": "960f9ac0fdbd642461ed29d7717aeb2a94d428b9",
                 "shasum": ""
             },
             "require": {
@@ -1667,7 +1667,7 @@
                 "instantiate",
                 "serialize"
             ],
-            "time": "2019-12-01T08:48:26+00:00"
+            "time": "2020-01-04T14:08:26+00:00"
         }
     ],
     "packages-dev": [],
@@ -1690,10 +1690,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2"
+        "php": "^7.3"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.2.21"
+        "php": "7.3.15"
     }
 }
