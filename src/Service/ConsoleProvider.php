@@ -19,6 +19,7 @@ use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
 use Joomla\Help\Command\ClearCacheCommand;
 use Joomla\Help\Command\Twig\ResetCacheCommand;
+use Joomla\Help\Command\UpdateServerCommand;
 use Joomla\Renderer\RendererInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Log\LoggerInterface;
@@ -61,8 +62,9 @@ class ConsoleProvider implements ServiceProviderInterface
 				static function (Container $container): LoaderInterface
 				{
 					$mapping = [
-						ClearCacheCommand::getDefaultName() => ClearCacheCommand::class,
-						ResetCacheCommand::getDefaultName() => ResetCacheCommand::class,
+						ClearCacheCommand::getDefaultName()   => ClearCacheCommand::class,
+						ResetCacheCommand::getDefaultName()   => ResetCacheCommand::class,
+						UpdateServerCommand::getDefaultName() => UpdateServerCommand::class,
 					];
 
 					return new ContainerLoader($container, $mapping);
@@ -87,6 +89,15 @@ class ConsoleProvider implements ServiceProviderInterface
 					$container->get(RendererInterface::class),
 					$container->get('config')
 				);
+			},
+			true
+		);
+
+		$container->share(
+			UpdateServerCommand::class,
+			static function (Container $container): UpdateServerCommand
+			{
+				return new UpdateServerCommand;
 			},
 			true
 		);
