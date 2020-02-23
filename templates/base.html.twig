@@ -1,43 +1,49 @@
-<?php /** @var $this \League\Plates\Template\Template */ ?>
+{% from 'macros.html.twig' import full_page_head, google_tag_manager %}
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<html lang="en" dir="ltr">
     <head>
-        <?php $this->insert('partials/head') ?>
+        {{ full_page_head() }}
     </head>
     <body class="site">
-        <?php $this->insert('partials/gtm') ?>
-        <nav class="navigation" role="navigation">
-            <div id="mega-menu" class="navbar navbar-inverse navbar-fixed-top">
-                <div class="navbar-inner">
-                    <div class="container">
-                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
+        {{ google_tag_manager() }}
+        {% block nav %}
+            <nav class="navigation" role="navigation">
+                <div id="mega-menu" class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            {% block topnav %}
+                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </a>
 
-                        <?php echo $this->cdn_menu(); ?>
+                                {{ cdn_menu() }}
+                            {% endblock %}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        {% endblock %}
 
         <header class="header">
             <div class="container">
                 <div class="row-fluid">
-                    <div class="span7">
-                        <h1 class="page-title">Joomla! Help Site</h1>
-                    </div>
-                    <div class="span5">
-                        <div class="btn-toolbar pull-right">
-                            <div class="btn-group">
-                                <a href="https://downloads.joomla.org" class="btn btn-large btn-warning">Download</a>
-                            </div>
-                            <div class="btn-group">
-                                <a href="https://launch.joomla.org" class="btn btn-large btn-primary">Launch</a>
+                    {% block header %}
+                        <div class="span7">
+                            <h1 class="page-title">Joomla! Help Site</h1>
+                        </div>
+                        <div class="span5">
+                            <div class="btn-toolbar pull-right">
+                                <div class="btn-group">
+                                    <a href="https://downloads.joomla.org" class="btn btn-large btn-warning">Download</a>
+                                </div>
+                                <div class="btn-group">
+                                    <a href="https://launch.joomla.org" class="btn btn-large btn-primary">Launch</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endblock %}
                 </div>
             </div>
         </header>
@@ -58,7 +64,7 @@
             <div class="container">
                 <div class="row-fluid">
                     <main class="span12">
-                        <?php echo $this->section('content'); ?>
+                        {% block content %}{% endblock %}
                     </main>
                 </div>
             </div>
@@ -66,9 +72,10 @@
 
         <div class="footer center">
             <div class="container">
-                <hr />
-
-                <?php echo $this->cdn_footer(); ?>
+                {% block footer %}
+                    <hr />
+                    {{ cdn_footer() }}
+                {% endblock %}
             </div>
         </div>
 

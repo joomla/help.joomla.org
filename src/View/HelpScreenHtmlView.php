@@ -59,10 +59,10 @@ class HelpScreenHtmlView extends HtmlView
 	{
 		$this->setData(
 			[
-				'page'     => $this->getModel()->getPage(),
-				'pageName' => $this->getModel()->getPageUrlSlug(),
-				'title'    => $this->getModel()->getTitle(),
-				'wikiUrl'  => $this->getModel()->getWikiUrl(),
+				'page'      => $this->getModel()->getPage(),
+				'page_name' => $this->getModel()->getPageUrlSlug(),
+				'title'     => $this->getModel()->getTitle(),
+				'wiki_url'  => $this->getModel()->getWikiUrl(),
 			]
 		);
 

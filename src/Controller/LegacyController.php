@@ -51,7 +51,7 @@ class LegacyController extends AbstractController
 		$this->getApplication()->allowCache(true);
 
 		// Set the layout based on the requested task; the 'findkey' task maps to Joomla! 1.0 and 1.5 help screen requests
-		$layout = $this->getInput()->getString('task', 'display') == 'findkey' ? 'helpscreen/eol.html' : 'main.html';
+		$layout = $this->getInput()->getString('task', 'display') == 'findkey' ? 'helpscreen/eol.html.twig' : 'main.html.twig';
 
 		$this->getApplication()->setResponse(new HtmlResponse($this->renderer->render($layout)));
 

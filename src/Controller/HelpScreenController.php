@@ -62,7 +62,7 @@ class HelpScreenController extends AbstractController
 		$this->getApplication()->allowCache(true);
 
 		// Set the layout for the view
-		$this->view->setLayout('helpscreen/live.html');
+		$this->view->setLayout('helpscreen/live.html.twig');
 
 		// Store data into the model
 		$state = $this->view->getModel()->getState();

@@ -9,17 +9,15 @@
  * please see https://github.com/joomla-projects/help-proxy for attribution
  */
 
-namespace Joomla\Help\Templating;
+namespace Joomla\Help\Twig\Service;
 
 use Joomla\Http\Http;
-use League\Plates\Engine;
-use League\Plates\Extension\ExtensionInterface;
 use Psr\Cache\CacheItemPoolInterface;
 
 /**
- * Template extension integrating joomla.org template features
+ * Service class rendering the `joomla.org` CDN template elements
  */
-class JoomlaTemplateExtension implements ExtensionInterface
+class CdnRendererService
 {
 	/**
 	 * Cache pool
@@ -45,19 +43,6 @@ class JoomlaTemplateExtension implements ExtensionInterface
 	{
 		$this->cache = $cache;
 		$this->http  = $http;
-	}
-
-	/**
-	 * Register extension function.
-	 *
-	 * @param   Engine  $engine  The template engine
-	 *
-	 * @return  null
-	 */
-	public function register(Engine $engine)
-	{
-		$engine->registerFunction('cdn_menu', [$this, 'getCdnMenu']);
-		$engine->registerFunction('cdn_footer', [$this, 'getCdnFooter']);
 	}
 
 	/**
