@@ -11,9 +11,7 @@
 
 defined('JPATH_ROOT') or define('JPATH_ROOT', dirname(__DIR__));
 
-$composerPath = JPATH_ROOT . '/vendor/autoload.php';
-
-if (!file_exists($composerPath))
+if (!file_exists(JPATH_ROOT . '/vendor/autoload.php'))
 {
 	header('HTTP/1.1 500 Internal Server Error', null, 500);
 	header('Content-Type: text/html; charset=utf-8');
@@ -22,7 +20,7 @@ if (!file_exists($composerPath))
 	exit(1);
 }
 
-require $composerPath;
+require JPATH_ROOT . '/vendor/autoload.php';
 
 use Joomla\Application\AbstractApplication;
 use Joomla\DI\Container;
@@ -40,6 +38,7 @@ try
 		->registerServiceProvider(new Services\AssetProvider)
 		->registerServiceProvider(new Services\CacheProvider)
 		->registerServiceProvider(new Services\ConfigProvider(JPATH_ROOT . '/etc/config.json'))
+		->registerServiceProvider(new Services\ConsoleProvider)
 		->registerServiceProvider(new Services\EventProvider)
 		->registerServiceProvider(new Services\HttpProvider)
 		->registerServiceProvider(new Services\LoggingProvider)
