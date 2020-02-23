@@ -20,7 +20,6 @@
         "joomla/router": "^2.0@dev",
         "joomla/uri": "^2.0@dev",
         "joomla/view": "^2.0@dev",
-        "league/plates": "^3.3",
         "monolog/monolog": "^2.0.2",
         "symfony/asset": "^5.0.4",
         "symfony/cache": "^5.0.4",
