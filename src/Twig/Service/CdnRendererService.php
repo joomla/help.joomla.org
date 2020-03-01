@@ -52,61 +52,49 @@ class CdnRendererService
 	 */
 	public function getCdnFooter() : string
 	{
-		$key = md5(__METHOD__);
-
-		$remoteRequest = function () use ($key)
-		{
-			try
-			{
-				// Set a very short timeout to try and not bring the site down
-				$response = $this->http->get('https://cdn.joomla.org/template/renderer.php?section=footer', [], 2);
-
-				if ($response->getStatusCode() !== 200)
-				{
-					return 'Could not load template section.';
-				}
-
-				$body = (string) $response->getBody();
-
-				// Remove the login link
-				$body = str_replace("\t\t<li><a href=\"%loginroute%\">%logintext%</a></li>\n", '', $body);
-
-				// Replace the placeholders
-				$body = strtr(
-					$body,
-					[
-						'%reportroute%' => 'https://github.com/joomla/joomla-websites/issues/new?title=[jhelp]%20&amp;body=Please%20describe%20the%20problem%20or%20your%20issue',
-						'%currentyear%' => date('Y'),
-					]
-				);
-
-				$item = $this->cache->getItem($key);
-				$item->set($body);
-				$item->expiresAfter(null);
-
-				$this->cache->save($item);
-
-				return $body;
-			}
-			catch (\RuntimeException $e)
-			{
-				return 'Could not load template section.';
-			}
-		};
-
-		$item = $this->cache->getItem($key);
+		$item = $this->cache->getItem('joomla.cdn.footer');
 
 		// Make sure we got a hit on the item, otherwise we'll have to re-cache
 		if ($item->isHit())
 		{
-			$body = $item->get();
-		}
-		else
-		{
-			$body = $remoteRequest();
+			return $item->get();
 		}
 
-		return $body;
+		try
+		{
+			// Set a very short timeout to try and not bring the site down
+			$response = $this->http->get('https://cdn.joomla.org/template/renderer.php?section=footer', [], 2);
+
+			if ($response->getStatusCode() !== 200)
+			{
+				return 'Could not load template section.';
+			}
+
+			$body = (string) $response->getBody();
+
+			// Remove the login link
+			$body = str_replace("\t\t<li><a href=\"%loginroute%\">%logintext%</a></li>\n", '', $body);
+
+			// Replace the placeholders
+			$body = strtr(
+				$body,
+				[
+					'%reportroute%' => 'https://github.com/joomla/joomla-websites/issues/new?title=[jhelp]%20&amp;body=Please%20describe%20the%20problem%20or%20your%20issue',
+					'%currentyear%' => date('Y'),
+				]
+			);
+
+			$item->set($body);
+			$item->expiresAfter(null);
+
+			$this->cache->save($item);
+
+			return $body;
+		}
+		catch (\RuntimeException $e)
+		{
+			return 'Could not load template section.';
+		}
 	}
 
 	/**
@@ -116,55 +104,43 @@ class CdnRendererService
 	 */
 	public function getCdnMenu() : string
 	{
-		$key = md5(__METHOD__);
-
-		$remoteRequest = function () use ($key)
-		{
-			try
-			{
-				// Set a very short timeout to try and not bring the site down
-				$response = $this->http->get('https://cdn.joomla.org/template/renderer.php?section=menu', [], 2);
-
-				if ($response->getStatusCode() !== 200)
-				{
-					return 'Could not load template section.';
-				}
-
-				$body = (string) $response->getBody();
-
-				// Remove the search module
-				$body = str_replace(
-					"\t<div id=\"nav-search\" class=\"navbar-search pull-right\">\n\t\t<jdoc:include type=\"modules\" name=\"position-0\" style=\"none\" />\n\t</div>\n",
-					'',
-					$body
-				);
-
-				$item = $this->cache->getItem($key);
-				$item->set($body);
-				$item->expiresAfter(null);
-
-				$this->cache->save($item);
-
-				return $body;
-			}
-			catch (\RuntimeException $e)
-			{
-				return 'Could not load template section.';
-			}
-		};
-
-		$item = $this->cache->getItem($key);
+		$item = $this->cache->getItem('joomla.cdn.menu');
 
 		// Make sure we got a hit on the item, otherwise we'll have to re-cache
 		if ($item->isHit())
 		{
-			$body = $item->get();
-		}
-		else
-		{
-			$body = $remoteRequest();
+			return $item->get();
 		}
 
-		return $body;
+		try
+		{
+			// Set a very short timeout to try and not bring the site down
+			$response = $this->http->get('https://cdn.joomla.org/template/renderer.php?section=menu', [], 2);
+
+			if ($response->getStatusCode() !== 200)
+			{
+				return 'Could not load template section.';
+			}
+
+			$body = (string) $response->getBody();
+
+			// Remove the search module
+			$body = str_replace(
+				"\t<div id=\"nav-search\" class=\"navbar-search pull-right\">\n\t\t<jdoc:include type=\"modules\" name=\"position-0\" style=\"none\" />\n\t</div>\n",
+				'',
+				$body
+			);
+
+			$item->set($body);
+			$item->expiresAfter(null);
+
+			$this->cache->save($item);
+
+			return $body;
+		}
+		catch (\RuntimeException $e)
+		{
+			return 'Could not load template section.';
+		}
 	}
 }
