@@ -88,9 +88,7 @@ class HelpScreenController extends AbstractController
 		$this->view->getModel()->setCurrentUri(new Uri($this->getApplication()->get('uri.request')));
 		$this->view->getModel()->setWikiUrl($this->getApplication()->get('help.wiki', 'https://docs.joomla.org'));
 
-		$key = md5(get_class($this->view) . __METHOD__ . serialize($state));
-
-		$item = $this->cache->getItem($key);
+		$item = $this->cache->getItem('wiki.page-' . $keyref . '.lang-' . $lang);
 
 		// Make sure we got a hit on the item, otherwise we'll have to re-cache
 		if ($item->isHit())
