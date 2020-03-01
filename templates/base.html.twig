@@ -122,5 +122,8 @@
                 }
             });
         </script>
+        {% if system_debug %}
+            <script src="{{ asset('js/debugbar.js') }}"></script>
+        {% endif %}
     </body>
 </html>

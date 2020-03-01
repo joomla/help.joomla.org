@@ -14,6 +14,7 @@ namespace Joomla\Help\Service;
 use Joomla\Application\AbstractWebApplication;
 use Joomla\Application\Controller\ContainerControllerResolver;
 use Joomla\Application\Controller\ControllerResolverInterface;
+use Joomla\Application\Web\WebClient;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
@@ -28,6 +29,8 @@ use Joomla\Registry\Registry;
 use Joomla\Renderer\RendererInterface;
 use Joomla\Router\Route;
 use Joomla\Router\Router;
+use Joomla\Router\RouterInterface;
+use Psr\Cache\CacheItemPoolInterface;
 
 /**
  * Application service provider
@@ -43,25 +46,27 @@ class ApplicationProvider implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
-		$container->alias(AbstractWebApplication::class, WebApplication::class)
+		$container->alias(WebApplication::class, AbstractWebApplication::class)
 			->share(
-				WebApplication::class,
-				function (Container $container)
+				AbstractWebApplication::class,
+				function (Container $container): WebApplication
 				{
 					$application = new WebApplication(
 						$container->get(ControllerResolverInterface::class),
 						$container->get(Router::class),
 						$container->get(Input::class),
-						$container->get('config')
+						$container->get('config'),
+						$container->get(WebClient::class)
 					);
+
+					$application->httpVersion = '2';
 
 					// Inject extra services
 					$application->setDispatcher($container->get(DispatcherInterface::class));
 					$application->setLogger($container->get('monolog.logger.application'));
 
 					return $application;
-				},
-				true
+				}
 			);
 
 		$container->share(
@@ -78,66 +83,78 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			Input::class,
-			function ()
+			function (): Input
 			{
 				return new Input($_REQUEST);
-			},
-			true
+			}
 		);
 
+		$container->alias(Router::class, RouterInterface::class)
+			->share(
+				RouterInterface::class,
+				function (): RouterInterface
+				{
+					$router = new Router;
+
+					$router->addRoute(
+						new Route(['GET', 'HEAD'], '/', LegacyController::class)
+					);
+
+					$router->get(
+						'/proxy',
+						HelpScreenController::class,
+						[],
+						[
+							'_proxy' => true,
+						]
+					);
+
+					$router->get(
+						'/proxy/index.php',
+						HelpScreenController::class,
+						[],
+						[
+							'_proxy' => true,
+						]
+					);
+
+					$router->get(
+						'/*',
+						LegacyController::class
+					);
+
+					return $router;
+				}
+			);
+
 		$container->share(
-			Router::class,
-			function ()
+			WebClient::class,
+			function (Container $container): WebClient
 			{
-				$router = new Router;
+				/** @var Input $input */
+				$input          = $container->get(Input::class);
+				$userAgent      = $input->server->getString('HTTP_USER_AGENT', '');
+				$acceptEncoding = $input->server->getString('HTTP_ACCEPT_ENCODING', '');
+				$acceptLanguage = $input->server->getString('HTTP_ACCEPT_LANGUAGE', '');
 
-				$router->addRoute(
-					new Route(['GET', 'HEAD'], '/', LegacyController::class)
-				);
-
-				$router->get(
-					'/proxy',
-					HelpScreenController::class,
-					[],
-					[
-						'_proxy' => true,
-					]
-				);
-
-				$router->get(
-					'/proxy/index.php',
-					HelpScreenController::class,
-					[],
-					[
-						'_proxy' => true,
-					]
-				);
-
-				$router->get(
-					'/*',
-					LegacyController::class
-				);
-
-				return $router;
-			},
-			true
+				return new WebClient($userAgent, $acceptEncoding, $acceptLanguage);
+			}
 		);
 
 		$container->share(
 			HelpScreenController::class,
-			function (Container $container)
+			function (Container $container): HelpScreenController
 			{
 				$controller = new HelpScreenController(
 					$container->get(HelpScreenHtmlView::class),
-					$container->get('cache')
+					$container->get(CacheItemPoolInterface::class)
 				);
 
 				$controller->setApplication($container->get(WebApplication::class));
 				$controller->setInput($container->get(Input::class));
 
 				return $controller;
-			},
-			true
+			}
 		);
 
 		$container->share(
@@ -152,8 +169,7 @@ class ApplicationProvider implements ServiceProviderInterface
 				$controller->setInput($container->get(Input::class));
 
 				return $controller;
-			},
-			true
+			}
 		);
 
 		$container->share(
@@ -164,8 +180,7 @@ class ApplicationProvider implements ServiceProviderInterface
 					new Registry,
 					$container->get(Http::class)
 				);
-			},
-			true
+			}
 		);
 
 		$container->share(
@@ -176,8 +191,7 @@ class ApplicationProvider implements ServiceProviderInterface
 					$container->get(HelpScreenModel::class),
 					$container->get(RendererInterface::class)
 				);
-			},
-			true
+			}
 		);
 	}
 }

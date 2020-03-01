@@ -46,8 +46,7 @@ class EventProvider implements ServiceProviderInterface
 					}
 
 					return $dispatcher;
-				},
-				true
+				}
 			);
 
 		$container->share(
@@ -58,8 +57,7 @@ class EventProvider implements ServiceProviderInterface
 				$subscriber->setLogger($container->get(LoggerInterface::class));
 
 				return $subscriber;
-			},
-			true
+			}
 		)
 			->tag('event.subscriber', [ErrorSubscriber::class]);
 	}

@@ -16,6 +16,9 @@
             font-family: 'Open Sans', sans-serif;
         }
     </style>
+    {% if system_debug %}
+        <link rel="stylesheet" href="{{ asset('css/debugbar.css') }}" type="text/css">
+    {% endif %}
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
     <script src="<?php echo $this->asset('/media/js/bootstrap.min.js'); ?>" type="text/javascript"></script>

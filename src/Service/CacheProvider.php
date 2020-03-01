@@ -84,8 +84,7 @@ class CacheProvider implements ServiceProviderInterface
 					}
 
 					throw new InvalidArgumentException(sprintf('The "%s" cache adapter is not supported.', $adapter));
-				},
-				true
+				}
 			);
 	}
 }

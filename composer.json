@@ -30,6 +30,9 @@
         "symfony/web-link": "^5.0.5",
         "twig/twig": "^2.12.5"
     },
+    "require-dev": {
+        "maximebf/debugbar": "^1.16.1"
+    },
     "autoload": {
         "psr-4": {
             "Joomla\\Help\\": "src/"

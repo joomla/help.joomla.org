@@ -38,8 +38,7 @@ class HttpProvider implements ServiceProviderInterface
 				$factory = $container->get(HttpFactory::class);
 
 				return $factory->getHttp();
-			},
-			true
+			}
 		);
 
 		$container->share(
@@ -47,8 +46,7 @@ class HttpProvider implements ServiceProviderInterface
 			function () : HttpFactory
 			{
 				return new HttpFactory;
-			},
-			true
+			}
 		);
 	}
 }

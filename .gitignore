@@ -1,2 +1,16 @@
 /vendor
+
+# Don't push the local config
 /etc/config.json
+
+# App Cache
+/cache/*
+!/cache/.placeholder
+
+# App Logs
+/logs/*
+!/logs/.placeholder
+
+# DebugBar assets
+/www/media/css/debugbar.css
+/www/media/js/debugbar.js

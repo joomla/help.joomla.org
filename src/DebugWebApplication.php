@@ -11,7 +11,7 @@
 
 namespace Joomla\Help;
 
-use Joomla\Application\AbstractWebApplication;
+use DebugBar\DebugBar;
 use Joomla\Application\Controller\ControllerResolverInterface;
 use Joomla\Application\Web\WebClient;
 use Joomla\Input\Input;
@@ -20,31 +20,21 @@ use Joomla\Router\RouterInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * A basic web application class for handing HTTP requests.
- *
- * @since  __DEPLOY_VERSION__
+ * Debug web application class
  */
-class WebApplication extends AbstractWebApplication
+class DebugWebApplication extends WebApplication
 {
 	/**
-	 * The application's controller resolver.
+	 * The application's debug bar.
 	 *
-	 * @var    ControllerResolverInterface
-	 * @since  __DEPLOY_VERSION__
+	 * @var  DebugBar
 	 */
-	protected $controllerResolver;
-
-	/**
-	 * The application's router.
-	 *
-	 * @var    RouterInterface
-	 * @since  __DEPLOY_VERSION__
-	 */
-	protected $router;
+	private $debugBar;
 
 	/**
 	 * Class constructor.
 	 *
+	 * @param   DebugBar                     $debugBar            The application's debug bar
 	 * @param   ControllerResolverInterface  $controllerResolver  The application's controller resolver
 	 * @param   RouterInterface              $router              The application's router
 	 * @param   Input                        $input               An optional argument to provide dependency injection for the application's
@@ -55,10 +45,9 @@ class WebApplication extends AbstractWebApplication
 	 *                                                            client object.
 	 * @param   ResponseInterface            $response            An optional argument to provide dependency injection for the application's
 	 *                                                            response object.
-	 *
-	 * @since   __DEPLOY_VERSION__
 	 */
 	public function __construct(
+		DebugBar $debugBar,
 		ControllerResolverInterface $controllerResolver,
 		RouterInterface $router,
 		Input $input = null,
@@ -67,19 +56,16 @@ class WebApplication extends AbstractWebApplication
 		ResponseInterface $response = null
 	)
 	{
-		$this->controllerResolver = $controllerResolver;
-		$this->router             = $router;
+		$this->debugBar = $debugBar;
 
 		// Call the constructor as late as possible (it runs `initialise`).
-		parent::__construct($input, $config, $client, $response);
+		parent::__construct($controllerResolver, $router, $input, $config, $client, $response);
 	}
 
 	/**
 	 * Method to run the application routines.
 	 *
 	 * @return  void
-	 *
-	 * @since   __DEPLOY_VERSION__
 	 */
 	protected function doExecute(): void
 	{
@@ -91,6 +77,21 @@ class WebApplication extends AbstractWebApplication
 			$this->input->def($key, $value);
 		}
 
-		\call_user_func($this->controllerResolver->resolve($route));
+		$controller = $this->controllerResolver->resolve($route);
+
+		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
+		$collector = $this->debugBar['time'];
+		$label     = 'controller';
+
+		$collector->startMeasure($label);
+
+		try
+		{
+			$controller();
+		}
+		finally
+		{
+			$collector->stopMeasure($label);
+		}
 	}
 }

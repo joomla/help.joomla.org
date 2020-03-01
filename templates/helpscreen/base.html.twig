@@ -6,6 +6,9 @@
         <title>Joomla! Help Screens</title>
         <link rel="stylesheet" href="{{ preload(asset('css/reset.css'), 'preload', {'as': 'style'}) }}">
         <link rel="stylesheet" href="{{ preload(asset('css/help.css'), 'preload', {'as': 'style'}) }}">
+        {% if system_debug %}
+            <link rel="stylesheet" href="{{ asset('css/debugbar.css') }}" type="text/css">
+        {% endif %}
         <script>
         var _prum = [['id', '59300ad15992c776ad970068'],
                      ['mark', 'firstbyte', (new Date()).getTime()]];
@@ -31,5 +34,8 @@
         </div>
         <hr/>
         <a href="{{ current_url() }}#Top">Top</a>
+        {% if system_debug %}
+            <script src="{{ asset('js/debugbar.js') }}"></script>
+        {% endif %}
     </body>
 </html>
