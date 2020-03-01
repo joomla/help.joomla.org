@@ -24,10 +24,10 @@
         "joomla/uri": "^2.0@dev",
         "joomla/view": "^2.0@dev",
         "monolog/monolog": "^2.0.2",
-        "symfony/asset": "^5.0.4",
-        "symfony/cache": "^5.0.4",
-        "symfony/process": "^5.0.4",
-        "symfony/web-link": "^5.0.4",
+        "symfony/asset": "^5.0.5",
+        "symfony/cache": "^5.0.5",
+        "symfony/process": "^5.0.5",
+        "symfony/web-link": "^5.0.5",
         "twig/twig": "^2.12.5"
     },
     "autoload": {
