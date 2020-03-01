@@ -150,26 +150,7 @@ class HelpScreenModel implements StatefulModelInterface
 			}
 		}
 
-		if (isset($this->responseBody['error']))
-		{
-			$code = $this->responseBody['error']['code'] === 'missingtitle' ? 404 : 0;
-
-			throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']), $code);
-		}
-
-		if (is_null($this->responseBody))
-		{
-			throw new \RuntimeException('Error fetching page from MediaWiki API.');
-		}
-
-		// Store the title to be used later
-		$this->title = $this->responseBody['parse']['displaytitle'];
-
-		// Store the URL slug to be used later
-		$this->setPageUrlSlug($this->responseBody['parse']['title']);
-
-		// Store the rendered page reference
-		$this->page = $this->responseBody['parse']['text']['*'];
+		$this->processResponse();
 
 		// Follow wiki redirects
 		$max = $this->getState()->get('max_redirects', 5);
@@ -179,26 +160,7 @@ class HelpScreenModel implements StatefulModelInterface
 		{
 			$this->requestPage($redirect);
 
-			if (isset($this->responseBody['error']))
-			{
-				$code = $this->responseBody['error']['code'] === 'missingtitle' ? 404 : 0;
-
-				throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']), $code);
-			}
-
-			if (is_null($this->responseBody))
-			{
-				throw new \RuntimeException('Error fetching page from MediaWiki API.');
-			}
-
-			// Store the title to be used later
-			$this->title = $this->responseBody['parse']['displaytitle'];
-
-			// Store the URL slug to be used later
-			$this->setPageUrlSlug($this->responseBody['parse']['title']);
-
-			// Store the rendered page reference
-			$this->page = $this->responseBody['parse']['text']['*'];
+			$this->processResponse();
 		}
 
 		// Remove links to unwritten articles.
@@ -400,6 +362,37 @@ class HelpScreenModel implements StatefulModelInterface
 		}
 
 		return null;
+	}
+
+	/**
+	 * Remove links to pages that have not yet been written (replace with just the text instead).
+	 *
+	 * @return  void
+	 *
+	 * @throws  \RuntimeException
+	 */
+	private function processResponse() : void
+	{
+		if (isset($this->responseBody['error']))
+		{
+			$code = $this->responseBody['error']['code'] === 'missingtitle' ? 404 : 0;
+
+			throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']), $code);
+		}
+
+		if (is_null($this->responseBody))
+		{
+			throw new \RuntimeException('Error fetching page from MediaWiki API.');
+		}
+
+		// Store the title to be used later
+		$this->title = $this->responseBody['parse']['displaytitle'];
+
+		// Store the URL slug to be used later
+		$this->setPageUrlSlug($this->responseBody['parse']['title']);
+
+		// Store the rendered page reference
+		$this->page = $this->responseBody['parse']['text']['*'];
 	}
 
 	/**
