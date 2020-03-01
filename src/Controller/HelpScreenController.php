@@ -76,11 +76,26 @@ class HelpScreenController extends AbstractController
 
 		$state->set('page', $keyref);
 
-		$lang = $this->getInput()->getString('lang', 'en');
+		// If the language is part of the keyref, ignore the language parameter and extract it from the keyref
+		$langPos = strpos($keyref, '/');
 
-		if ($lang)
+		if ($langPos !== false)
 		{
-			$state->set('lang', $this->getInput()->getString('lang', 'en'));
+			$lang   = substr($keyref, $langPos + 1);
+			$keyref = substr($keyref, 0, $langPos);
+
+			$state->set('page', $keyref);
+			$state->set('lang', $lang);
+
+		}
+		else
+		{
+			$lang = $this->getInput()->getString('lang', 'en');
+
+			if ($lang)
+			{
+				$state->set('lang', $lang);
+			}
 		}
 
 		$state->set('max_redirects', $this->getApplication()->get('help.wiki_max_redirects', 5));

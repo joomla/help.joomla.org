@@ -135,19 +135,6 @@ class HelpScreenModel implements StatefulModelInterface
 			{
 				$this->requestPage($this->getState()->get('page'));
 			}
-
-			// Maybe the language was part of the keyref?
-			$langPos = strpos($this->getState()->get('page'), '/');
-
-			if ($langPos !== false)
-			{
-				$this->getState()->set('page', substr($this->getState()->get('page'), 0, $langPos));
-
-				if ($this->getState()->get('page') !== null)
-				{
-					$this->requestPage($this->getState()->get('page'));
-				}
-			}
 		}
 
 		$this->processResponse();
