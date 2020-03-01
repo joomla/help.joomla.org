@@ -35,7 +35,7 @@ class LoggingProvider implements ServiceProviderInterface
 		// Register the PSR-3 processor
 		$container->share(
 			'monolog.processor.psr3',
-			function ()
+			static function (): PsrLogMessageProcessor
 			{
 				return new PsrLogMessageProcessor;
 			}
@@ -44,7 +44,7 @@ class LoggingProvider implements ServiceProviderInterface
 		// Register the web processor
 		$container->share(
 			'monolog.processor.web',
-			function ()
+			static function (): WebProcessor
 			{
 				return new WebProcessor;
 			}
@@ -53,7 +53,7 @@ class LoggingProvider implements ServiceProviderInterface
 		// Register the web application handler
 		$container->share(
 			'monolog.handler.application',
-			function (Container $container)
+			static function (Container $container): StreamHandler
 			{
 				/** @var \Joomla\Registry\Registry $config */
 				$config = $container->get('config');
@@ -70,7 +70,7 @@ class LoggingProvider implements ServiceProviderInterface
 		// Register the web application Logger
 		$container->share(
 			'monolog.logger.application',
-			function (Container $container)
+			static function (Container $container): Logger
 			{
 				return new Logger(
 					'Help',
@@ -88,7 +88,7 @@ class LoggingProvider implements ServiceProviderInterface
 		// Register the CLI application Logger
 		$container->share(
 			'monolog.logger.cli',
-			function (Container $container)
+			static function (Container $container): Logger
 			{
 				return new Logger(
 					'Help',

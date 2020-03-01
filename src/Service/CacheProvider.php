@@ -34,11 +34,10 @@ class CacheProvider implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
-		$container->alias('cache', CacheItemPoolInterface::class)
-			->alias(AdapterInterface::class, CacheItemPoolInterface::class)
+		$container->alias(AdapterInterface::class, CacheItemPoolInterface::class)
 			->share(
 				CacheItemPoolInterface::class,
-				function (Container $container)
+				static function (Container $container): CacheItemPoolInterface
 				{
 					/** @var \Joomla\Registry\Registry $config */
 					$config = $container->get('config');

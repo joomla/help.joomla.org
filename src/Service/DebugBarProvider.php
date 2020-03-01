@@ -56,7 +56,7 @@ class DebugBarProvider implements ServiceProviderInterface
 		$container->alias(StandardDebugBar::class, DebugBar::class)
 			->share(
 				DebugBar::class,
-				function (Container $container): DebugBar
+				static function (Container $container): DebugBar
 				{
 					if (!class_exists(StandardDebugBar::class))
 					{
@@ -82,7 +82,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->share(
 			MonologCollector::class,
-			function (Container $container): MonologCollector
+			static function (Container $container): MonologCollector
 			{
 				$collector = new MonologCollector;
 				$collector->addLogger($container->get('monolog.logger.application'));
@@ -93,7 +93,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->share(
 			TwigProfileCollector::class,
-			function (Container $container): TwigProfileCollector
+			static function (Container $container): TwigProfileCollector
 			{
 				return new TwigProfileCollector($container->get(Profile::class), $container->get(LoaderInterface::class));
 			}
@@ -101,7 +101,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->share(
 			Profile::class,
-			function (): Profile
+			static function (): Profile
 			{
 				return new Profile;
 			}
@@ -109,7 +109,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->share(
 			TimeableTwigExtensionProfiler::class,
-			function (Container $container): TimeableTwigExtensionProfiler
+			static function (Container $container): TimeableTwigExtensionProfiler
 			{
 				return new TimeableTwigExtensionProfiler($container->get(Profile::class), $container->get(DebugBar::class)['time']);
 			}
@@ -118,7 +118,7 @@ class DebugBarProvider implements ServiceProviderInterface
 		$container->alias(JoomlaHttpDriver::class, HttpDriverInterface::class)
 			->share(
 				HttpDriverInterface::class,
-				function (Container $container): HttpDriverInterface
+				static function (Container $container): HttpDriverInterface
 				{
 					return new JoomlaHttpDriver($container->get(AbstractWebApplication::class));
 				}
@@ -126,7 +126,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->share(
 			DebugSubscriber::class,
-			function (Container $container): DebugSubscriber
+			static function (Container $container): DebugSubscriber
 			{
 				return new DebugSubscriber($container->get(DebugBar::class));
 			}
@@ -134,7 +134,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->extend(
 			CacheItemPoolInterface::class,
-			function (CacheItemPoolInterface $cache, Container $container): CacheItemPoolInterface
+			static function (CacheItemPoolInterface $cache, Container $container): CacheItemPoolInterface
 			{
 				return new DebugAdapter($container->get(DebugBar::class), $cache);
 			}
@@ -142,7 +142,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->extend(
 			ControllerResolverInterface::class,
-			function (ControllerResolverInterface $resolver, Container $container): ControllerResolverInterface
+			static function (ControllerResolverInterface $resolver, Container $container): ControllerResolverInterface
 			{
 				return new DebugControllerResolver($resolver, $container->get(DebugBar::class));
 			}
@@ -150,7 +150,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->extend(
 			DispatcherInterface::class,
-			function (DispatcherInterface $dispatcher, Container $container): DispatcherInterface
+			static function (DispatcherInterface $dispatcher, Container $container): DispatcherInterface
 			{
 				$dispatcher = new DebugDispatcher($dispatcher, $container->get(DebugBar::class));
 				$dispatcher->addSubscriber($container->get(DebugSubscriber::class));
@@ -161,7 +161,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->extend(
 			BaseHttpFactory::class,
-			function (BaseHttpFactory $httpFactory, Container $container): HttpFactory
+			static function (BaseHttpFactory $httpFactory, Container $container): HttpFactory
 			{
 				return new HttpFactory($container->get(DebugBar::class));
 			}
@@ -169,7 +169,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->extend(
 			AbstractWebApplication::class,
-			function (AbstractWebApplication $application, Container $container): DebugWebApplication
+			static function (AbstractWebApplication $application, Container $container): DebugWebApplication
 			{
 				$application = new DebugWebApplication(
 					$container->get(DebugBar::class),
@@ -192,7 +192,7 @@ class DebugBarProvider implements ServiceProviderInterface
 
 		$container->extend(
 			RouterInterface::class,
-			function (RouterInterface $router, Container $container): RouterInterface
+			static function (RouterInterface $router, Container $container): RouterInterface
 			{
 				return new DebugRouter($router, $container->get(DebugBar::class));
 			}

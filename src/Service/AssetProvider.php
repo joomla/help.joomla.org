@@ -35,7 +35,7 @@ class AssetProvider implements ServiceProviderInterface
 	{
 		$container->share(
 			Packages::class,
-			function (Container $container): Packages
+			static function (Container $container): Packages
 			{
 				/** @var AbstractApplication $app */
 				$app = $container->get(AbstractApplication::class);

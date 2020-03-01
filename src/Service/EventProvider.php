@@ -36,7 +36,7 @@ class EventProvider implements ServiceProviderInterface
 		$container->alias(Dispatcher::class, DispatcherInterface::class)
 			->share(
 				DispatcherInterface::class,
-				function (Container $container) : DispatcherInterface
+				static function (Container $container): DispatcherInterface
 				{
 					$dispatcher = new Dispatcher;
 
@@ -51,7 +51,7 @@ class EventProvider implements ServiceProviderInterface
 
 		$container->share(
 			ErrorSubscriber::class,
-			function (Container $container) : ErrorSubscriber
+			static function (Container $container): ErrorSubscriber
 			{
 				$subscriber = new ErrorSubscriber($container->get(RendererInterface::class));
 				$subscriber->setLogger($container->get(LoggerInterface::class));

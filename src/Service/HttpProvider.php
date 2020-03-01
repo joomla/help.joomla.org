@@ -32,7 +32,7 @@ class HttpProvider implements ServiceProviderInterface
 	{
 		$container->share(
 			Http::class,
-			function (Container $container) : Http
+			static function (Container $container): Http
 			{
 				/** @var HttpFactory $factory */
 				$factory = $container->get(HttpFactory::class);
@@ -43,7 +43,7 @@ class HttpProvider implements ServiceProviderInterface
 
 		$container->share(
 			HttpFactory::class,
-			function () : HttpFactory
+			static function (): HttpFactory
 			{
 				return new HttpFactory;
 			}

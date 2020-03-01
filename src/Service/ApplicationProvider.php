@@ -49,7 +49,7 @@ class ApplicationProvider implements ServiceProviderInterface
 		$container->alias(WebApplication::class, AbstractWebApplication::class)
 			->share(
 				AbstractWebApplication::class,
-				function (Container $container): WebApplication
+				static function (Container $container): WebApplication
 				{
 					$application = new WebApplication(
 						$container->get(ControllerResolverInterface::class),
@@ -71,7 +71,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			ControllerResolverInterface::class,
-			function (Container $container) : ControllerResolverInterface
+			static function (Container $container): ControllerResolverInterface
 			{
 				return new ContainerControllerResolver($container);
 			}
@@ -83,7 +83,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			Input::class,
-			function (): Input
+			static function (): Input
 			{
 				return new Input($_REQUEST);
 			}
@@ -92,7 +92,7 @@ class ApplicationProvider implements ServiceProviderInterface
 		$container->alias(Router::class, RouterInterface::class)
 			->share(
 				RouterInterface::class,
-				function (): RouterInterface
+				static function (): RouterInterface
 				{
 					$router = new Router;
 
@@ -129,7 +129,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			WebClient::class,
-			function (Container $container): WebClient
+			static function (Container $container): WebClient
 			{
 				/** @var Input $input */
 				$input          = $container->get(Input::class);
@@ -143,7 +143,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			HelpScreenController::class,
-			function (Container $container): HelpScreenController
+			static function (Container $container): HelpScreenController
 			{
 				$controller = new HelpScreenController(
 					$container->get(HelpScreenHtmlView::class),
@@ -159,7 +159,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			LegacyController::class,
-			function (Container $container)
+			static function (Container $container): LegacyController
 			{
 				$controller = new LegacyController(
 					$container->get(RendererInterface::class)
@@ -174,7 +174,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			HelpScreenModel::class,
-			function (Container $container)
+			static function (Container $container): HelpScreenModel
 			{
 				return new HelpScreenModel(
 					new Registry,
@@ -185,7 +185,7 @@ class ApplicationProvider implements ServiceProviderInterface
 
 		$container->share(
 			HelpScreenHtmlView::class,
-			function (Container $container)
+			static function (Container $container): HelpScreenHtmlView
 			{
 				return new HelpScreenHtmlView(
 					$container->get(HelpScreenModel::class),

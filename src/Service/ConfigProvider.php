@@ -21,11 +21,11 @@ use Joomla\Registry\Registry;
 class ConfigProvider implements ServiceProviderInterface
 {
 	/**
-	 * Configuration instance
+	 * Path to the config file.
 	 *
-	 * @var  Registry
+	 * @var  string
 	 */
-	private $config;
+	private $file;
 
 	/**
 	 * Constructor.
@@ -36,13 +36,7 @@ class ConfigProvider implements ServiceProviderInterface
 	 */
 	public function __construct($file)
 	{
-		// Verify the configuration exists and is readable.
-		if (!is_readable($file))
-		{
-			throw new \RuntimeException('Configuration file does not exist or is unreadable.');
-		}
-
-		$this->config = (new Registry)->loadFile($file);
+		$this->file = $file;
 	}
 
 	/**
@@ -56,11 +50,16 @@ class ConfigProvider implements ServiceProviderInterface
 	{
 		$container->share(
 			'config',
-			function ()
+			function (): Registry
 			{
-				return $this->config;
-			},
-			true
+				// Verify the configuration exists and is readable.
+				if (!is_readable($this->file))
+				{
+					throw new \RuntimeException('Configuration file does not exist or is unreadable.');
+				}
+
+				return (new Registry)->loadFile($this->file);
+			}
 		);
 	}
 }
