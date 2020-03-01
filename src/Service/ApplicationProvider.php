@@ -55,8 +55,7 @@ class ApplicationProvider implements ServiceProviderInterface
 						$container->get(ControllerResolverInterface::class),
 						$container->get(Router::class),
 						$container->get(Input::class),
-						$container->get('config'),
-						$container->get(WebClient::class)
+						$container->get('config')
 					);
 
 					$application->httpVersion = '2';

@@ -19,7 +19,6 @@ use DebugBar\HttpDriverInterface;
 use DebugBar\StandardDebugBar;
 use Joomla\Application\AbstractWebApplication;
 use Joomla\Application\Controller\ControllerResolverInterface;
-use Joomla\Application\Web\WebClient;
 use Joomla\DI\Container;
 use Joomla\DI\Exception\DependencyResolutionException;
 use Joomla\DI\ServiceProviderInterface;
@@ -176,8 +175,7 @@ class DebugBarProvider implements ServiceProviderInterface
 					$container->get(ControllerResolverInterface::class),
 					$container->get(RouterInterface::class),
 					$container->get(Input::class),
-					$container->get('config'),
-					$container->get(WebClient::class)
+					$container->get('config')
 				);
 
 				$application->httpVersion = '2';
