@@ -88,31 +88,23 @@ class HelpScreenController extends AbstractController
 		$this->view->getModel()->setCurrentUri(new Uri($this->getApplication()->get('uri.request')));
 		$this->view->getModel()->setWikiUrl($this->getApplication()->get('help.wiki', 'https://docs.joomla.org'));
 
-		// Serve cached data if the cache layer is enabled
-		if ($this->getApplication()->get('cache.enabled', false))
+		$key = md5(get_class($this->view) . __METHOD__ . serialize($state));
+
+		$item = $this->cache->getItem($key);
+
+		// Make sure we got a hit on the item, otherwise we'll have to re-cache
+		if ($item->isHit())
 		{
-			$key = md5(get_class($this->view) . __METHOD__ . serialize($state));
-
-			$item = $this->cache->getItem($key);
-
-			// Make sure we got a hit on the item, otherwise we'll have to re-cache
-			if ($item->isHit())
-			{
-				$body = $item->get();
-			}
-			else
-			{
-				$body = $this->view->render();
-
-				$item->set($body);
-				$item->expiresAfter(null);
-
-				$this->cache->save($item);
-			}
+			$body = $item->get();
 		}
 		else
 		{
 			$body = $this->view->render();
+
+			$item->set($body);
+			$item->expiresAfter(null);
+
+			$this->cache->save($item);
 		}
 
 		$this->getApplication()->setResponse(new HtmlResponse($body));
