@@ -152,7 +152,9 @@ class HelpScreenModel implements StatefulModelInterface
 
 		if (isset($this->responseBody['error']))
 		{
-			throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']));
+			$code = $this->responseBody['error']['code'] === 'missingtitle' ? 404 : 0;
+
+			throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']), $code);
 		}
 
 		if (is_null($this->responseBody))
@@ -179,7 +181,9 @@ class HelpScreenModel implements StatefulModelInterface
 
 			if (isset($this->responseBody['error']))
 			{
-				throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']));
+				$code = $this->responseBody['error']['code'] === 'missingtitle' ? 404 : 0;
+
+				throw new \RuntimeException(sprintf('Error fetching page from MediaWiki API: %s', $this->responseBody['error']['info']), $code);
 			}
 
 			if (is_null($this->responseBody))
