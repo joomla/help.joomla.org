@@ -14,6 +14,7 @@ namespace Joomla\Help\Service;
 use DebugBar\Bridge\MonologCollector;
 use DebugBar\Bridge\Twig\TimeableTwigExtensionProfiler;
 use DebugBar\Bridge\TwigProfileCollector;
+use DebugBar\DataCollector\ConfigCollector;
 use DebugBar\DebugBar;
 use DebugBar\HttpDriverInterface;
 use DebugBar\StandardDebugBar;
@@ -33,6 +34,7 @@ use Joomla\Help\Http\HttpFactory;
 use Joomla\Help\Router\DebugRouter;
 use Joomla\Http\HttpFactory as BaseHttpFactory;
 use Joomla\Input\Input;
+use Joomla\Registry\Registry;
 use Joomla\Router\RouterInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Twig\Loader\LoaderInterface;
@@ -70,6 +72,17 @@ class DebugBarProvider implements ServiceProviderInterface
 						$debugBar->addCollector($collector);
 					}
 
+					// Use Symfony's HTML VarDumper by default
+					foreach (['messages', 'request'] as $htmlDumperVarDumper)
+					{
+						$debugBar->getCollector($htmlDumperVarDumper)
+							->useHtmlVarDumper(true);
+					}
+
+					// Show chained exceptions
+					$debugBar->getCollector('exceptions')
+						->setChainExceptions(true);
+
 					// Ensure the assets are dumped
 					$renderer = $debugBar->getJavascriptRenderer();
 					$renderer->dumpCssAssets(JPATH_ROOT . '/www/media/css/debugbar.css');
@@ -78,6 +91,20 @@ class DebugBarProvider implements ServiceProviderInterface
 					return $debugBar;
 				}
 			);
+
+		$container->share(
+			ConfigCollector::class,
+			static function (Container $container): ConfigCollector
+			{
+				/** @var Registry $config */
+				$config = $container->get('config');
+
+				$collector = new ConfigCollector($config->toArray());
+				$collector->useHtmlVarDumper(true);
+
+				return $collector;
+			}
+		);
 
 		$container->share(
 			MonologCollector::class,
@@ -212,6 +239,7 @@ class DebugBarProvider implements ServiceProviderInterface
 		$container->tag(
 			'debug.collector',
 			[
+				ConfigCollector::class,
 				MonologCollector::class,
 				TwigProfileCollector::class,
 			]
