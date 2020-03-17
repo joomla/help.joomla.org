@@ -14,6 +14,7 @@ namespace Joomla\Help\Controller;
 use Joomla\Controller\AbstractController;
 use Joomla\Renderer\RendererInterface;
 use Laminas\Diactoros\Response\HtmlResponse;
+use Laminas\Diactoros\Response\RedirectResponse;
 
 /**
  * Controller to catch legacy help.joomla.org routes
@@ -50,10 +51,16 @@ class LegacyController extends AbstractController
 		// Enable browser caching
 		$this->getApplication()->allowCache(true);
 
-		// Set the layout based on the requested task; the 'findkey' task maps to Joomla! 1.0 and 1.5 help screen requests
-		$layout = $this->getInput()->getString('task', 'display') == 'findkey' ? 'helpscreen/eol.html.twig' : 'main.html.twig';
-
-		$this->getApplication()->setResponse(new HtmlResponse($this->renderer->render($layout)));
+		if ($this->getInput()->getString('task', 'display') === 'findkey')
+        {
+            // Render the notice for Joomla! 1.0 and 1.5 sites
+            $this->getApplication()->setResponse(new HtmlResponse($this->renderer->render('helpscreen/eol.html.twig')));
+        }
+		else
+        {
+            // Redirect to the documentation wiki
+            $this->getApplication()->setResponse(new RedirectResponse('https://docs.joomla.org', 301));
+        }
 
 		return true;
 	}
