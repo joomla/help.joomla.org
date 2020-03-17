@@ -52,15 +52,15 @@ class LegacyController extends AbstractController
 		$this->getApplication()->allowCache(true);
 
 		if ($this->getInput()->getString('task', 'display') === 'findkey')
-        {
-            // Render the notice for Joomla! 1.0 and 1.5 sites
-            $this->getApplication()->setResponse(new HtmlResponse($this->renderer->render('helpscreen/eol.html.twig')));
-        }
+		{
+			// Render the notice for Joomla! 1.0 and 1.5 sites
+			$this->getApplication()->setResponse(new HtmlResponse($this->renderer->render('helpscreen/eol.html.twig')));
+		}
 		else
-        {
-            // Redirect to the documentation wiki
-            $this->getApplication()->setResponse(new RedirectResponse('https://docs.joomla.org', 301));
-        }
+		{
+			// Redirect to the documentation wiki
+			$this->getApplication()->setResponse(new RedirectResponse('https://docs.joomla.org', 301));
+		}
 
 		return true;
 	}
