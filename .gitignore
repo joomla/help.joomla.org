@@ -14,3 +14,8 @@
 # DebugBar assets
 /www/media/css/debugbar.css
 /www/media/js/debugbar.js
+
+# Only track security.txt from .well-known directory
+/www/.well-known/*
+!/www/.well-known/security.txt
+
