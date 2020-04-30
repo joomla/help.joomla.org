@@ -1,10 +1,11 @@
-{% from 'macros.html.twig' import full_page_head %}
+{% from 'macros.html.twig' import full_page_head, google_tag_manager %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         {{ full_page_head() }}
     </head>
     <body>
+        {{ google_tag_manager() }}
         <div class="container">
             <div class="well text-center">
                 <img src="{{ asset('images/logo.png') }}" alt="Joomla! Logo">
