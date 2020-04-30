@@ -1,10 +1,11 @@
-{% from 'macros.html.twig' import full_page_head %}
+{% from 'macros.html.twig' import full_page_head, google_tag_manager %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         {{ full_page_head() }}
     </head>
     <body class="site">
+        {{ google_tag_manager() }}
         {% block nav %}
             <nav class="navigation" role="navigation">
                 <div id="mega-menu" class="navbar navbar-inverse navbar-fixed-top">
