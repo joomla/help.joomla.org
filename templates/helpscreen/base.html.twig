@@ -1,4 +1,3 @@
-{% from 'macros.html.twig' import google_tag_manager %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -22,7 +21,6 @@
         </script>
     </head>
     <body>
-        {{ google_tag_manager() }}
         <a name="Top" id="Top"></a>
         {% block content %}{% endblock %}
         <div id="footer-wrapper">
