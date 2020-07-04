@@ -18,6 +18,7 @@ use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
 use Joomla\Help\Command\ClearCacheCommand;
+use Joomla\Help\Command\GenerateSriCommand;
 use Joomla\Help\Command\Twig\ResetCacheCommand;
 use Joomla\Help\Command\UpdateServerCommand;
 use Joomla\Renderer\RendererInterface;
@@ -63,6 +64,7 @@ class ConsoleProvider implements ServiceProviderInterface
 				{
 					$mapping = [
 						ClearCacheCommand::getDefaultName()   => ClearCacheCommand::class,
+                        GenerateSriCommand::getDefaultName()  => GenerateSriCommand::class,
 						ResetCacheCommand::getDefaultName()   => ResetCacheCommand::class,
 						UpdateServerCommand::getDefaultName() => UpdateServerCommand::class,
 					];
@@ -77,6 +79,15 @@ class ConsoleProvider implements ServiceProviderInterface
 			static function (Container $container): ClearCacheCommand
 			{
 				return new ClearCacheCommand($container->get(CacheItemPoolInterface::class));
+			},
+			true
+		);
+
+		$container->share(
+            GenerateSriCommand::class,
+			static function (Container $container): GenerateSriCommand
+			{
+				return new GenerateSriCommand;
 			},
 			true
 		);

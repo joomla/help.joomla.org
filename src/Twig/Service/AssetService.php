@@ -33,16 +33,32 @@ class AssetService
 	 */
 	private $preloadManager;
 
+    /**
+   	 * The path to the SRI manifest data
+   	 *
+   	 * @var  string
+   	 */
+   	private $sriManifestPath;
+
+    /**
+   	 * The SRI manifest data
+   	 *
+   	 * @var  array|null
+   	 */
+   	private $sriManifestData;
+
 	/**
 	 * Constructor.
 	 *
-	 * @param   Packages        $packages        The asset packages manager
-	 * @param   PreloadManager  $preloadManager  The HTTP/2 preload manager
+	 * @param   Packages        $packages         The asset packages manager
+	 * @param   PreloadManager  $preloadManager   The HTTP/2 preload manager
+     * @param   string          $sriManifestPath  The path to the SRI manifest data
 	 */
-	public function __construct(Packages $packages, PreloadManager $preloadManager)
+	public function __construct(Packages $packages, PreloadManager $preloadManager, string $sriManifestPath)
 	{
-		$this->packages       = $packages;
-		$this->preloadManager = $preloadManager;
+        $this->packages        = $packages;
+        $this->preloadManager  = $preloadManager;
+        $this->sriManifestPath = $sriManifestPath;
 	}
 
 	/**
@@ -75,4 +91,52 @@ class AssetService
 
 		return $uri;
 	}
+
+    /**
+   	 * Get the SRI attributes for an asset
+   	 *
+   	 * @param   string  $path  A public path
+   	 *
+   	 * @return  string
+   	 */
+   	public function getSriAttributes(string $path): string
+   	{
+   		if ($this->sriManifestData === null)
+   		{
+   			if (!file_exists($this->sriManifestPath))
+   			{
+   				throw new \RuntimeException(sprintf('SRI manifest file "%s" does not exist.', $this->sriManifestPath));
+   			}
+
+   			$sriManifestContents = file_get_contents($this->sriManifestPath);
+
+   			if ($sriManifestContents === false)
+   			{
+   				throw new \RuntimeException(sprintf('Could not read SRI manifest file "%s".', $this->sriManifestPath));
+   			}
+
+   			$this->sriManifestData = json_decode($sriManifestContents, true);
+
+   			if (0 < json_last_error())
+   			{
+   				throw new \RuntimeException(sprintf('Error parsing JSON from SRI manifest file "%s" - %s', $this->sriManifestPath, json_last_error_msg()));
+   			}
+   		}
+
+   		$assetKey = "/$path";
+
+   		if (!isset($this->sriManifestData[$assetKey]))
+   		{
+   			return '';
+   		}
+
+   		$attributes = '';
+
+   		foreach ($this->sriManifestData[$assetKey] as $key => $value)
+   		{
+   			$attributes .= ' ' . $key . '="' . $value . '"';
+   		}
+
+   		return $attributes;
+   	}
 }

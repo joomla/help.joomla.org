@@ -11,7 +11,6 @@
 
 namespace Joomla\Help\Twig;
 
-use Joomla\FrameworkWebsite\Renderer\FrameworkTwigRuntime;
 use Joomla\Help\Twig\Service\AssetService;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -31,6 +30,7 @@ class AssetExtension extends AbstractExtension
 		return [
 			new TwigFunction('asset', [AssetService::class, 'getAssetUrl']),
 			new TwigFunction('preload', [AssetService::class, 'preloadAsset']),
+            new TwigFunction('sri', [AssetService::class, 'getSriAttributes'], ['is_safe' => ['html']]),
 		];
 	}
 }

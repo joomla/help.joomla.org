@@ -168,7 +168,8 @@ class TemplatingProvider implements ServiceProviderInterface
 			{
 				return new AssetService(
 					$container->get(Packages::class),
-					$container->get(PreloadManager::class)
+					$container->get(PreloadManager::class),
+                    JPATH_ROOT . '/www/media/sri-manifest.json'
 				);
 			},
 			true

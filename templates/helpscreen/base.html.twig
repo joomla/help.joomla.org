@@ -4,7 +4,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Joomla! Help Screens</title>
-        <link rel="stylesheet" href="{{ preload(asset('css/help.css', 'mix'), 'preload', {'as': 'style'}) }}">
+        <link rel="stylesheet" href="{{ asset('css/help.css', 'mix') }}"{{ sri('css/help.css') }}>
         {% if system_debug %}
             <link rel="stylesheet" href="{{ asset('css/debugbar.css') }}" type="text/css">
         {% endif %}
