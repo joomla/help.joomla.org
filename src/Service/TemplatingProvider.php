@@ -12,8 +12,6 @@
 namespace Joomla\Help\Service;
 
 use Joomla\DI\Container;
-use Joomla\DI\ContainerAwareInterface;
-use Joomla\DI\ContainerAwareTrait;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Help\Twig\ApplicationExtension;
 use Joomla\Help\Twig\AssetExtension;
@@ -40,10 +38,8 @@ use Twig\RuntimeLoader\RuntimeLoaderInterface;
 /**
  * Templating service provider
  */
-class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInterface
+class TemplatingProvider implements ServiceProviderInterface
 {
-	use ContainerAwareTrait;
-
 	/**
 	 * Registers the service provider with a DI container.
 	 *
@@ -53,8 +49,6 @@ class TemplatingProvider implements ServiceProviderInterface, ContainerAwareInte
 	 */
 	public function register(Container $container)
 	{
-		$this->setContainer($container);
-
 		$container->share(
 			RendererInterface::class,
 			static function (Container $container): RendererInterface

@@ -15,9 +15,11 @@ use Joomla\Application\AbstractApplication;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Help\Asset\Context\ApplicationContext;
+use Joomla\Help\Asset\MixPathPackage;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Asset\PathPackage;
 use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
+use Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy;
 
 /**
  * Asset service provider
@@ -46,7 +48,19 @@ class AssetProvider implements ServiceProviderInterface
 
 				$defaultPackage = new PathPackage($mediaPath, new EmptyVersionStrategy, $context);
 
-				return new Packages($defaultPackage);
+                $mixStrategy = new MixPathPackage(
+                    $defaultPackage,
+                    $mediaPath,
+                    new JsonManifestVersionStrategy(JPATH_ROOT . '/www/media/mix-manifest.json'),
+                    $context
+                );
+
+                return new Packages(
+                    $defaultPackage,
+                    [
+                        'mix' => $mixStrategy,
+                    ]
+                );
 			},
 			true
 		);
