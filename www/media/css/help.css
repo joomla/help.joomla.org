@@ -34,10 +34,10 @@ section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Arial, Helvetica, Sans Serif;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.4;
   color: #212529;
   text-align: left;
   background-color: #fff;
@@ -138,13 +138,13 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #4d82dc;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #245bb8;
   text-decoration: underline;
 }
 
@@ -344,153 +344,74 @@ html {
   margin: 0.5rem;
 }
 
-body {
-  font-family: Arial, Helvetica, Sans Serif;
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-p {
-  display: block;
-  -webkit-margin-after: 1em;
-  -webkit-margin-before: 1em;
-}
-
-sup {
-  font-size: smaller;
-  vertical-align: super;
-}
-
-img {
-  display: inline-block;
-  vertical-align: middle;
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: #4d82dc;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 a.external {
   background: transparent url(/media/images/external.png?8ea7563eac773be6a466fd8a9866a411) no-repeat right center;
   padding-right: 1rem;
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #0e1d36;
-  font-weight: bold;
-  margin: 1rem 0 0.5rem 0;
-}
-
-h1 {
+.h1 {
   font-size: 2rem;
 }
 
-h2 {
-  font-size: 1.5rem;
-  border-bottom: 1px solid #ccc;
-  line-height: 1.7;
-  overflow: hidden;
+h2,
+.h2 {
+  font-size: 1.75rem;
 }
 
-h3 {
+h3,
+.h3 {
+  font-size: 1.5rem;
+}
+
+h4,
+.h4 {
   font-size: 1.25rem;
 }
 
-h4 {
+h5,
+.h5 {
   font-size: 1.125rem;
 }
 
-h5 {
+h6,
+.h6 {
   font-size: 1rem;
-}
-
-h6 {
-  font-size: 0.9em;
-}
-
-b,
-strong {
-  color: #303030;
-  font-weight: bold;
-}
-
-i,
-em {
-  font-style: italic;
 }
 
 .text-center {
   text-align: center;
 }
 
-/* Preformatted text */
+/* Preformatted text not covered by reboot */
 
-pre,
-code,
 source,
 tt {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 0.875rem;
-  border: 1px solid #ddd;
-  line-height: 1.25;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1em;
 }
 
 pre {
-  direction: ltr;
   background-color: #f8f8f8;
-  padding: 6px 10px;
-  margin: 15px 0;
-  word-wrap: normal;
+  padding: 0.5em 0.75em;
+  margin: 1rem 0;
 }
 
 pre,
 source {
   white-space: pre-wrap;
-  overflow-x: auto;
-}
-
-source,
-code,
-tt {
-  background-color: #f0f0f0;
-}
-
-code,
-tt {
-  padding: 0.125rem 0.25rem;
 }
 
 /* General list styles */
 
 ol {
   list-style-type: decimal;
-  margin: 0.5em 0 0.5em 2.5em;
-}
-
-ol li {
-  margin-bottom: 0.5em;
-}
-
-ul {
-  list-style-type: disc;
-  margin: 0.5em 0 0.5em 2em;
+  margin: 0.5em 0;
 }
 
 ul ul {
   list-style-type: circle;
-  margin: 0.5em 0 0.5em 1.5em;
+  margin: 0.5em 0;
 }
 
 li {
@@ -514,29 +435,24 @@ li {
 /* Table of contents */
 
 #toc {
-  padding: 0.5rem;
+  padding: 0.5em;
   float: right;
-  margin: 0.5rem 0 1.25rem 0.75rem;
+  margin: 0.5em 0 1.25em 0.75em;
   border: 1px solid #ccc;
   background-color: #f6f6f6;
   width: auto;
   max-width: 375px;
   word-wrap: normal;
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
 #toc h2 {
-  border-bottom: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  display: inline-block;
+  border: none;
+  font-size: 1.5em;
 }
 
 #toc ul {
-  text-align: left;
-  width: auto;
-  list-style-position: outside;
-  margin-left: 0.75rem;
+  padding-left: 1em;
 }
 
 #toc ul li {
@@ -545,22 +461,22 @@ li {
   margin-bottom: 0;
 }
 
-#toc > ul > li {
-  margin-bottom: 0.5rem;
-}
-
 #toc ul > li > ul,
 #toc ul > li > ul > li > ul {
   margin-top: 0;
   margin-bottom: 0;
 }
 
+#toc > ul > li {
+  margin-bottom: 0.5em;
+}
+
 /* Panel/Ambox */
 
 .panel {
   border: 1px solid #d9d9d9;
-  margin-bottom: 0.75rem;
-  padding: 0.75rem;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
   background: #f2f2f2;
 }
 
@@ -575,29 +491,29 @@ li {
 }
 
 .subheader-ambox {
-  font-size: 1.3rem;
+  font-size: 1.3em;
   font-weight: bold;
   line-height: 1.8;
   overflow: hidden;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.3em;
   border-bottom: none;
-}
-
-.ambox-title {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1.2;
-  margin-left: 0.25rem;
-}
-
-p.ambox {
-  margin: 0.5em 0;
 }
 
 .subheader-ambox img {
   float: left;
   padding-top: 0.2em;
   margin: 0;
+}
+
+.ambox-title {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+  margin-left: 0.25em;
+}
+
+p.ambox {
+  margin: 0.5em 0;
 }
 
 .alert-box {
@@ -613,7 +529,12 @@ p.ambox {
   color: #505050;
 }
 
-/* Wiki tables */
+table {
+  background-color: white;
+  color: black;
+  font-size: 100%;
+  /* Wiki tables */
+}
 
 table.wikitable,
 table.prettytable {
@@ -621,12 +542,6 @@ table.prettytable {
   border: 1px solid #AAAAAA;
   border-collapse: collapse;
   margin: 1em 1em 1em 0;
-}
-
-table {
-  background-color: white;
-  color: black;
-  font-size: 100%;
 }
 
 table.wikitable th,
@@ -698,8 +613,14 @@ table.prettytable td {
 
 /* Misc. JDocs Styles */
 
+h2 .mw-headline {
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  display: block;
+}
+
 #version > div {
-  padding: 0.75rem !important;
+  padding: 0.75em !important;
   /* Required because the element has inline styling */
 }
 
