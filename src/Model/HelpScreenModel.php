@@ -150,20 +150,8 @@ class HelpScreenModel implements StatefulModelInterface
 			$this->processResponse();
 		}
 
-		// Remove links to unwritten articles.
-		if ($this->getState()->get('remove_redlinks', true))
-		{
-			$this->removeRedLinks();
-		}
-
 		// Amend or remove links from wiki page.
 		$this->amendLinks();
-
-		// Remove table of contents.
-		if ($this->getState()->get('remove_toc', false))
-		{
-			$this->removeToc();
-		}
 
 		return $this->page;
 	}
@@ -251,43 +239,28 @@ class HelpScreenModel implements StatefulModelInterface
 	public function amendLinks() : void
 	{
 		// Remove links to wiki image information pages.
-		$imgLink = '!<a href="/([^>]+)" class="image"([^>]*)>([^~]*?)</a>!';
-		$this->page = preg_replace($imgLink, '$3', $this->page);
+		$this->page = preg_replace('!<a href="/([^>]+)" class="image"([^>]*)>([^~]*?)</a>!', '$3', $this->page);
 
 		// Remove links for new image uploads
-		$imgUploadlink = '!<a href="/([^>]+)" class="new"([^>]*)>([^~]*?)</a>!';
-		$this->page = preg_replace($imgUploadlink, '$3', $this->page);
+		$this->page = preg_replace('!<a href="/([^>]+)" class="new"([^>]*)>([^~]*?)</a>!', '$3', $this->page);
 
-		// Remove <translate> </translate> and translation markers from page output.
-		$translationTags = '!(<(\/|)translate>|<!--T:\d+-->)+!';
-		//$this->page = preg_replace($translationTags, '', $this->page);
-
-		// Remove Special:MyLanguage/ or Special:MyLanguage/: from page links.
-		$specialMyLanguage = '!(Special:MyLanguage\/(:)?)+!';
-		$this->page = preg_replace($specialMyLanguage, '', $this->page);
+		// Remove S:MyLanguage or Special:MyLanguage from page links.
+		$this->page = preg_replace('!((S|Special):MyLanguage\/(:)?)+!', '', $this->page);
 
 		// Replace links to other wiki pages with links to the proxy.
-		$replace = '<a href="' . $this->currentUri->toString(['scheme', 'host', 'path']) . '?keyref=';
-		$pattern = '<a href="/';
-		$this->page = str_replace($pattern, $replace, $this->page);
+		$this->page = str_replace('<a href="/', '<a href="' . $this->currentUri->toString(['scheme', 'host', 'path']) . '?keyref=', $this->page);
 
 		// Replace relative links to images with absolute links to the wiki that bypass the proxy.
-		$replace = $this->uriWiki->toString(['scheme', 'host', 'path']) . '/images/';
-		$pattern = $this->uriWiki->getPath() . '/images/';
-		$this->page = str_replace($pattern, $replace, $this->page);
-
-		// Remove [edit] links.
-		$pattern = '!<span class="mw-editsection-bracket">\[</span>(.+)<span class="mw-editsection-bracket">\]</span>!msU';
-		$this->page = preg_replace($pattern, '', $this->page);
-
-		$replace = '';
-		$pattern = '<span class="mw-editsection"></span>';
-		$this->page = str_replace($pattern, $replace, $this->page);
+		$this->page = str_replace($this->uriWiki->getPath() . '/images/', $this->uriWiki->toString(['scheme', 'host', 'path']) . '/images/', $this->page);
 
 		// Replace any anchor based links
-		$pattern = '<a href="#';
-		$replace = '<a href="' . $this->currentUri->toString() . '#';
-		$this->page = str_replace($pattern, $replace, $this->page);
+		$this->page = str_replace('<a href="#', '<a href="' . $this->currentUri->toString() . '#', $this->page);
+
+		// Remove links to unwritten articles.
+	  		if ($this->getState()->get('remove_redlinks', true))
+	  		{
+	  			$this->removeRedLinks();
+	  		}
 	}
 
 	/**
@@ -389,26 +362,11 @@ class HelpScreenModel implements StatefulModelInterface
 	 */
 	private function removeRedLinks() : void
 	{
-		// Remove red links.
-		$redlink = '!<a href="' . $this->uriWiki->getPath() . '/index.php\?title=([^&]+)\&amp;action=edit&amp;redlink=1" class="new" title="([^"]+) \(([^)]+)\)">([^<]+)</a>!';
-
-		$this->page = preg_replace($redlink, '$4', $this->page);
-	}
-
-	/**
-	 * Remove table of contents.
-	 *
-	 * @return  void
-	 */
-	public function removeToc() : void
-	{
-		// Remove table of contents.
-		$toc = '!<table id="toc" class="toc">(.+)</table>!msU';
-		$this->page = preg_replace($toc, '', $this->page);
-
-		// Remove navbox too.
-		$toc = '!<table cellspacing="0" class="navbox"(.+)</table>!msU';
-		$this->page = preg_replace($toc, '', $this->page);
+		$this->page = preg_replace(
+			'!<a href="' . $this->uriWiki->getPath() . '/index.php\?title=([^&]+)\&amp;action=edit&amp;redlink=1" class="new" title="([^"]+) \(([^)]+)\)">([^<]+)</a>!',
+			'$4',
+			$this->page
+		);
 	}
 
 	/**
@@ -425,6 +383,14 @@ class HelpScreenModel implements StatefulModelInterface
 
 		$this->uriApi->setVar('action', 'parse');
 		$this->uriApi->setVar('format', 'json');
+		$this->uriApi->setVar('disablelimitreport', true);
+		$this->uriApi->setVar('disableeditsection', true);
+
+		// Remove table of contents.
+		if ($this->getState()->get('remove_toc', false))
+		{
+			$this->uriApi->setVar('disabletoc', true);
+		}
 
 		// Build the lookup title
 		$title = $keyref;
