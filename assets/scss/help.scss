@@ -13,6 +13,12 @@ a {
   }
 }
 
+/* Default all images to a responsive structure */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
 h1,
 .h1 {
   @include font-size($h1-font-size);
