@@ -3,6 +3,9 @@
 # Don't push the local config
 /etc/config.json
 
+# IDEs
+.idea/
+
 # App Cache
 /cache/*
 !/cache/.placeholder
