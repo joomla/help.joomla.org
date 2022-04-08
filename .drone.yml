@@ -1,0 +1,31 @@
+---
+kind: pipeline
+name: default
+
+clone:
+
+steps:
+  - name: deployment
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: help_host
+      username:
+        from_secret: help_username
+      port: 22
+      key:
+        from_secret: help_key
+      script:
+        - cd /home/help/website
+        - bin/console update:server
+    when:
+      branch:
+        - master
+      event:
+        - push
+
+---
+kind: signature
+hmac: feb5f918a441c30e0b9554d463a000af68cd9c68d6adc55b34b61436264af7f8
+
+...
