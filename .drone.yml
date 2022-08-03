@@ -5,6 +5,20 @@ name: default
 clone:
 
 steps:
+  - name: composer
+    image: joomlaprojects/docker-images:php7.4
+    volumes:
+      - name: composer-cache
+        path: /tmp/composer-cache
+    commands:
+      - composer validate --no-check-all --strict
+      - composer install --no-progress --no-suggest
+
+  - name: npm
+    image: node:16-alpine
+    commands:
+      - npm ci --unsafe-perm
+
   - name: deployment
     image: appleboy/drone-ssh
     settings:
@@ -24,8 +38,12 @@ steps:
       event:
         - push
 
+volumes:
+  - name: composer-cache
+    host:
+      path: /tmp/composer-cache
 ---
 kind: signature
-hmac: 3a31d8aa93684e11c5fe5af90a392b219c5ef94d405edeea50015a28b6ec1a0b
+hmac: 7d374a33e65281a51555bd1423dca6cf809a0142a7cf26f3185f4564820a9b98
 
 ...
