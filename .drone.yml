@@ -6,7 +6,7 @@ clone:
 
 steps:
   - name: composer
-    image: joomlaprojects/docker-images:php7.4
+    image: joomlaprojects/docker-images:php8.1
     volumes:
       - name: composer-cache
         path: /tmp/composer-cache
@@ -15,7 +15,7 @@ steps:
       - composer install --no-progress --no-suggest
 
   - name: npm
-    image: node:16-alpine
+    image: node:18-alpine
     commands:
       - npm ci --unsafe-perm
 
@@ -44,6 +44,6 @@ volumes:
       path: /tmp/composer-cache
 ---
 kind: signature
-hmac: 7d374a33e65281a51555bd1423dca6cf809a0142a7cf26f3185f4564820a9b98
+hmac: 3cfa48195a5c2f349f18cb499ab1fe4d6b35e9935f602601c67fe3df23831161
 
 ...
