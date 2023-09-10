@@ -6,23 +6,23 @@
     "homepage": "http://github.com/joomla/help.joomla.org",
     "license": "GPL-2.0-or-later",
     "require": {
-        "php": "^7.3",
-        "joomla/application": "^2.0@beta",
-        "joomla/console": "^2.0@beta",
-        "joomla/controller": "^2.0@beta",
-        "joomla/di": "^2.0@beta",
-        "joomla/event": "^2.0@beta",
-        "joomla/filesystem": "^2.0@beta",
-        "joomla/http": "^2.0@beta",
-        "joomla/input": "^2.0@beta",
-        "joomla/model": "^2.0@beta",
-        "joomla/preload": "^2.0@beta",
-        "joomla/registry": "^2.0@beta",
-        "joomla/renderer": "^2.0@beta",
-        "joomla/router": "^2.0@beta",
-        "joomla/string": "^2.0@beta",
-        "joomla/uri": "^2.0@beta",
-        "joomla/view": "^2.0@beta",
+        "php": "^8.0",
+        "joomla/application": "^2.0",
+        "joomla/console": "^2.0",
+        "joomla/controller": "^2.0",
+        "joomla/di": "^2.0",
+        "joomla/event": "^2.0",
+        "joomla/filesystem": "^2.0",
+        "joomla/http": "^2.0",
+        "joomla/input": "^2.0",
+        "joomla/model": "^2.0",
+        "joomla/preload": "^2.0",
+        "joomla/registry": "^2.0",
+        "joomla/renderer": "^2.0",
+        "joomla/router": "^2.0",
+        "joomla/string": "^2.0",
+        "joomla/uri": "^2.0",
+        "joomla/view": "^2.0",
         "monolog/monolog": "^2.1",
         "symfony/asset": "^5.1.2",
         "symfony/cache": "^5.1.2",
@@ -48,7 +48,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.3.15"
+            "php": "8.1.18"
         }
     }
 }
