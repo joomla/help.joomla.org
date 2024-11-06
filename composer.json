@@ -28,7 +28,7 @@
         "symfony/cache": "^5.1.2",
         "symfony/process": "^5.1.2",
         "symfony/web-link": "^5.1.2",
-        "twig/twig": "^2.12.5"
+        "twig/twig": "^3.11.2"
     },
     "require-dev": {
         "maximebf/debugbar": "^1.16.3"
