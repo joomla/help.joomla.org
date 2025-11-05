@@ -345,8 +345,17 @@ class HelpScreenModel implements StatefulModelInterface
 			throw new \RuntimeException('Error fetching page from MediaWiki API.');
 		}
 
+        $title = $this->responseBody['parse']['displaytitle'];
+        // Fix the extra rendering in the displaytitle, when a page is not language specific
+        $title = str_replace([
+            '<span class="mw-page-title-namespace">',
+            '<span class="mw-page-title-separator">',
+            '<span class="mw-page-title-main">',
+            '</span>'
+        ], '', $title);
+
 		// Store the title to be used later
-		$this->title = $this->responseBody['parse']['displaytitle'];
+		$this->title = $title;
 
 		// Store the URL slug to be used later
 		$this->setPageUrlSlug($this->responseBody['parse']['title']);
