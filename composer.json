@@ -31,7 +31,7 @@
         "twig/twig": "^3.11.2"
     },
     "require-dev": {
-        "maximebf/debugbar": "^1.16.3"
+        "php-debugbar/php-debugbar": "^2.2.4"
     },
     "autoload": {
         "psr-4": {
