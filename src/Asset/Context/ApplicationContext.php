@@ -42,7 +42,7 @@ class ApplicationContext implements ContextInterface
 	 *
 	 * @return  string  The base path
 	 */
-	public function getBasePath()
+	public function getBasePath(): string
 	{
 		return rtrim($this->app->get('uri.base.path'), '/');
 	}
@@ -52,7 +52,7 @@ class ApplicationContext implements ContextInterface
 	 *
 	 * @return  boolean
 	 */
-	public function isSecure()
+	public function isSecure(): bool
 	{
 		if ($this->app instanceof WebApplicationInterface)
 		{

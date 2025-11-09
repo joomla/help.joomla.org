@@ -14,6 +14,7 @@ namespace Joomla\Help\Cache\Adapter;
 use DebugBar\DebugBar;
 use Psr\Cache\CacheItemInterface;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
+use Symfony\Component\Cache\CacheItem;
 use Symfony\Component\Cache\PruneableInterface;
 use Symfony\Component\Cache\ResettableInterface;
 use Symfony\Contracts\Cache\CacheInterface;
@@ -64,7 +65,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  mixed  The value corresponding to the provided key
 	 */
-	public function get(string $key, callable $callback, float $beta = null, array &$metadata = null)
+	public function get(string $key, callable $callback, float $beta = null, array &$metadata = null): mixed
 	{
 		if (!$this->pool instanceof CacheInterface)
 		{
@@ -95,7 +96,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  CacheItemInterface  The corresponding Cache Item.
 	 */
-	public function getItem($key)
+	public function getItem($key): CacheItem
 	{
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
@@ -119,7 +120,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  boolean
 	 */
-	public function hasItem($key)
+	public function hasItem($key): bool
 	{
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
@@ -143,7 +144,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  boolean
 	 */
-	public function deleteItem($key)
+	public function deleteItem($key): bool
 	{
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
@@ -167,8 +168,8 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  boolean
 	 */
-	public function save(CacheItemInterface $item)
-	{
+	public function save(CacheItemInterface $item): bool
+    {
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
 
@@ -191,7 +192,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  boolean
 	 */
-	public function saveDeferred(CacheItemInterface $item)
+	public function saveDeferred(CacheItemInterface $item): bool
 	{
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
@@ -216,7 +217,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 * @return  \Traversable  A traversable collection of Cache Items keyed by the cache keys of each item.
 	 *                        A Cache item will be returned for each key, even if that key is not found.
 	 */
-	public function getItems(array $keys = [])
+	public function getItems(array $keys = []): iterable
 	{
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
@@ -238,7 +239,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  boolean
 	 */
-	public function clear(string $prefix = '')
+	public function clear(string $prefix = ''): bool
 	{
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
@@ -262,7 +263,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  boolean  True if the items were successfully removed. False if there was an error.
 	 */
-	public function deleteItems(array $keys)
+	public function deleteItems(array $keys): bool
 	{
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
@@ -284,7 +285,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  boolean  True if all not-yet-saved items were successfully saved or there were none. False otherwise.
 	 */
-	public function commit()
+	public function commit(): bool
 	{
 		/** @var \DebugBar\DataCollector\TimeDataCollector $collector */
 		$collector = $this->debugBar['time'];
@@ -306,7 +307,7 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @return  boolean
 	 */
-	public function prune()
+	public function prune(): bool
 	{
 		if (!$this->pool instanceof PruneableInterface)
 		{
