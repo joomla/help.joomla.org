@@ -12,7 +12,6 @@
 namespace Joomla\Help\Model;
 
 use Joomla\Http\Http;
-use Joomla\Model\AbstractModel;
 use Joomla\Model\StatefulModelInterface;
 use Joomla\Model\StatefulModelTrait;
 use Joomla\Registry\Registry;

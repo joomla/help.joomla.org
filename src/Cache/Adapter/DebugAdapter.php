@@ -213,8 +213,8 @@ class DebugAdapter implements AdapterInterface, CacheInterface, PruneableInterfa
 	 *
 	 * @param   string[]  $keys  An indexed array of keys of items to retrieve.
 	 *
-	 * @return  array  A traversable collection of Cache Items keyed by the cache keys of each item.
-	 *                 A Cache item will be returned for each key, even if that key is not found.
+	 * @return  \Traversable  A traversable collection of Cache Items keyed by the cache keys of each item.
+	 *                        A Cache item will be returned for each key, even if that key is not found.
 	 */
 	public function getItems(array $keys = [])
 	{

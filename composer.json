@@ -24,11 +24,11 @@
         "joomla/uri": "^3.0",
         "joomla/view": "^3.0",
         "monolog/monolog": "^2.1",
-        "symfony/asset": "^5.1.2",
-        "symfony/cache": "^5.1.2",
-        "symfony/process": "^5.1.2",
-        "symfony/web-link": "^5.1.2",
-        "twig/twig": "^3.11.2"
+        "symfony/asset": "^6.4.24",
+        "symfony/cache": "^6.4.24",
+        "symfony/process": "^6.4.24",
+        "symfony/web-link": "^6.4.24",
+        "twig/twig": "^3.22.0"
     },
     "require-dev": {
         "php-debugbar/php-debugbar": "^2.2.4"
