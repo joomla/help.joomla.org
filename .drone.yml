@@ -17,7 +17,7 @@ steps:
   - name: npm
     image: node:24-alpine
     commands:
-      - npm ci --unsafe-perm
+      - npm ci
 
   - name: deployment
     image: appleboy/drone-ssh
@@ -44,6 +44,6 @@ volumes:
       path: /tmp/composer-cache
 ---
 kind: signature
-hmac: 49fd6b37b32d4342b7cf42a9bdbe04e5fcd9992310ea74c8abd290a9e66dfadb
+hmac: ae9a13752950446358dbe7451e036e804e4c14bf882db9eb82ce4b8bf6eee9c4
 
 ...
