@@ -15,7 +15,7 @@ steps:
       - composer install --no-progress --no-suggest
 
   - name: npm
-    image: node:18-alpine
+    image: node:24-alpine
     commands:
       - npm ci --unsafe-perm
 
@@ -44,6 +44,6 @@ volumes:
       path: /tmp/composer-cache
 ---
 kind: signature
-hmac: 3cfa48195a5c2f349f18cb499ab1fe4d6b35e9935f602601c67fe3df23831161
+hmac: 49fd6b37b32d4342b7cf42a9bdbe04e5fcd9992310ea74c8abd290a9e66dfadb
 
 ...

@@ -1,8 +1,8 @@
 {
   "private": true,
   "engines": {
-    "node": ">=18",
-    "npm": ">=8.5.5"
+    "node": ">=24",
+    "npm": ">=11.3.0"
   },
   "scripts": {
     "dev": "mix",
